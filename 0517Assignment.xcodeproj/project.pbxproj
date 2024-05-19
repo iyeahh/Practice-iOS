@@ -13,6 +13,7 @@
 		7669C9B42BF9A31000820264 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7669C9B22BF9A31000820264 /* Main.storyboard */; };
 		7669C9B62BF9A31200820264 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7669C9B52BF9A31200820264 /* Assets.xcassets */; };
 		7669C9B92BF9A31200820264 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7669C9B72BF9A31200820264 /* LaunchScreen.storyboard */; };
+		7669C9C12BF9A6DE00820264 /* EmotionDiaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7669C9C02BF9A6DE00820264 /* EmotionDiaryViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		7669C9B52BF9A31200820264 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7669C9B82BF9A31200820264 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7669C9BA2BF9A31200820264 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7669C9C02BF9A6DE00820264 /* EmotionDiaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmotionDiaryViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +65,7 @@
 				7669C9B52BF9A31200820264 /* Assets.xcassets */,
 				7669C9B72BF9A31200820264 /* LaunchScreen.storyboard */,
 				7669C9BA2BF9A31200820264 /* Info.plist */,
+				7669C9C02BF9A6DE00820264 /* EmotionDiaryViewController.swift */,
 			);
 			path = 0517Assignment;
 			sourceTree = "<group>";
@@ -138,6 +141,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7669C9C12BF9A6DE00820264 /* EmotionDiaryViewController.swift in Sources */,
 				7669C9B12BF9A31000820264 /* ViewController.swift in Sources */,
 				7669C9AD2BF9A31000820264 /* AppDelegate.swift in Sources */,
 				7669C9AF2BF9A31000820264 /* SceneDelegate.swift in Sources */,

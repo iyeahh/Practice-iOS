@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22155" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22155" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ZWd-CR-DxN">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -12,7 +12,7 @@
         <!--감정 다이어리-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="_517Assignment" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="EmotionDiaryViewController" customModule="_517Assignment" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -34,6 +34,9 @@
                                                         </constraints>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                                        <connections>
+                                                            <action selector="happyButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="u6a-iM-Jpn"/>
+                                                        </connections>
                                                     </button>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PA6-bY-tt1">
                                                         <rect key="frame" x="0.0" y="80.000000000000028" width="80" height="20.333333333333329"/>
@@ -50,6 +53,9 @@
                                                         <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                                        <connections>
+                                                            <action selector="loveButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="oMd-Rc-lRI"/>
+                                                        </connections>
                                                     </button>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8jW-5V-ym4">
                                                         <rect key="frame" x="0.0" y="80.000000000000028" width="80" height="20.333333333333329"/>
@@ -66,6 +72,9 @@
                                                         <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                                        <connections>
+                                                            <action selector="likeButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="rjA-m3-7xe"/>
+                                                        </connections>
                                                     </button>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oIn-dn-ooQ">
                                                         <rect key="frame" x="0.0" y="80.000000000000028" width="80" height="20.333333333333329"/>
@@ -87,6 +96,9 @@
                                                         <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                                        <connections>
+                                                            <action selector="panicButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Lrv-vK-HjV"/>
+                                                        </connections>
                                                     </button>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gb5-DJ-BL5">
                                                         <rect key="frame" x="0.0" y="80" width="80" height="20.333333333333329"/>
@@ -103,6 +115,9 @@
                                                         <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                                        <connections>
+                                                            <action selector="upsetButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="PUY-J1-tix"/>
+                                                        </connections>
                                                     </button>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uif-bM-ysX">
                                                         <rect key="frame" x="0.0" y="80" width="80" height="20.333333333333329"/>
@@ -119,6 +134,9 @@
                                                         <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                                        <connections>
+                                                            <action selector="depressedButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="9H1-sf-g5L"/>
+                                                        </connections>
                                                     </button>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="djj-Y0-YAZ">
                                                         <rect key="frame" x="0.0" y="80" width="80" height="20.333333333333329"/>
@@ -140,6 +158,9 @@
                                                         <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                                        <connections>
+                                                            <action selector="boredButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="yFr-Mk-XVO"/>
+                                                        </connections>
                                                     </button>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SDr-3M-LLX">
                                                         <rect key="frame" x="0.0" y="80.000000000000057" width="80" height="20.333333333333329"/>
@@ -156,6 +177,9 @@
                                                         <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                                        <connections>
+                                                            <action selector="sulkingButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="T0J-18-6Uv"/>
+                                                        </connections>
                                                     </button>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9bK-vE-PTM">
                                                         <rect key="frame" x="0.0" y="80.000000000000057" width="80" height="20.333333333333329"/>
@@ -172,6 +196,9 @@
                                                         <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                                        <connections>
+                                                            <action selector="tearfulButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="MVG-7R-3L9"/>
+                                                        </connections>
                                                     </button>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wjw-0a-xYg">
                                                         <rect key="frame" x="0.0" y="80.000000000000057" width="80" height="20.333333333333329"/>
@@ -202,6 +229,26 @@
                             <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="boredButton" destination="35J-jW-wBp" id="Wwf-JU-gua"/>
+                        <outlet property="boredLabel" destination="SDr-3M-LLX" id="MIf-sB-zh2"/>
+                        <outlet property="depressedButton" destination="iqe-nl-Ym2" id="L75-a8-0c8"/>
+                        <outlet property="depressedLabel" destination="djj-Y0-YAZ" id="ssd-Nr-rDj"/>
+                        <outlet property="happyButton" destination="P5d-1Z-eJ0" id="C9q-ab-ieA"/>
+                        <outlet property="happyLabel" destination="PA6-bY-tt1" id="UpW-tX-qeq"/>
+                        <outlet property="likeButton" destination="G2r-YQ-ei5" id="cA8-vd-irH"/>
+                        <outlet property="likeLabel" destination="oIn-dn-ooQ" id="1w4-mk-BRj"/>
+                        <outlet property="loveButton" destination="j87-hf-7Oh" id="7VM-ib-Lt7"/>
+                        <outlet property="loveLabel" destination="8jW-5V-ym4" id="dGI-Jl-nvO"/>
+                        <outlet property="panicButton" destination="35e-0Q-9Xw" id="qQ6-j4-kUR"/>
+                        <outlet property="panicLabel" destination="gb5-DJ-BL5" id="I7l-wG-Xoh"/>
+                        <outlet property="sulkingButton" destination="Fv1-3A-cYa" id="EVN-hU-gjb"/>
+                        <outlet property="sulkingLabel" destination="9bK-vE-PTM" id="RhH-50-M5g"/>
+                        <outlet property="tearfulButton" destination="YUz-1U-QlG" id="Sp9-MH-MOQ"/>
+                        <outlet property="tearfulLabel" destination="Wjw-0a-xYg" id="vld-TY-hiH"/>
+                        <outlet property="upsetButton" destination="L7J-ps-fAa" id="sB4-9D-y44"/>
+                        <outlet property="upsetLabel" destination="Uif-bM-ysX" id="8oS-sP-Bcc"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
