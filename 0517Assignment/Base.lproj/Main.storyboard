@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22155" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ZWd-CR-DxN">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22155" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="NiW-Qk-ihe">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -282,10 +282,10 @@
             </objects>
             <point key="canvasLocation" x="1657.2519083969464" y="-2.1126760563380285"/>
         </scene>
-        <!--View Controller-->
+        <!--Newly Coined Word View Controller-->
         <scene sceneID="bbu-4r-8uQ">
             <objects>
-                <viewController id="NiW-Qk-ihe" sceneMemberID="viewController">
+                <viewController id="NiW-Qk-ihe" customClass="NewlyCoinedWordViewController" customModule="_517Assignment" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="KKz-d8-N66">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -305,6 +305,9 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal" title="Button"/>
+                                        <connections>
+                                            <action selector="searchButtonTapped:" destination="NiW-Qk-ihe" eventType="touchUpInside" id="rjZ-P5-ZEm"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -325,29 +328,51 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                <connections>
+                                    <action selector="searchWordButtonTapped1:" destination="NiW-Qk-ihe" eventType="touchUpInside" id="PQZ-x1-xa3"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ymr-mC-upP">
                                 <rect key="frame" x="99" y="143" width="75" height="35"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                <connections>
+                                    <action selector="searchWordButtonTapped2:" destination="NiW-Qk-ihe" eventType="touchUpInside" id="Um0-mW-X8B"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t90-re-SEZ">
                                 <rect key="frame" x="182" y="143" width="75" height="35"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                <connections>
+                                    <action selector="searchWordButtonTapped3:" destination="NiW-Qk-ihe" eventType="touchUpInside" id="ADY-Fc-WCO"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9od-ul-zi0">
                                 <rect key="frame" x="265" y="143" width="75" height="35"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                <connections>
+                                    <action selector="searchWordButtonTapped4:" destination="NiW-Qk-ihe" eventType="touchUpInside" id="7iK-T5-Ukl"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="qpY-gq-puY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
+                    <connections>
+                        <outlet property="backgroundView" destination="uT3-SJ-an9" id="rLa-dh-Hfr"/>
+                        <outlet property="inputTextField" destination="2FL-OX-tve" id="jlc-Kj-dHF"/>
+                        <outlet property="resultLabel" destination="X32-Cb-Q7J" id="nAa-lg-t6B"/>
+                        <outlet property="searchButton" destination="ZQa-Nv-n2i" id="1T7-5J-Ikv"/>
+                        <outlet property="searchWordButton1" destination="9hl-2G-ze1" id="y2k-35-64m"/>
+                        <outlet property="searchWordButton2" destination="ymr-mC-upP" id="8lc-Y3-t8n"/>
+                        <outlet property="searchWordButton3" destination="t90-re-SEZ" id="qTQ-Gi-18D"/>
+                        <outlet property="searchWordButton4" destination="9od-ul-zi0" id="Wmi-8r-ifC"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="A6Z-hf-Bxi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
