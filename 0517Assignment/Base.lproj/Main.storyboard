@@ -345,7 +345,7 @@
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="dd"/>
                                         <connections>
-                                            <action selector="searchWordButtonTapped2:" destination="NiW-Qk-ihe" eventType="touchUpInside" id="Um0-mW-X8B"/>
+                                            <action selector="searchWordButtonTapped1:" destination="NiW-Qk-ihe" eventType="touchUpInside" id="NBY-to-szf"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t90-re-SEZ">
@@ -354,7 +354,7 @@
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="dd"/>
                                         <connections>
-                                            <action selector="searchWordButtonTapped3:" destination="NiW-Qk-ihe" eventType="touchUpInside" id="ADY-Fc-WCO"/>
+                                            <action selector="searchWordButtonTapped1:" destination="NiW-Qk-ihe" eventType="touchUpInside" id="klG-03-OZk"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9od-ul-zi0">
@@ -363,7 +363,7 @@
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="dd"/>
                                         <connections>
-                                            <action selector="searchWordButtonTapped4:" destination="NiW-Qk-ihe" eventType="touchUpInside" id="7iK-T5-Ukl"/>
+                                            <action selector="searchWordButtonTapped1:" destination="NiW-Qk-ihe" eventType="touchUpInside" id="oZf-vd-1Tj"/>
                                         </connections>
                                     </button>
                                 </subviews>

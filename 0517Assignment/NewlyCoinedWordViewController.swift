@@ -46,11 +46,9 @@ class NewlyCoinedWordViewController: UIViewController, UIGestureRecognizerDelega
     }
 
     func setupSearchWordButtonUI() {
+        setSearchWordButtonRandomTitle()
+
         let buttons = [searchWordButton1, searchWordButton2, searchWordButton3, searchWordButton4]
-        searchWordButton1.setTitle("세글자", for: .normal)
-        searchWordButton2.setTitle("네글자요", for: .normal)
-        searchWordButton3.setTitle("다섯글자요", for: .normal)
-        searchWordButton4.setTitle("일곱글자입니다", for: .normal)
 
         buttons.forEach { button in
             button?.configuration?.buttonSize = .small
@@ -87,23 +85,42 @@ class NewlyCoinedWordViewController: UIViewController, UIGestureRecognizerDelega
         }
     }
 
+    func setSearchWordButtonRandomTitle() {
+        var newlyCoinedWord = ["원영적 사고": "역시 행운의 여신은 나의 편이야\n럭키비키잖아 >.~", "중꺾그마": "중요한 건 꺾여도 그냥 하는 마음 🥹", "KIJUL": "너무 재밌어서 기절하겠다 ^_^", "기나죄": "기분 나빴다면 죄송합니다 ㅎ.ㅎ", "지팔지꼰": "자기 팔자 자기가 꼰다 😊"]
+
+        let firstButtonName = newlyCoinedWord.keys.randomElement()
+        searchWordButton1.setTitle(firstButtonName, for: .normal)
+        newlyCoinedWord.removeValue(forKey: firstButtonName!)
+
+        let secondButtonName = newlyCoinedWord.keys.randomElement()
+        searchWordButton2.setTitle(secondButtonName, for: .normal)
+        newlyCoinedWord.removeValue(forKey: secondButtonName!)
+
+        let thirdButtonName = newlyCoinedWord.keys.randomElement()
+        searchWordButton3.setTitle(thirdButtonName, for: .normal)
+        newlyCoinedWord.removeValue(forKey: thirdButtonName!)
+
+        let fourthButtonName = newlyCoinedWord.keys.randomElement()
+        searchWordButton4.setTitle(fourthButtonName, for: .normal)
+        newlyCoinedWord.removeValue(forKey: fourthButtonName!)
+    }
+
     @IBAction func searchButtonTapped(_ sender: UIButton) {
         searchWord()
+        setSearchWordButtonRandomTitle()
     }
 
     @IBAction func searchTextFieldTapped(_ sender: UITextField) {
         searchWord()
+        setSearchWordButtonRandomTitle()
     }
     
     @IBAction func searchWordButtonTapped1(_ sender: UIButton) {
-    }
-    
-    @IBAction func searchWordButtonTapped2(_ sender: UIButton) {
-    }
-    
-    @IBAction func searchWordButtonTapped3(_ sender: UIButton) {
-    }
-    
-    @IBAction func searchWordButtonTapped4(_ sender: UIButton) {
+        inputTextField.text = sender.currentTitle
+
+        let text = newlyCoinedWord[sender.currentTitle!]
+        resultLabel.text = text
+
+        setSearchWordButtonRandomTitle()
     }
 }
