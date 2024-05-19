@@ -49,7 +49,7 @@ class EmotionDiaryViewController: UIViewController {
     }
 
     func setupButtonImage() {
-        var buttons = [happyButton, loveButton, likeButton, panicButton, upsetButton, depressedButton, boredButton, sulkingButton, tearfulButton]
+        let buttons = [happyButton, loveButton, likeButton, panicButton, upsetButton, depressedButton, boredButton, sulkingButton, tearfulButton]
         var num = 1
 
         buttons.forEach {

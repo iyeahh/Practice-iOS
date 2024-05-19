@@ -22,6 +22,42 @@ class NewlyCoinedWordViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupTextFieldUI()
+        setupSearchWordButtonUI()
+        setupResultLabelUI()
+    }
+
+    func setupTextFieldUI() {
+        backgroundView.layer.borderWidth = 2
+        backgroundView.layer.borderColor = UIColor.black.cgColor
+
+        inputTextField.borderStyle = .none
+        inputTextField.text = "삼귀자"
+
+        searchButton.backgroundColor = .black
+        searchButton.setImage(UIImage(systemName: "magnifyingglass"), for: .normal)
+        searchButton.tintColor = .white
+    }
+
+    func setupSearchWordButtonUI() {
+        let buttons = [searchWordButton1, searchWordButton2, searchWordButton3, searchWordButton4]
+        searchWordButton1.setTitle("윰차", for: .normal)
+
+        buttons.forEach { button in
+            button?.configuration?.buttonSize = .small
+            button?.layer.masksToBounds = true
+            button?.layer.cornerRadius = 10
+            button?.layer.borderWidth = 1
+            button?.layer.borderColor = UIColor.black.cgColor
+            button?.tintColor = .black
+        }
+    }
+
+    func setupResultLabelUI() {
+        resultLabel.text = "연애를 시작하기 전 썸 단계!"
+        resultLabel.textAlignment = .center
+        resultLabel.numberOfLines = 0
+        resultLabel.font = UIFont.systemFont(ofSize: 20)
     }
 
     @IBAction func searchButtonTapped(_ sender: UIButton) {
