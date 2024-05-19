@@ -290,9 +290,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uT3-SJ-an9">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uT3-SJ-an9">
                                 <rect key="frame" x="16" y="85" width="361" height="50"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZQa-Nv-n2i">
                                         <rect key="frame" x="310" y="0.0" width="54" height="50"/>
@@ -313,6 +312,9 @@
                                     </textField>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="5tv-7i-UtY"/>
+                                </constraints>
                             </view>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="ErH-zE-ffg">
                                 <rect key="frame" x="16" y="365" width="361" height="179"/>
@@ -325,50 +327,61 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9hl-2G-ze1">
-                                <rect key="frame" x="16" y="150" width="75" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Button"/>
-                                <connections>
-                                    <action selector="searchWordButtonTapped1:" destination="NiW-Qk-ihe" eventType="touchUpInside" id="PQZ-x1-xa3"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ymr-mC-upP">
-                                <rect key="frame" x="98" y="150" width="75" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Button"/>
-                                <connections>
-                                    <action selector="searchWordButtonTapped2:" destination="NiW-Qk-ihe" eventType="touchUpInside" id="Um0-mW-X8B"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t90-re-SEZ">
-                                <rect key="frame" x="181" y="150" width="75" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Button"/>
-                                <connections>
-                                    <action selector="searchWordButtonTapped3:" destination="NiW-Qk-ihe" eventType="touchUpInside" id="ADY-Fc-WCO"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9od-ul-zi0">
-                                <rect key="frame" x="264" y="150" width="75" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Button"/>
-                                <connections>
-                                    <action selector="searchWordButtonTapped4:" destination="NiW-Qk-ihe" eventType="touchUpInside" id="7iK-T5-Ukl"/>
-                                </connections>
-                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="AOg-39-U7j">
+                                <rect key="frame" x="16" y="148" width="192.33333333333334" height="34.333333333333343"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9hl-2G-ze1">
+                                        <rect key="frame" x="0.0" y="0.0" width="44.333333333333336" height="34.333333333333336"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="dd"/>
+                                        <connections>
+                                            <action selector="searchWordButtonTapped1:" destination="NiW-Qk-ihe" eventType="touchUpInside" id="PQZ-x1-xa3"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ymr-mC-upP">
+                                        <rect key="frame" x="49.333333333333329" y="0.0" width="44.333333333333329" height="34.333333333333336"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="dd"/>
+                                        <connections>
+                                            <action selector="searchWordButtonTapped2:" destination="NiW-Qk-ihe" eventType="touchUpInside" id="Um0-mW-X8B"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t90-re-SEZ">
+                                        <rect key="frame" x="98.666666666666671" y="0.0" width="44.333333333333329" height="34.333333333333336"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="dd"/>
+                                        <connections>
+                                            <action selector="searchWordButtonTapped3:" destination="NiW-Qk-ihe" eventType="touchUpInside" id="ADY-Fc-WCO"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9od-ul-zi0">
+                                        <rect key="frame" x="148" y="0.0" width="44.333333333333343" height="34.333333333333336"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="dd"/>
+                                        <connections>
+                                            <action selector="searchWordButtonTapped4:" destination="NiW-Qk-ihe" eventType="touchUpInside" id="7iK-T5-Ukl"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="34.329999999999998" id="D1J-7W-lNv"/>
+                                </constraints>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="qpY-gq-puY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstItem="uT3-SJ-an9" firstAttribute="leading" secondItem="qpY-gq-puY" secondAttribute="leading" constant="16" id="0eg-Rc-P4i"/>
+                            <constraint firstItem="qpY-gq-puY" firstAttribute="trailing" secondItem="uT3-SJ-an9" secondAttribute="trailing" constant="16" id="GpT-Ze-saO"/>
+                            <constraint firstItem="AOg-39-U7j" firstAttribute="top" secondItem="uT3-SJ-an9" secondAttribute="bottom" constant="13" id="g1E-NG-orF"/>
+                            <constraint firstItem="uT3-SJ-an9" firstAttribute="top" secondItem="qpY-gq-puY" secondAttribute="top" constant="26" id="rfd-Fc-ECt"/>
+                            <constraint firstItem="AOg-39-U7j" firstAttribute="leading" secondItem="qpY-gq-puY" secondAttribute="leading" constant="16" id="t7y-Yi-a0T"/>
+                        </constraints>
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="YAr-Gw-Kgz" appends="YES" id="gyX-kQ-8lj"/>
                         </connections>

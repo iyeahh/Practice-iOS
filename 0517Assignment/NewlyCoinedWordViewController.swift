@@ -47,7 +47,10 @@ class NewlyCoinedWordViewController: UIViewController, UIGestureRecognizerDelega
 
     func setupSearchWordButtonUI() {
         let buttons = [searchWordButton1, searchWordButton2, searchWordButton3, searchWordButton4]
-        searchWordButton1.setTitle("윰차", for: .normal)
+        searchWordButton1.setTitle("세글자", for: .normal)
+        searchWordButton2.setTitle("네글자요", for: .normal)
+        searchWordButton3.setTitle("다섯글자요", for: .normal)
+        searchWordButton4.setTitle("일곱글자입니다", for: .normal)
 
         buttons.forEach { button in
             button?.configuration?.buttonSize = .small
