@@ -9,6 +9,8 @@ import UIKit
 
 class NewlyCoinedWordViewController: UIViewController {
 
+    var newlyCoinedWord = ["원영적 사고": "역시 행운의 여신은 나의 편이야\n럭키비키잖아 >.~", "중꺾그마": "중요한 건 꺾여도 그냥 하는 마음 🥹", "KIJUL": "너무 재밌어서 기절하겠다 ^_^", "기나죄": "기분 나빴다면 죄송합니다 ㅎ.ㅎ", "지팔지꼰": "자기 팔자 자기가 꼰다 😊"]
+
     @IBOutlet var backgroundView: UIView!
     @IBOutlet var inputTextField: UITextField!
     @IBOutlet var searchButton: UIButton!
@@ -60,9 +62,27 @@ class NewlyCoinedWordViewController: UIViewController {
         resultLabel.font = UIFont.systemFont(ofSize: 20)
     }
 
-    @IBAction func searchButtonTapped(_ sender: UIButton) {
+    func searchWord() {
+        let condition: ((String,String)) -> Bool = { dic in
+            dic.0 == self.inputTextField.text
+        }
+
+        if newlyCoinedWord.contains(where: condition) {
+            let word = newlyCoinedWord.filter(condition)
+            resultLabel.text = word[inputTextField.text!]
+        } else {
+            resultLabel.text = "검색 결과가 없습니다."
+        }
     }
 
+    @IBAction func searchButtonTapped(_ sender: UIButton) {
+        searchWord()
+    }
+
+    @IBAction func searchTextFieldTapped(_ sender: UITextField) {
+        searchWord()
+    }
+    
     @IBAction func searchWordButtonTapped1(_ sender: UIButton) {
     }
     
