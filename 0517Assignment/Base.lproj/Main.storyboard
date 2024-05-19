@@ -211,10 +211,6 @@
                                         </subviews>
                                     </stackView>
                                 </subviews>
-                                <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="6pv-hg-Oms" secondAttribute="trailing" constant="30" id="8z6-xJ-iqn"/>
-                                    <constraint firstItem="6pv-hg-Oms" firstAttribute="leading" secondItem="wpy-JA-nYh" secondAttribute="leading" constant="30" id="rsz-rm-dcs"/>
-                                </constraints>
                             </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
