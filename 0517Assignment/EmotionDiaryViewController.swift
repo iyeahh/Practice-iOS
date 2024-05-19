@@ -33,7 +33,49 @@ class EmotionDiaryViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = #colorLiteral(red: 0.8609215617, green: 0.8262683749, blue: 0.7879908681, alpha: 1)
+        setupButtonImage()
+        setupLableText()
+    }
 
+    func setupButtonImage() {
+        var buttons = [happyButton, loveButton, likeButton, panicButton, upsetButton, depressedButton, boredButton, sulkingButton, tearfulButton]
+        var num = 1
+
+        buttons.forEach {
+            $0?.setImage(UIImage(named: "slime\(num)"), for: .normal)
+            happyButton.contentMode = .scaleAspectFit
+            num += 1
+        }
+    }
+
+    func setupLableText() {
+        happyLabel.text = "행복해 1"
+        happyLabel.textAlignment = .center
+
+        loveLabel.text = "사랑해 1"
+        loveLabel.textAlignment = .center
+
+        likeLabel.text = "좋아해 1"
+        likeLabel.textAlignment = .center
+
+        panicLabel.text = "당황해 1"
+        panicLabel.textAlignment = .center
+
+        upsetLabel.text = "속상해 1"
+        upsetLabel.textAlignment = .center
+
+        depressedLabel.text = "우울해 1"
+        depressedLabel.textAlignment = .center
+
+        boredLabel.text = "심심해 1"
+        boredLabel.textAlignment = .center
+
+        sulkingLabel.text = "삐졌어 1"
+        sulkingLabel.textAlignment = .center
+
+        tearfulLabel.text = "눈물나 1"
+        tearfulLabel.textAlignment = .center
     }
 
     // MARK: - button action 연결
