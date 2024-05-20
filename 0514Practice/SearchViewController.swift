@@ -16,7 +16,7 @@ class SearchViewController: UIViewController {
     @IBOutlet var secondButton: UIButton!
     @IBOutlet var thirdButton: UIButton!
     @IBOutlet var resultLabel: UILabel!
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -25,88 +25,95 @@ class SearchViewController: UIViewController {
 
         backgroundView.backgroundColor = .darkGray
 
-        searchImageView.image = UIImage(systemName: "magnifyingglass")
+        setupSearchImageViewUI()
+        setupSearchTextFieldUI()
+        setupResultLabelUI()
 
+        setupButtonUI(firstButton,
+                      backgroundColor: .white,
+                      image: "blue",
+                      title: "공개 예정",
+                      titleColor: .black)
+
+        setupButtonUI(secondButton,
+                      backgroundColor: .clear,
+                      image: "turquoise",
+                      title: "모두의 인기 콘텐츠",
+                      titleColor: .white)
+
+        setupButtonUI(thirdButton,
+                      backgroundColor: .clear,
+                      image: "pink",
+                      title: "TOP 10 시리즈",
+                      titleColor: .white)
+    }
+
+    func setupSearchImageViewUI() {
+        searchImageView.image = UIImage(systemName: "magnifyingglass")
         searchImageView.backgroundColor = .clear
         searchImageView.tintColor = .gray
+    }
 
+    func setupSearchTextFieldUI() {
         searchTextField.backgroundColor = .clear
         searchTextField.attributedPlaceholder = NSAttributedString(string: "게임, 시리즈, 영화를 검색하세요...", attributes: [NSAttributedString.Key.foregroundColor : UIColor.gray])
         searchTextField.borderStyle = .none
+    }
 
-        firstButton.titleLabel?.font = UIFont.systemFont(ofSize: 10)
-        firstButton.backgroundColor = .white
-        firstButton.layer.masksToBounds = true
-        firstButton.layer.cornerRadius = 10
-        firstButton.setImage(UIImage(named: "blue"), for: .normal)
-        firstButton.setTitle("공개 예정", for: .normal)
-        firstButton.setTitleColor(.black, for: .normal)
-
-        secondButton.titleLabel?.font = UIFont.systemFont(ofSize: 10)
-        secondButton.backgroundColor = .clear
-        secondButton.layer.masksToBounds = true
-        secondButton.layer.cornerRadius = 10
-        secondButton.setImage(UIImage(named: "turquoise"), for: .normal)
-        secondButton.setTitle("모두의 인기 콘텐츠", for: .normal)
-        secondButton.setTitleColor(.white, for: .normal)
-
-        thirdButton.titleLabel?.font = UIFont.systemFont(ofSize: 10)
-        thirdButton.backgroundColor = .clear
-        thirdButton.layer.masksToBounds = true
-        thirdButton.layer.cornerRadius = 10
-        thirdButton.setImage(UIImage(named: "pink"), for: .normal)
-        thirdButton.setTitle("TOP 10 시리즈", for: .normal)
-        thirdButton.setTitleColor(.white, for: .normal)
-
+    func setupResultLabelUI() {
         resultLabel.text = "이런! 찾으시는 작품이 없습니다."
         resultLabel.font = UIFont.systemFont(ofSize: 20, weight: .bold)
         resultLabel.numberOfLines = 0
         resultLabel.textColor = .white
         resultLabel.textAlignment = .center
+    }
 
+    func setupButtonUI(_ button: UIButton, 
+                       backgroundColor: UIColor,
+                       image: String,
+                       title: String,
+                       titleColor: UIColor) {
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 10)
+        button.backgroundColor = backgroundColor
+        button.layer.masksToBounds = true
+        button.layer.cornerRadius = 10
+        button.setImage(UIImage(named: "\(image)"), for: .normal)
+        button.setTitle("\(title)", for: .normal)
+        button.setTitleColor(titleColor, for: .normal)
+    }
+
+    func setBasicButtonUI(_ button: UIButton) {
+        button.backgroundColor = .clear
+        button.setTitleColor(.white, for: .normal)
+    }
+
+    func setSelectedButtonUI(_ button: UIButton) {
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 10, weight: .bold)
+        button.backgroundColor = .white
+        button.setTitleColor(.black, for: .normal)
     }
 
     @IBAction func firstButtonTapped(_ sender: UIButton) {
         resultLabel.text = "공개 예정 영화는!!!!!"
 
-        firstButton.titleLabel?.font = UIFont.systemFont(ofSize: 10, weight: .bold)
-        firstButton.backgroundColor = .white
-        firstButton.setTitleColor(.black, for: .normal)
-
-        secondButton.backgroundColor = .clear
-        secondButton.setTitleColor(.white, for: .normal)
-
-        thirdButton.backgroundColor = .clear
-        thirdButton.setTitleColor(.white, for: .normal)
+        setSelectedButtonUI(firstButton)
+        setBasicButtonUI(secondButton)
+        setBasicButtonUI(thirdButton)
     }
-    
+
     @IBAction func secondButtonTapped(_ sender: UIButton) {
         resultLabel.text = "모두의 인기 콘텐츠는!!!!!"
 
-        firstButton.backgroundColor = .clear
-        firstButton.setTitleColor(.white, for: .normal)
-
-        secondButton.titleLabel?.font = UIFont.systemFont(ofSize: 10, weight: .bold)
-        secondButton.backgroundColor = .white
-        secondButton.setTitleColor(.black, for: .normal)
-
-        thirdButton.backgroundColor = .clear
-        thirdButton.setTitleColor(.white, for: .normal)
+        setBasicButtonUI(firstButton)
+        setSelectedButtonUI(secondButton)
+        setBasicButtonUI(thirdButton)
     }
-    
+
     @IBAction func thirdButtonTapped(_ sender: UIButton) {
         resultLabel.text = "TOP 10 시리즈는!!!!!"
 
-        firstButton.backgroundColor = .clear
-        firstButton.setTitleColor(.white, for: .normal)
-
-        secondButton.backgroundColor = .clear
-        secondButton.setTitleColor(.white, for: .normal)
-
-        thirdButton.titleLabel?.font = UIFont.systemFont(ofSize: 10, weight: .bold)
-        thirdButton.backgroundColor = .white
-        thirdButton.setTitleColor(.black, for: .normal)
+        setBasicButtonUI(firstButton)
+        setBasicButtonUI(secondButton)
+        setSelectedButtonUI(thirdButton)
     }
-    
-
 }
