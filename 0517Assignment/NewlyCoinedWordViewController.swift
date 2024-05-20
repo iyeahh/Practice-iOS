@@ -7,7 +7,7 @@
 
 import UIKit
 
-class NewlyCoinedWordViewController: UIViewController, UIGestureRecognizerDelegate{
+class NewlyCoinedWordViewController: UIViewController {
 
     var newlyCoinedWord = [("원영적 사고", "역시 행운의 여신은 나의 편이야\n럭키비키잖아 >.~"), ("중꺾그마", "중요한 건 꺾여도 그냥 하는 마음 🥹"), ("KIJUL", "너무 재밌어서 기절하겠다 ^_^"), ("기나죄", "기분 나빴다면 죄송합니다 ㅎ.ㅎ"), ("지팔지꼰", "자기 팔자 자기가 꼰다 😊")]
 
@@ -22,10 +22,6 @@ class NewlyCoinedWordViewController: UIViewController, UIGestureRecognizerDelega
         setupTextFieldUI()
         setupSearchWordButtonUI()
         setupResultLabelUI()
-
-        let tapGesture = UITapGestureRecognizer()
-        tapGesture.delegate = self
-        self.view.addGestureRecognizer(tapGesture)
     }
 
     func setupTextFieldUI() {
@@ -96,6 +92,7 @@ class NewlyCoinedWordViewController: UIViewController, UIGestureRecognizerDelega
     @IBAction func searchWordTapped(_ sender: Any) {
         searchWord()
         setSearchWordButtonRandomTitle()
+        view.endEditing(true)
     }
 
     @IBAction func searchWordButtonTapped(_ sender: UIButton) {
@@ -107,5 +104,9 @@ class NewlyCoinedWordViewController: UIViewController, UIGestureRecognizerDelega
         resultLabel.text = newlyCoinedWord[index!].1
 
         setSearchWordButtonRandomTitle()
+    }
+
+    @IBAction func keyboardDismiss(_ sender: UITapGestureRecognizer) {
+        view.endEditing(true)
     }
 }

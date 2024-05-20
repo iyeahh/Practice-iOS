@@ -416,7 +416,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="A6Z-hf-Bxi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="YAr-Gw-Kgz"/>
+                <tapGestureRecognizer id="YAr-Gw-Kgz">
+                    <connections>
+                        <action selector="keyboardDismiss:" destination="NiW-Qk-ihe" id="gRQ-3e-xPt"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1655.7251908396945" y="714.78873239436621"/>
         </scene>
