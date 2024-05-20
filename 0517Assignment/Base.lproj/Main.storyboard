@@ -300,7 +300,7 @@
                                         </constraints>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <connections>
-                                            <action selector="searchButtonTapped:" destination="NiW-Qk-ihe" eventType="touchUpInside" id="rjZ-P5-ZEm"/>
+                                            <action selector="searchWordTapped:" destination="NiW-Qk-ihe" eventType="touchUpInside" id="8bG-NF-hB1"/>
                                         </connections>
                                     </button>
                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2FL-OX-tve">
@@ -308,7 +308,7 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                         <connections>
-                                            <action selector="searchTextFieldTapped:" destination="NiW-Qk-ihe" eventType="editingDidEndOnExit" id="JTx-CU-to0"/>
+                                            <action selector="searchWordTapped:" destination="NiW-Qk-ihe" eventType="editingDidEnd" id="H23-ea-eEX"/>
                                         </connections>
                                     </textField>
                                 </subviews>
@@ -348,7 +348,7 @@
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="dd"/>
                                         <connections>
-                                            <action selector="searchWordButtonTapped1:" destination="NiW-Qk-ihe" eventType="touchUpInside" id="PQZ-x1-xa3"/>
+                                            <action selector="searchWordButtonTapped:" destination="NiW-Qk-ihe" eventType="touchUpInside" id="PQZ-x1-xa3"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ymr-mC-upP">
@@ -357,7 +357,7 @@
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="dd"/>
                                         <connections>
-                                            <action selector="searchWordButtonTapped1:" destination="NiW-Qk-ihe" eventType="touchUpInside" id="NBY-to-szf"/>
+                                            <action selector="searchWordButtonTapped:" destination="NiW-Qk-ihe" eventType="touchUpInside" id="NBY-to-szf"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t90-re-SEZ">
@@ -366,7 +366,7 @@
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="dd"/>
                                         <connections>
-                                            <action selector="searchWordButtonTapped1:" destination="NiW-Qk-ihe" eventType="touchUpInside" id="klG-03-OZk"/>
+                                            <action selector="searchWordButtonTapped:" destination="NiW-Qk-ihe" eventType="touchUpInside" id="klG-03-OZk"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9od-ul-zi0">
@@ -375,7 +375,7 @@
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="dd"/>
                                         <connections>
-                                            <action selector="searchWordButtonTapped1:" destination="NiW-Qk-ihe" eventType="touchUpInside" id="oZf-vd-1Tj"/>
+                                            <action selector="searchWordButtonTapped:" destination="NiW-Qk-ihe" eventType="touchUpInside" id="oZf-vd-1Tj"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -409,10 +409,10 @@
                         <outlet property="inputTextField" destination="2FL-OX-tve" id="jlc-Kj-dHF"/>
                         <outlet property="resultLabel" destination="X32-Cb-Q7J" id="nAa-lg-t6B"/>
                         <outlet property="searchButton" destination="ZQa-Nv-n2i" id="1T7-5J-Ikv"/>
-                        <outlet property="searchWordButton1" destination="9hl-2G-ze1" id="y2k-35-64m"/>
-                        <outlet property="searchWordButton2" destination="ymr-mC-upP" id="8lc-Y3-t8n"/>
-                        <outlet property="searchWordButton3" destination="t90-re-SEZ" id="qTQ-Gi-18D"/>
-                        <outlet property="searchWordButton4" destination="9od-ul-zi0" id="Wmi-8r-ifC"/>
+                        <outletCollection property="buttonCollection" destination="9hl-2G-ze1" collectionClass="NSMutableArray" id="p6J-aR-I5t"/>
+                        <outletCollection property="buttonCollection" destination="ymr-mC-upP" collectionClass="NSMutableArray" id="pwE-jr-tMd"/>
+                        <outletCollection property="buttonCollection" destination="t90-re-SEZ" collectionClass="NSMutableArray" id="5bZ-i5-DRc"/>
+                        <outletCollection property="buttonCollection" destination="9od-ul-zi0" collectionClass="NSMutableArray" id="VJK-j1-iz4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="A6Z-hf-Bxi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
