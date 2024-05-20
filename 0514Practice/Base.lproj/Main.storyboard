@@ -526,7 +526,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AjU-Qi-mhi">
                                         <rect key="frame" x="123.66666666666666" y="0.0" width="113.66666666666666" height="130"/>
                                         <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="eWm-qK-rdh">
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="1" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="eWm-qK-rdh">
                                                 <rect key="frame" x="0.0" y="0.0" width="113.66666666666667" height="130"/>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cvU-SL-ZkZ">
@@ -574,7 +574,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nRm-EJ-EpP">
                                         <rect key="frame" x="247.33333333333329" y="0.0" width="113.66666666666666" height="130"/>
                                         <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="jeZ-qL-BBb">
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="2" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="jeZ-qL-BBb">
                                                 <rect key="frame" x="0.0" y="0.0" width="113.66666666666667" height="130"/>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jQ2-mI-h7C">
@@ -660,6 +660,9 @@
                         <outlet property="randomImageView1" destination="tJW-5D-iKv" id="DZC-72-EmB"/>
                         <outlet property="randomImageView2" destination="eWm-qK-rdh" id="b73-EU-TuY"/>
                         <outlet property="randomImageView3" destination="jeZ-qL-BBb" id="h7a-TQ-mfN"/>
+                        <outletCollection property="imageViewOutletCollection" destination="tJW-5D-iKv" collectionClass="NSMutableArray" id="qGi-cR-Ea5"/>
+                        <outletCollection property="imageViewOutletCollection" destination="eWm-qK-rdh" collectionClass="NSMutableArray" id="7Qh-TH-FtQ"/>
+                        <outletCollection property="imageViewOutletCollection" destination="jeZ-qL-BBb" collectionClass="NSMutableArray" id="LsK-G5-3mm"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oxh-KM-xG4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
