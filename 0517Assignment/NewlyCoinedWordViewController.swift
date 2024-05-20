@@ -9,7 +9,7 @@ import UIKit
 
 class NewlyCoinedWordViewController: UIViewController, UIGestureRecognizerDelegate{
 
-    var newlyCoinedWord = ["원영적 사고": "역시 행운의 여신은 나의 편이야\n럭키비키잖아 >.~", "중꺾그마": "중요한 건 꺾여도 그냥 하는 마음 🥹", "KIJUL": "너무 재밌어서 기절하겠다 ^_^", "기나죄": "기분 나빴다면 죄송합니다 ㅎ.ㅎ", "지팔지꼰": "자기 팔자 자기가 꼰다 😊"]
+    var newlyCoinedWord = [("원영적 사고", "역시 행운의 여신은 나의 편이야\n럭키비키잖아 >.~"), ("중꺾그마", "중요한 건 꺾여도 그냥 하는 마음 🥹"), ("KIJUL", "너무 재밌어서 기절하겠다 ^_^"), ("기나죄", "기분 나빴다면 죄송합니다 ㅎ.ㅎ"), ("지팔지꼰", "자기 팔자 자기가 꼰다 😊")]
 
     @IBOutlet var backgroundView: UIView!
     @IBOutlet var inputTextField: UITextField!
@@ -73,36 +73,49 @@ class NewlyCoinedWordViewController: UIViewController, UIGestureRecognizerDelega
     }
 
     func searchWord() {
-        let condition: ((String,String)) -> Bool = { dic in
-            dic.0 == self.inputTextField.text
-        }
-
-        if newlyCoinedWord.contains(where: condition) {
-            let word = newlyCoinedWord.filter(condition)
-            resultLabel.text = word[inputTextField.text!]
+        if newlyCoinedWord.contains(where: { (keyword, _) in
+            keyword == inputTextField.text
+        }) {
+            let word = newlyCoinedWord.filter { (keyword, _) in
+                keyword == inputTextField.text
+            }
+            resultLabel.text = word[0].1
         } else {
             resultLabel.text = "검색 결과가 없습니다."
         }
     }
 
     func setSearchWordButtonRandomTitle() {
-        var newlyCoinedWord = ["원영적 사고": "역시 행운의 여신은 나의 편이야\n럭키비키잖아 >.~", "중꺾그마": "중요한 건 꺾여도 그냥 하는 마음 🥹", "KIJUL": "너무 재밌어서 기절하겠다 ^_^", "기나죄": "기분 나빴다면 죄송합니다 ㅎ.ㅎ", "지팔지꼰": "자기 팔자 자기가 꼰다 😊"]
+        var newlyCoinedWord = [("원영적 사고", "역시 행운의 여신은 나의 편이야\n럭키비키잖아 >.~"), ("중꺾그마", "중요한 건 꺾여도 그냥 하는 마음 🥹"), ("KIJUL", "너무 재밌어서 기절하겠다 ^_^"), ("기나죄", "기분 나빴다면 죄송합니다 ㅎ.ㅎ"), ("지팔지꼰", "자기 팔자 자기가 꼰다 😊")]
 
-        let firstButtonName = newlyCoinedWord.keys.randomElement()
+        let firstButtonName = newlyCoinedWord.randomElement()?.0
         searchWordButton1.setTitle(firstButtonName, for: .normal)
-        newlyCoinedWord.removeValue(forKey: firstButtonName!)
+        let num1 = newlyCoinedWord.firstIndex { (keyword, _) in
+            keyword == firstButtonName
+        }
+        newlyCoinedWord.remove(at: num1!)
 
-        let secondButtonName = newlyCoinedWord.keys.randomElement()
+        let secondButtonName = newlyCoinedWord.randomElement()?.0
         searchWordButton2.setTitle(secondButtonName, for: .normal)
-        newlyCoinedWord.removeValue(forKey: secondButtonName!)
+        let num2 = newlyCoinedWord.firstIndex { (keyword, _) in
+            keyword == secondButtonName
+        }
+        newlyCoinedWord.remove(at: num2!)
 
-        let thirdButtonName = newlyCoinedWord.keys.randomElement()
+        let thirdButtonName = newlyCoinedWord.randomElement()?.0
         searchWordButton3.setTitle(thirdButtonName, for: .normal)
-        newlyCoinedWord.removeValue(forKey: thirdButtonName!)
+        let num3 = newlyCoinedWord.firstIndex { (keyword, _) in
+            keyword == thirdButtonName
+        }
+        newlyCoinedWord.remove(at: num3!)
 
-        let fourthButtonName = newlyCoinedWord.keys.randomElement()
+        let fourthButtonName = newlyCoinedWord.randomElement()?.0
         searchWordButton4.setTitle(fourthButtonName, for: .normal)
-        newlyCoinedWord.removeValue(forKey: fourthButtonName!)
+        let num4 = newlyCoinedWord.firstIndex { (keyword, _) in
+            keyword == fourthButtonName
+        }
+        newlyCoinedWord.remove(at: num4!)
+
     }
 
     @IBAction func searchButtonTapped(_ sender: UIButton) {
@@ -118,8 +131,10 @@ class NewlyCoinedWordViewController: UIViewController, UIGestureRecognizerDelega
     @IBAction func searchWordButtonTapped1(_ sender: UIButton) {
         inputTextField.text = sender.currentTitle
 
-        let text = newlyCoinedWord[sender.currentTitle!]
-        resultLabel.text = text
+        let index = newlyCoinedWord.firstIndex { (keyword, _) in
+            sender.currentTitle! == keyword
+        }
+        resultLabel.text = newlyCoinedWord[index!].1
 
         setSearchWordButtonRandomTitle()
     }
