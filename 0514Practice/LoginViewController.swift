@@ -19,9 +19,24 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        codeTextField.keyboardType = .numberPad
     }
 
     @IBAction func loginButtonTapped(_ sender: UIButton) {
+        guard let emailText = emailTextField.text,
+              let passwordText = passwordTextField.text,
+              let nicknameText = nickNameTextField.text,
+              let locationText = locationTextField.text,
+              let codeText = codeTextField.text else { return }
+
+        if emailText.isEmpty ||
+            passwordText.isEmpty ||
+            nicknameText.isEmpty ||
+            locationText.isEmpty ||
+            codeText.isEmpty {
+            loginButton.backgroundColor = .gray
+        }
+        
         view.endEditing(true)
     }
 }
