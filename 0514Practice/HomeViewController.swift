@@ -25,8 +25,10 @@ class HomeViewController: UIViewController {
     @IBOutlet var label5: UILabel!
     @IBOutlet var label6: UILabel!
 
-
-
+    @IBOutlet var badge1: UIImageView!
+    @IBOutlet var badge2: UIImageView!
+    @IBOutlet var badge3: UIImageView!
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -69,6 +71,10 @@ class HomeViewController: UIViewController {
         plusButton.tintColor = .white
         plusButton.setTitle("내가 찜한 리스트", for: .normal)
         plusButton.setTitleColor(.white, for: .normal)
+
+        badge1.image = UIImage(named: "top10 badge")
+        badge2.image = UIImage(named: "top10 badge")
+        badge3.image = UIImage(named: "top10 badge")
 
         randomBanner1()
         randomBanner2()

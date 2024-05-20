@@ -645,12 +645,15 @@
                     </view>
                     <navigationItem key="navigationItem" title="아이예님" id="OOd-zs-83A"/>
                     <connections>
-                        <outlet property="label1" destination="ITP-SB-U4P" id="OTb-Eq-ttT"/>
-                        <outlet property="label2" destination="8ai-X1-Qft" id="2b6-Nz-3TI"/>
-                        <outlet property="label3" destination="cvU-SL-ZkZ" id="icA-pY-BxX"/>
-                        <outlet property="label4" destination="TIm-cu-ng0" id="GG5-MP-3VX"/>
-                        <outlet property="label5" destination="jQ2-mI-h7C" id="d4L-EQ-eNy"/>
-                        <outlet property="label6" destination="Gsz-qW-m0x" id="ned-DL-iZP"/>
+                        <outlet property="badge1" destination="zUh-3f-oA1" id="J88-QN-bIZ"/>
+                        <outlet property="badge2" destination="FuI-6V-htM" id="DPd-pZ-h6i"/>
+                        <outlet property="badge3" destination="35D-lb-8Bx" id="H8b-6c-9sv"/>
+                        <outlet property="label1" destination="8ai-X1-Qft" id="F4H-eX-pUc"/>
+                        <outlet property="label2" destination="ITP-SB-U4P" id="asE-M3-uVs"/>
+                        <outlet property="label3" destination="TIm-cu-ng0" id="VFt-Ug-wd0"/>
+                        <outlet property="label4" destination="cvU-SL-ZkZ" id="5AX-ef-EAV"/>
+                        <outlet property="label5" destination="Gsz-qW-m0x" id="TMK-ap-54h"/>
+                        <outlet property="label6" destination="jQ2-mI-h7C" id="KAh-HH-OdJ"/>
                         <outlet property="moviePosterImageView" destination="MRP-m8-ehK" id="d4c-Wb-uqe"/>
                         <outlet property="playButton" destination="vt9-OP-HWO" id="abg-aD-jiJ"/>
                         <outlet property="plusButton" destination="nhr-5t-nKL" id="LVo-rl-dKK"/>
