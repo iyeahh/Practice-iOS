@@ -24,6 +24,8 @@ class BMICalculatorViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+        heightTextField.delegate = self
+        weightTextField.delegate = self
     }
 
     func setupUI() {
@@ -187,3 +189,13 @@ class BMICalculatorViewController: UIViewController {
     }
 }
 
+extension BMICalculatorViewController: UITextFieldDelegate {
+  func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+    if textField == heightTextField {
+      weightTextField.becomeFirstResponder()
+    } else {
+      weightTextField.resignFirstResponder()
+    }
+    return true
+  }
+}
