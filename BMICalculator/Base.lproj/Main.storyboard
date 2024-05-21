@@ -43,7 +43,7 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="키가 어떻게 되시나요?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Iel-DN-nSr">
-                                <rect key="frame" x="40" y="301" width="132.33333333333334" height="18"/>
+                                <rect key="frame" x="40" y="301" width="132.66666666666666" height="18"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -55,6 +55,10 @@
                                         <rect key="frame" x="3" y="3" width="347" height="44"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <action selector="textFieldDidBegin:" destination="BYZ-38-t0r" eventType="editingDidBegin" id="cR1-xC-fzV"/>
+                                            <action selector="textFieldEditingEnd:" destination="BYZ-38-t0r" eventType="editingDidEnd" id="VTc-w8-aGl"/>
+                                        </connections>
                                     </textField>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -67,7 +71,7 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="몸무게는 어떻게 되시나요?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hkb-cr-HqH">
-                                <rect key="frame" x="40" y="394" width="158.33333333333334" height="18"/>
+                                <rect key="frame" x="40" y="394" width="158.66666666666666" height="18"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -82,11 +86,18 @@
                                         </constraints>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal" title="Button"/>
+                                        <connections>
+                                            <action selector="hideButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Hog-Bm-t1L"/>
+                                        </connections>
                                     </button>
-                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CnH-Kq-IRT">
+                                    <textField opaque="NO" tag="1" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CnH-Kq-IRT">
                                         <rect key="frame" x="3" y="3" width="300" height="44"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <action selector="textFieldDidBegin:" destination="BYZ-38-t0r" eventType="editingDidBegin" id="DEa-tv-keX"/>
+                                            <action selector="textFieldEditingEnd:" destination="BYZ-38-t0r" eventType="editingDidEnd" id="Jba-bh-AkK"/>
+                                        </connections>
                                     </textField>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -109,6 +120,9 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" title="랜덤으로 BMI 계산하기"/>
+                                <connections>
+                                    <action selector="randomCalculatorButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="yu7-tQ-K5J"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wEu-Kp-CEU">
                                 <rect key="frame" x="20" y="535" width="353" height="40"/>
@@ -117,10 +131,14 @@
                                 </constraints>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="calculatorButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Eyx-Uk-Hch"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="l68-BE-wtz" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="03w-qc-SXU"/>
                             <constraint firstItem="C0G-lG-nNy" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="0NX-t7-eMy"/>
@@ -149,20 +167,30 @@
                             <constraint firstItem="0w3-Yt-c5t" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="jcd-Na-TuG"/>
                             <constraint firstItem="fLg-aG-1BS" firstAttribute="top" secondItem="D62-k3-RSN" secondAttribute="bottom" id="m83-MJ-Aaw"/>
                         </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="3l8-bc-pv4" appends="YES" id="dDe-f9-DFB"/>
+                        </connections>
                     </view>
                     <connections>
                         <outlet property="calculatorButton" destination="wEu-Kp-CEU" id="J5r-pZ-dwB"/>
+                        <outlet property="heightLabel" destination="Iel-DN-nSr" id="Sp1-5F-FB7"/>
+                        <outlet property="heightTextField" destination="1M6-Y7-Gsb" id="6OW-do-q2Z"/>
                         <outlet property="hideButton" destination="80I-Fd-m2z" id="r9I-xr-An8"/>
                         <outlet property="infoLabel" destination="0w3-Yt-c5t" id="8he-hZ-fcR"/>
                         <outlet property="mainImageView" destination="D62-k3-RSN" id="nHU-S5-6l2"/>
                         <outlet property="randomCalculatorButton" destination="mCo-Ex-aJV" id="8dG-0W-jte"/>
+                        <outlet property="weightLabel" destination="hkb-cr-HqH" id="oLD-PM-Jjc"/>
+                        <outlet property="weightTextField" destination="CnH-Kq-IRT" id="QFS-mr-BTc"/>
                         <outletCollection property="backgroundViews" destination="fLg-aG-1BS" collectionClass="NSMutableArray" id="TiF-fB-9hi"/>
                         <outletCollection property="backgroundViews" destination="C0G-lG-nNy" collectionClass="NSMutableArray" id="mkg-gX-GCY"/>
-                        <outletCollection property="textFields" destination="1M6-Y7-Gsb" collectionClass="NSMutableArray" id="r2z-IO-TBy"/>
-                        <outletCollection property="textFields" destination="CnH-Kq-IRT" collectionClass="NSMutableArray" id="XOJ-9P-NiG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="3l8-bc-pv4">
+                    <connections>
+                        <action selector="gestureTapped:" destination="BYZ-38-t0r" id="Pbb-vO-K6u"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="135.1145038167939" y="3.5211267605633805"/>
         </scene>
