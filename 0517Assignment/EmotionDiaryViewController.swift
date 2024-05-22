@@ -21,8 +21,31 @@ class EmotionDiaryViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = #colorLiteral(red: 0.8609215617, green: 0.8262683749, blue: 0.7879908681, alpha: 1)
+        fetchButtonCount()
         setupButtonImage()
         setupLableText()
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        saveButtonCount()
+    }
+
+    func saveButtonCount() {
+        var index = 0
+
+        numberCount.forEach { count in
+            UserDefaults.standard.set(count, forKey: "index\(index)")
+            index += 1
+        }
+    }
+
+    func fetchButtonCount() {
+        for index in 0...8 {
+            if UserDefaults.standard.integer(forKey: "index\(index)") != 0 {
+                numberCount[index] = UserDefaults.standard.integer(forKey: "index(\(index)")
+            }
+        }
     }
 
     func setupButtonImage() {
@@ -46,5 +69,6 @@ class EmotionDiaryViewController: UIViewController {
     @IBAction func buttonTapped(_ sender: UIButton) {
         numberCount[sender.tag] += 1
         labelOutletCollection[sender.tag].text = "\(emotion[sender.tag]) \(numberCount[sender.tag])"
+        print(numberCount)
     }
 }
