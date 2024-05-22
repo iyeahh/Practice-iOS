@@ -42,9 +42,7 @@ class EmotionDiaryViewController: UIViewController {
 
     func fetchButtonCount() {
         for index in 0...8 {
-            if UserDefaults.standard.integer(forKey: "index\(index)") != 0 {
-                numberCount[index] = UserDefaults.standard.integer(forKey: "index(\(index)")
-            }
+            numberCount[index] = UserDefaults.standard.integer(forKey: "index\(index)")
         }
     }
 
@@ -69,6 +67,5 @@ class EmotionDiaryViewController: UIViewController {
     @IBAction func buttonTapped(_ sender: UIButton) {
         numberCount[sender.tag] += 1
         labelOutletCollection[sender.tag].text = "\(emotion[sender.tag]) \(numberCount[sender.tag])"
-        print(numberCount)
     }
 }
