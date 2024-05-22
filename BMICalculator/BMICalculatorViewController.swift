@@ -12,6 +12,7 @@ class BMICalculatorViewController: UIViewController {
     @IBOutlet var infoLabel: UILabel!
     @IBOutlet var mainImageView: UIImageView!
     @IBOutlet var backgroundViews: [UIView]!
+    @IBOutlet var nicknameTextField: UITextField!
     @IBOutlet var heightTextField: UITextField!
     @IBOutlet var weightTextField: UITextField!
     @IBOutlet var hideButton: UIButton!
@@ -24,6 +25,13 @@ class BMICalculatorViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+
+        setupDelegate()
+        fetchInfo()
+    }
+
+    func setupDelegate() {
+        nicknameTextField.delegate = self
         heightTextField.delegate = self
         weightTextField.delegate = self
     }
@@ -107,6 +115,23 @@ class BMICalculatorViewController: UIViewController {
         present(alert, animated: true)
     }
 
+    func saveInfo(height: String, weight: String) {
+        guard let nickname = nicknameTextField.text else { return }
+        UserDefaults.standard.set(nickname, forKey: "nickname")
+        UserDefaults.standard.set(height, forKey: "height")
+        UserDefaults.standard.set(weight, forKey: "weight")
+    }
+
+    func fetchInfo() {
+        let nickname = UserDefaults.standard.string(forKey: "nickname")
+        let height = UserDefaults.standard.string(forKey: "height")
+        let weight = UserDefaults.standard.string(forKey: "weight")
+
+        nicknameTextField.text = nickname
+        heightTextField.text = height
+        weightTextField.text = weight
+    }
+
     @IBAction func hideButtonTapped(_ sender: UIButton) {
         weightTextField.isSecureTextEntry.toggle()
     }
@@ -124,16 +149,20 @@ class BMICalculatorViewController: UIViewController {
         var height = 0
         var weight = 0
 
-        guard let input = heightTextField.text,
-              let userHeight = Int(input) else { return }
+        guard let inputHeight = heightTextField.text else { return }
+        guard let userHeight = Int(inputHeight) else { return }
         height = userHeight
 
-        guard let input = weightTextField.text,
-              let userWeight = Int(input) else { return }
+        guard let inputWeight = weightTextField.text else { return }
+        guard let userWeight = Int(inputWeight) else { return }
         weight = userWeight
 
         let userBmi = calculateBMI(weight: weight, height: height)
         presentAlert(bmi: userBmi)
+
+        saveInfo(
+            height: inputHeight,
+            weight: inputWeight)
 
         view.endEditing(true)
     }
@@ -190,12 +219,14 @@ class BMICalculatorViewController: UIViewController {
 }
 
 extension BMICalculatorViewController: UITextFieldDelegate {
-  func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-    if textField == heightTextField {
-      weightTextField.becomeFirstResponder()
-    } else {
-      weightTextField.resignFirstResponder()
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if textField == nicknameTextField {
+            heightTextField.becomeFirstResponder()
+        } else if textField == heightTextField {
+            weightTextField.becomeFirstResponder()
+        } else {
+            weightTextField.resignFirstResponder()
+        }
+        return true
     }
-    return true
-  }
 }
