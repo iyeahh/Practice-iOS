@@ -127,6 +127,15 @@ class BMICalculatorViewController: UIViewController {
         let height = UserDefaults.standard.string(forKey: "height")
         let weight = UserDefaults.standard.string(forKey: "weight")
 
+        guard let nickname = nickname,
+              let height = height,
+              let weight = weight else {
+            nicknameTextField.text = nil
+            heightTextField.text = nil
+            weightTextField.text = nil
+            return
+        }
+
         nicknameTextField.text = nickname
         heightTextField.text = height
         weightTextField.text = weight
@@ -215,6 +224,15 @@ class BMICalculatorViewController: UIViewController {
                 weightTextField.text = ""
             }
         }
+    }
+
+    @IBAction func resetButtonTapped(_ sender: UIButton) {
+        for info in UserDefaults.standard.dictionaryRepresentation().keys {
+            UserDefaults.standard.removeObject(forKey: info.description)
+        }
+        nicknameTextField.text = nil
+        heightTextField.text = nil
+        weightTextField.text = nil
     }
 }
 
