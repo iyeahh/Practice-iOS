@@ -14,7 +14,7 @@ class EmotionDiaryViewController: UIViewController {
 
     @IBOutlet var labelOutletCollection: [UILabel]!
 
-    var numberCount = [1, 1, 1, 1, 1, 1, 1, 1, 1]
+    var numberCount = [0, 0, 0, 0, 0, 0, 0, 0, 0]
 
     var emotion = ["행복해", "사랑해", "좋아해", "당황해", "속상해", "우울해", "심심해", "삐졌어", "눈물나"]
 
@@ -67,5 +67,13 @@ class EmotionDiaryViewController: UIViewController {
     @IBAction func buttonTapped(_ sender: UIButton) {
         numberCount[sender.tag] += 1
         labelOutletCollection[sender.tag].text = "\(emotion[sender.tag]) \(numberCount[sender.tag])"
+    }
+
+    @IBAction func resetButtonTapped(_ sender: UIButton) {
+        for key in UserDefaults.standard.dictionaryRepresentation().keys {
+            UserDefaults.standard.removeObject(forKey: key.description)
+        }
+        numberCount = [0, 0, 0, 0, 0, 0, 0, 0, 0]
+        setupLableText()
     }
 }
