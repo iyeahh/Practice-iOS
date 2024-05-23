@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22155" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ZWd-CR-DxN">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22155" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="NiW-Qk-ihe">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -400,18 +400,45 @@
                                     <constraint firstAttribute="height" constant="34.329999999999998" id="D1J-7W-lNv"/>
                                 </constraints>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jxA-ws-Aiz">
+                                <rect key="frame" x="293" y="268" width="80" height="80"/>
+                                <color key="backgroundColor" red="1" green="0.83234566450000003" blue="0.47320586440000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="80" id="XVa-a9-cMz"/>
+                                    <constraint firstAttribute="height" constant="80" id="ZGF-Un-Y9y"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Reset">
+                                    <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="resetButtonTapped:" destination="NiW-Qk-ihe" eventType="touchUpInside" id="X61-7S-3Cr"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IFP-bl-1RF">
+                                <rect key="frame" x="20" y="568" width="353" height="230"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="qpY-gq-puY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="uT3-SJ-an9" firstAttribute="leading" secondItem="qpY-gq-puY" secondAttribute="leading" constant="16" id="0eg-Rc-P4i"/>
+                            <constraint firstItem="qpY-gq-puY" firstAttribute="trailing" secondItem="jxA-ws-Aiz" secondAttribute="trailing" constant="20" id="0fa-Ex-7OV"/>
                             <constraint firstItem="qpY-gq-puY" firstAttribute="bottom" secondItem="ErH-zE-ffg" secondAttribute="bottom" constant="270" id="10U-rL-AFl"/>
+                            <constraint firstItem="qpY-gq-puY" firstAttribute="trailing" secondItem="IFP-bl-1RF" secondAttribute="trailing" constant="20" id="3SH-pX-5LY"/>
                             <constraint firstItem="qpY-gq-puY" firstAttribute="trailing" secondItem="ErH-zE-ffg" secondAttribute="trailing" constant="15" id="BhQ-NA-4EF"/>
                             <constraint firstItem="qpY-gq-puY" firstAttribute="trailing" secondItem="uT3-SJ-an9" secondAttribute="trailing" constant="16" id="GpT-Ze-saO"/>
                             <constraint firstItem="X32-Cb-Q7J" firstAttribute="leading" secondItem="qpY-gq-puY" secondAttribute="leading" constant="55" id="L8e-Dz-7nY"/>
                             <constraint firstItem="ErH-zE-ffg" firstAttribute="leading" secondItem="qpY-gq-puY" secondAttribute="leading" constant="15" id="RVy-SA-K7y"/>
+                            <constraint firstItem="ErH-zE-ffg" firstAttribute="top" secondItem="jxA-ws-Aiz" secondAttribute="bottom" constant="20" id="TKb-xm-HCs"/>
+                            <constraint firstItem="IFP-bl-1RF" firstAttribute="leading" secondItem="qpY-gq-puY" secondAttribute="leading" constant="20" id="Ugy-Qm-ZiP"/>
                             <constraint firstItem="X32-Cb-Q7J" firstAttribute="centerY" secondItem="ErH-zE-ffg" secondAttribute="centerY" id="WGU-LQ-P7B"/>
+                            <constraint firstItem="qpY-gq-puY" firstAttribute="bottom" secondItem="IFP-bl-1RF" secondAttribute="bottom" constant="20" id="XcC-by-Fey"/>
+                            <constraint firstItem="IFP-bl-1RF" firstAttribute="top" secondItem="ErH-zE-ffg" secondAttribute="bottom" constant="20" id="aZR-ri-3js"/>
                             <constraint firstItem="AOg-39-U7j" firstAttribute="top" secondItem="uT3-SJ-an9" secondAttribute="bottom" constant="13" id="g1E-NG-orF"/>
                             <constraint firstItem="uT3-SJ-an9" firstAttribute="top" secondItem="qpY-gq-puY" secondAttribute="top" constant="26" id="rfd-Fc-ECt"/>
                             <constraint firstItem="AOg-39-U7j" firstAttribute="leading" secondItem="qpY-gq-puY" secondAttribute="leading" constant="16" id="t7y-Yi-a0T"/>
@@ -424,6 +451,7 @@
                     <connections>
                         <outlet property="backgroundView" destination="uT3-SJ-an9" id="rLa-dh-Hfr"/>
                         <outlet property="inputTextField" destination="2FL-OX-tve" id="jlc-Kj-dHF"/>
+                        <outlet property="recentlyWordLabel" destination="IFP-bl-1RF" id="PIx-DM-CZo"/>
                         <outlet property="resultLabel" destination="X32-Cb-Q7J" id="nAa-lg-t6B"/>
                         <outlet property="searchButton" destination="ZQa-Nv-n2i" id="1T7-5J-Ikv"/>
                         <outletCollection property="buttonCollection" destination="9hl-2G-ze1" collectionClass="NSMutableArray" id="p6J-aR-I5t"/>

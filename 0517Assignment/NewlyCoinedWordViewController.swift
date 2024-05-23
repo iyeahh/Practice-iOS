@@ -8,7 +8,6 @@
 import UIKit
 
 class NewlyCoinedWordViewController: UIViewController {
-
     var newlyCoinedWord = [("원영적 사고", "역시 행운의 여신은 나의 편이야\n럭키비키잖아 >.~"), ("중꺾그마", "중요한 건 꺾여도 그냥 하는 마음 🥹"), ("KIJUL", "너무 재밌어서 기절하겠다 ^_^"), ("기나죄", "기분 나빴다면 죄송합니다 ㅎ.ㅎ"), ("지팔지꼰", "자기 팔자 자기가 꼰다 😊")]
 
     @IBOutlet var backgroundView: UIView!
@@ -16,12 +15,14 @@ class NewlyCoinedWordViewController: UIViewController {
     @IBOutlet var searchButton: UIButton!
     @IBOutlet var buttonCollection: [UIButton]!
     @IBOutlet var resultLabel: UILabel!
+    @IBOutlet var recentlyWordLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTextFieldUI()
         setupSearchWordButtonUI()
         setupResultLabelUI()
+        recentlyWordLabel.text = UserManager.recentlySearchWord
     }
 
     func setupTextFieldUI() {
@@ -63,16 +64,21 @@ class NewlyCoinedWordViewController: UIViewController {
     }
 
     func searchWord() {
+        let inputWord = inputTextField.text
+
         if newlyCoinedWord.contains(where: { (keyword, _) in
-            keyword == inputTextField.text
+            keyword == inputWord
         }) {
             let word = newlyCoinedWord.filter { (keyword, _) in
-                keyword == inputTextField.text
+                keyword == inputWord
             }
             resultLabel.text = word[0].1
         } else {
             resultLabel.text = "검색 결과가 없습니다."
         }
+
+        UserManager.recentlySearchWord += ("\n" + inputWord!)
+        recentlyWordLabel.text = UserManager.recentlySearchWord
     }
 
     func setSearchWordButtonRandomTitle() {
@@ -109,4 +115,38 @@ class NewlyCoinedWordViewController: UIViewController {
     @IBAction func keyboardDismiss(_ sender: UITapGestureRecognizer) {
         view.endEditing(true)
     }
+
+    
+    @IBAction func resetButtonTapped(_ sender: UIButton) {
+        recentlyWordLabel.text = UserManager.blankhWord
+    }
+}
+
+@propertyWrapper
+struct UserDefault {
+    let key: String
+    let reset: Bool
+    let storage: UserDefaults = UserDefaults.standard
+
+    var wrappedValue: String {
+        get {
+            if reset {
+                self.storage.removeObject(forKey: key)
+                return self.storage.string(forKey: key) ?? ""
+            } else {
+                return self.storage.string(forKey: key) ?? ""
+            }
+        }
+        set {
+            self.storage.set(newValue, forKey: self.key)
+        }
+    }
+}
+
+final class UserManager {
+    @UserDefault(key: "searchWord", reset: false)
+    static var recentlySearchWord
+
+    @UserDefault(key: "searchWord", reset: true)
+    static var blankhWord
 }
