@@ -59,6 +59,16 @@ class ShoppingTableViewController: UITableViewController {
         searchTextField.borderStyle = .none
     }
 
+    @objc func checkboxButtonTapped(sender: UIButton) {
+        shoppingList[sender.tag].check.toggle()
+        tableView.reloadRows(at: [IndexPath(row: sender.tag, section: 0)], with: .none)
+    }
+
+    @objc func likeButtonTapped(sender: UIButton) {
+        shoppingList[sender.tag].like.toggle()
+        tableView.reloadRows(at: [IndexPath(row: sender.tag, section: 0)], with: .none)
+    }
+
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return shoppingList.count
     }
@@ -80,11 +90,15 @@ class ShoppingTableViewController: UITableViewController {
         cell.checkboxButton.setImage(UIImage(systemName: checkButtonImageName), for: .normal)
         cell.checkboxButton.setTitle("", for: .normal)
         cell.checkboxButton.tintColor = .black
+        cell.checkboxButton.tag = indexPath.row
+        cell.checkboxButton.addTarget(self, action: #selector(checkboxButtonTapped), for: .touchUpInside)
 
         let likeButtonImageName = data.like ? "star.fill" : "star"
         cell.likeButton.setImage(UIImage(systemName: likeButtonImageName), for: .normal)
         cell.likeButton.setTitle("", for: .normal)
         cell.likeButton.tintColor = .black
+        cell.likeButton.tag = indexPath.row
+        cell.likeButton.addTarget(self, action: #selector(likeButtonTapped), for: .touchUpInside)
 
         return cell
     }
