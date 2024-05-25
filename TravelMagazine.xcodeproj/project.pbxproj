@@ -13,6 +13,8 @@
 		7621D1EB2C01823E001AD157 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7621D1E92C01823E001AD157 /* Main.storyboard */; };
 		7621D1ED2C01823F001AD157 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7621D1EC2C01823F001AD157 /* Assets.xcassets */; };
 		7621D1F02C01823F001AD157 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7621D1EE2C01823F001AD157 /* LaunchScreen.storyboard */; };
+		7621D1F82C018ED9001AD157 /* MagazineInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7621D1F72C018ED9001AD157 /* MagazineInfo.swift */; };
+		7621D1FA2C018EF8001AD157 /* Magazine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7621D1F92C018EF8001AD157 /* Magazine.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,9 @@
 		7621D1EC2C01823F001AD157 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7621D1EF2C01823F001AD157 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7621D1F12C01823F001AD157 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7621D1F72C018ED9001AD157 /* MagazineInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MagazineInfo.swift; path = ../../../../MagazineInfo.swift; sourceTree = "<group>"; };
+		7621D1F92C018EF8001AD157 /* Magazine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Magazine.swift; sourceTree = "<group>"; };
+		7621D1FC2C018F4B001AD157 /* MagazineInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MagazineInfo.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,13 +63,40 @@
 			children = (
 				7621D1E32C01823E001AD157 /* AppDelegate.swift */,
 				7621D1E52C01823E001AD157 /* SceneDelegate.swift */,
-				7621D1E72C01823E001AD157 /* ViewController.swift */,
-				7621D1E92C01823E001AD157 /* Main.storyboard */,
+				7621D1FB2C018F44001AD157 /* Models */,
+				7621D1FD2C018F55001AD157 /* Views */,
+				7621D1FE2C018F57001AD157 /* Controllers */,
 				7621D1EC2C01823F001AD157 /* Assets.xcassets */,
 				7621D1EE2C01823F001AD157 /* LaunchScreen.storyboard */,
 				7621D1F12C01823F001AD157 /* Info.plist */,
+				7621D1F72C018ED9001AD157 /* MagazineInfo.swift */,
 			);
 			path = TravelMagazine;
+			sourceTree = "<group>";
+		};
+		7621D1FB2C018F44001AD157 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				7621D1F92C018EF8001AD157 /* Magazine.swift */,
+				7621D1FC2C018F4B001AD157 /* MagazineInfo.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		7621D1FD2C018F55001AD157 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				7621D1E92C01823E001AD157 /* Main.storyboard */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		7621D1FE2C018F57001AD157 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				7621D1E72C01823E001AD157 /* ViewController.swift */,
+			);
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -139,6 +171,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				7621D1E82C01823E001AD157 /* ViewController.swift in Sources */,
+				7621D1FA2C018EF8001AD157 /* Magazine.swift in Sources */,
+				7621D1F82C018ED9001AD157 /* MagazineInfo.swift in Sources */,
 				7621D1E42C01823E001AD157 /* AppDelegate.swift in Sources */,
 				7621D1E62C01823E001AD157 /* SceneDelegate.swift in Sources */,
 			);
