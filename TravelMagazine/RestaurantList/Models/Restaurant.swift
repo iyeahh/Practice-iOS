@@ -17,8 +17,4 @@ struct Restaurant {
     let category: String
     let price: Int
     let type: Int
-
-    var url: URL {
-        return URL(string: image)!
-    }
 }

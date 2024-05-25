@@ -8,8 +8,8 @@
 import UIKit
 
 class RestaurantListTableViewController: UITableViewController {
-    var restaurantListData = RestaurantList().restaurantArray
-    
+    var restaurantViewModel = RestaurantViewModel()
+
     @IBOutlet var buttonCollection: [UIButton]!
     
     override func viewDidLoad() {
@@ -48,8 +48,14 @@ class RestaurantListTableViewController: UITableViewController {
             for: .normal)
     }
 
+
+    @objc func likeButtonTapped(_ sender: UIButton) {
+        restaurantViewModel.restaurantListData[sender.tag].like.toggle()
+        tableView.reloadRows(at: [IndexPath(row: sender.tag, section: 0)], with: .none)
+    }
+
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return restaurantListData.count
+        return restaurantViewModel.restaurantCount
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -60,7 +66,7 @@ class RestaurantListTableViewController: UITableViewController {
             return UITableViewCell()
         }
 
-        let data = restaurantListData[indexPath.row]
+        let data = restaurantViewModel.restaurantListData[indexPath.row]
 
         cell.categoryLabel.text = data.category
         cell.mainImageView.kf.setImage(with: data.url)
@@ -68,6 +74,11 @@ class RestaurantListTableViewController: UITableViewController {
         cell.phoneNumberLabel.text = data.phoneNumber
         cell.addressLabel.text = data.address
         cell.priceLabel.text = "\(data.price)"
+
+        let likeButtonImageName = data.like ? "heart.fill" : "heart"
+        setbuttonImage(cell.likeButton, name: likeButtonImageName)
+        cell.likeButton.tag = indexPath.row
+        cell.likeButton.addTarget(self, action: #selector(likeButtonTapped), for: .touchUpInside)
 
         return cell
     }
