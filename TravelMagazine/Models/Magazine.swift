@@ -13,4 +13,20 @@ struct Magazine {
     var photo_image: String
     var date: String
     var link: String
+
+    var url: URL {
+        return URL(string: photo_image)!
+    }
+
+    var formattedDate: String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyMMdd"
+
+        let convertDate = dateFormatter.date(from: date)!
+
+        let myDateFormatter = DateFormatter()
+        myDateFormatter.dateFormat = "yy년 MM월 dd일"
+
+       return myDateFormatter.string(from: convertDate)
+    }
 }

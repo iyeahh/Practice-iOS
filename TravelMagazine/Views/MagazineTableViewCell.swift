@@ -27,16 +27,16 @@ class MagazineTableViewCell: UITableViewCell {
     }
 
     func setupMainLabelUI() {
-        mainLabel.font = .boldSystemFont(ofSize: 22)
+        mainLabel.font = .boldSystemFont(ofSize: 21)
     }
 
     func setupSubLabelUI() {
-        subLabel.font = .boldSystemFont(ofSize: 15)
+        subLabel.font = .boldSystemFont(ofSize: 14)
         subLabel.textColor = .gray
     }
 
     func setupDateLabel() {
-        dateLabel.font = .systemFont(ofSize: 13)
+        dateLabel.font = .systemFont(ofSize: 12)
         dateLabel.textColor = .gray
         dateLabel.textAlignment = .right
     }

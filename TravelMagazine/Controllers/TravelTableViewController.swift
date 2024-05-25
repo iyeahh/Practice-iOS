@@ -6,23 +6,23 @@
 //
 
 import UIKit
+import Kingfisher
 
 class TravelTableViewController: UITableViewController {
-    var dummy = [
-        Magazine(title: "파리", subtitle: "파리여행", photo_image: "", date: "22년 1월 1일", link: ""),
-        Magazine(title: "파리", subtitle: "파리여행", photo_image: "", date: "22년 1월 1일", link: ""),
-        Magazine(title: "파리", subtitle: "파리여행", photo_image: "", date: "22년 1월 1일", link: "")
-    ]
+    var magazineInfoData = MagazineInfo().magazine
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.rowHeight = 475
+        setupTabelViewUI()
+    }
+
+    func setupTabelViewUI() {
+        tableView.rowHeight = 455
         tableView.separatorStyle = .none
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return dummy.count
+        return magazineInfoData.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -33,13 +33,12 @@ class TravelTableViewController: UITableViewController {
             return UITableViewCell()
         }
 
-        let data = dummy[indexPath.row]
+        let data = magazineInfoData[indexPath.row]
 
-        cell.mainImageView.image = UIImage(systemName: "star")
-        cell.mainImageView.backgroundColor = .gray
+        cell.mainImageView.kf.setImage(with: data.url)
         cell.mainLabel.text = data.title
         cell.subLabel.text = data.subtitle
-        cell.dateLabel.text = data.date
+        cell.dateLabel.text = data.formattedDate
 
         return cell
     }
