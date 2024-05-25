@@ -14,7 +14,7 @@ class RestaurantViewModel {
             name: restaurant.name,
             address: restaurant.address,
             phoneNumber: restaurant.phoneNumber,
-            category: restaurant.category,
+            category: Category(rawValue: restaurant.category)!,
             price: restaurant.price)
     })
 

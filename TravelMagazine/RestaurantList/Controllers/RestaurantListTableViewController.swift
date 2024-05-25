@@ -68,7 +68,9 @@ class RestaurantListTableViewController: UITableViewController {
 
         let data = restaurantViewModel.restaurantListData[indexPath.row]
 
-        cell.categoryLabel.text = data.category
+        cell.categoryLabel.text = data.category.rawValue
+        cell.categoryLabel.textColor = data.labelColor
+        cell.categoryLabel.layer.borderColor = data.labelColor.cgColor
         cell.mainImageView.kf.setImage(with: data.url)
         cell.nameLabel.text = data.name
         cell.phoneNumberLabel.text = data.phoneNumber
