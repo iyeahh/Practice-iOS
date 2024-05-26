@@ -7,11 +7,12 @@
 
 import UIKit
 
+protocol ViewControllerDelegate: AnyObject {
+    func dismissViewController(data: String)
+}
+
 class RestaurantListTableViewController: UITableViewController {
     var restaurantViewModel = RestaurantViewModel()
-
-    var isFavoriteButtonTapped: Bool = false
-    var favoriteRestaurantList: [RestaurantInfo] = []
 
     @IBOutlet var categoryButton: UIButton!
     @IBOutlet var priceButton: UIButton!
@@ -23,12 +24,13 @@ class RestaurantListTableViewController: UITableViewController {
         setupPriceButtonUI()
         setupLikeButtonUI()
         tableView.rowHeight = 236
-        favoriteButton.addTarget(self, action: #selector(favoriteButtonTapped), for: .touchUpInside)
+
     }
 
     func setupCategoryButtonUI() {
         setupButtonsUI(categoryButton)
         setbuttonImage(categoryButton, name: "list.bullet")
+        categoryButton.addTarget(self, action: #selector(categoryButtonTapped), for: .touchUpInside)
     }
 
     func setupPriceButtonUI() {
@@ -39,6 +41,7 @@ class RestaurantListTableViewController: UITableViewController {
     func setupLikeButtonUI() {
         setupButtonsUI(favoriteButton)
         setbuttonImage(favoriteButton, name: "heart.fill")
+        favoriteButton.addTarget(self, action: #selector(favoriteButtonTapped), for: .touchUpInside)
     }
 
     func setupButtonsUI(_ button: UIButton) {
@@ -58,17 +61,21 @@ class RestaurantListTableViewController: UITableViewController {
             for: .normal)
     }
 
-    @objc func favoriteButtonTapped() {
-        isFavoriteButtonTapped.toggle()
-
-        if isFavoriteButtonTapped {
-            let array = restaurantViewModel.restaurantListData.filter { restaurantInfo in
-                restaurantInfo.like == true
-            }
-            favoriteRestaurantList = array
-        } else {
-
+    @objc func categoryButtonTapped() {
+        guard let categoryVC = storyboard?.instantiateViewController(withIdentifier: "categoryVC") as? CategoryViewController else { return }
+        if let sheet = categoryVC.sheetPresentationController {
+            sheet.detents = [
+                .custom { _ in
+                    return 300
+                }
+            ]
         }
+        categoryVC.delegate = self
+        present(categoryVC, animated: true)
+    }
+
+    @objc func favoriteButtonTapped() {
+        restaurantViewModel.getLikeRestaurantList()
         tableView.reloadData()
     }
 
@@ -78,7 +85,7 @@ class RestaurantListTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        isFavoriteButtonTapped ? favoriteRestaurantList.count : restaurantViewModel.restaurantCount
+        restaurantViewModel.restaurantCount
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -89,7 +96,7 @@ class RestaurantListTableViewController: UITableViewController {
             return UITableViewCell()
         }
 
-        let data = isFavoriteButtonTapped ? favoriteRestaurantList[indexPath.row] : restaurantViewModel.restaurantListData[indexPath.row]
+        let data = restaurantViewModel.restaurantListData[indexPath.row]
 
         cell.categoryLabel.text = data.category.rawValue
         cell.categoryLabel.textColor = data.labelColor
@@ -106,5 +113,12 @@ class RestaurantListTableViewController: UITableViewController {
         cell.likeButton.addTarget(self, action: #selector(likeButtonTapped), for: .touchUpInside)
 
         return cell
+    }
+}
+
+extension RestaurantListTableViewController: ViewControllerDelegate {
+    func dismissViewController(data: String) {
+        restaurantViewModel.getCategoryRestaurantList(category: data)
+        tableView.reloadData()
     }
 }
