@@ -36,6 +36,7 @@ class RestaurantListTableViewController: UITableViewController {
     func setupPriceButtonUI() {
         setupButtonsUI(priceButton)
         setbuttonImage(priceButton, name: "wonsign")
+        priceButton.addTarget(self, action: #selector(priceButtonTapped), for: .touchUpInside)
     }
 
     func setupLikeButtonUI() {
@@ -72,6 +73,29 @@ class RestaurantListTableViewController: UITableViewController {
         }
         categoryVC.delegate = self
         present(categoryVC, animated: true)
+    }
+
+    @objc func priceButtonTapped() {
+        let actionSheet = UIAlertController(title: "가격 설정", message: nil, preferredStyle: .actionSheet)
+
+        actionSheet.addAction(UIAlertAction(title: "1만원 이하", style: .default, handler: { _ in
+            self.restaurantViewModel.getPriceRetaurantList(price: 10000)
+            self.tableView.reloadData()
+        }))
+
+        actionSheet.addAction(UIAlertAction(title: "2만원 이하", style: .default, handler: { _ in
+            self.restaurantViewModel.getPriceRetaurantList(price: 20000)
+            self.tableView.reloadData()
+        }))
+
+        actionSheet.addAction(UIAlertAction(title: "3만원 이하", style: .default, handler: { _ in
+            self.restaurantViewModel.getPriceRetaurantList(price: 30000)
+            self.tableView.reloadData()
+        }))
+
+        actionSheet.addAction(UIAlertAction(title: "취소", style: .cancel, handler: nil))
+
+        self.present(actionSheet, animated: true, completion: nil)
     }
 
     @objc func favoriteButtonTapped() {
