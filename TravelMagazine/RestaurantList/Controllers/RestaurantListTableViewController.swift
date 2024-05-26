@@ -10,33 +10,43 @@ import UIKit
 class RestaurantListTableViewController: UITableViewController {
     var restaurantViewModel = RestaurantViewModel()
 
-    @IBOutlet var buttonCollection: [UIButton]!
-    
+    var isFavoriteButtonTapped: Bool = false
+    var favoriteRestaurantList: [RestaurantInfo] = []
+
+    @IBOutlet var categoryButton: UIButton!
+    @IBOutlet var priceButton: UIButton!
+    @IBOutlet var favoriteButton: UIButton!
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupButtonsUI()
+        setupCategoryButtonUI()
+        setupPriceButtonUI()
+        setupLikeButtonUI()
         tableView.rowHeight = 236
+        favoriteButton.addTarget(self, action: #selector(favoriteButtonTapped), for: .touchUpInside)
     }
 
-    func setupButtonsUI() {
-        buttonCollection.forEach { button in
-            button.layer.masksToBounds = true
-            button.layer.cornerRadius = 10
-            button.titleLabel?.textColor = .black
-            button.tintColor = .black
-            button.backgroundColor = #colorLiteral(red: 0.8980388045, green: 0.8980395198, blue: 0.9152473807, alpha: 1)
+    func setupCategoryButtonUI() {
+        setupButtonsUI(categoryButton)
+        setbuttonImage(categoryButton, name: "list.bullet")
+    }
 
-            switch button.tag {
-            case 0:
-                setbuttonImage(button, name: "list.bullet")
-            case 1:
-                setbuttonImage(button, name: "wonsign")
-            case 2:
-                setbuttonImage(button, name: "heart.fill")
-            default:
-                setbuttonImage(button, name: "star.fill")
-            }
-        }
+    func setupPriceButtonUI() {
+        setupButtonsUI(priceButton)
+        setbuttonImage(priceButton, name: "wonsign")
+    }
+
+    func setupLikeButtonUI() {
+        setupButtonsUI(favoriteButton)
+        setbuttonImage(favoriteButton, name: "heart.fill")
+    }
+
+    func setupButtonsUI(_ button: UIButton) {
+        button.layer.masksToBounds = true
+        button.layer.cornerRadius = 10
+        button.titleLabel?.textColor = .black
+        button.tintColor = .black
+        button.backgroundColor = #colorLiteral(red: 0.8980388045, green: 0.8980395198, blue: 0.9152473807, alpha: 1)
     }
 
     func setbuttonImage(
@@ -48,6 +58,19 @@ class RestaurantListTableViewController: UITableViewController {
             for: .normal)
     }
 
+    @objc func favoriteButtonTapped() {
+        isFavoriteButtonTapped.toggle()
+
+        if isFavoriteButtonTapped {
+            let array = restaurantViewModel.restaurantListData.filter { restaurantInfo in
+                restaurantInfo.like == true
+            }
+            favoriteRestaurantList = array
+        } else {
+
+        }
+        tableView.reloadData()
+    }
 
     @objc func likeButtonTapped(_ sender: UIButton) {
         restaurantViewModel.restaurantListData[sender.tag].like.toggle()
@@ -55,7 +78,7 @@ class RestaurantListTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return restaurantViewModel.restaurantCount
+        isFavoriteButtonTapped ? favoriteRestaurantList.count : restaurantViewModel.restaurantCount
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -66,7 +89,7 @@ class RestaurantListTableViewController: UITableViewController {
             return UITableViewCell()
         }
 
-        let data = restaurantViewModel.restaurantListData[indexPath.row]
+        let data = isFavoriteButtonTapped ? favoriteRestaurantList[indexPath.row] : restaurantViewModel.restaurantListData[indexPath.row]
 
         cell.categoryLabel.text = data.category.rawValue
         cell.categoryLabel.textColor = data.labelColor

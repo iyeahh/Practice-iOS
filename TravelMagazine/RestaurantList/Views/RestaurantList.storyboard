@@ -146,9 +146,9 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="SeSAC Restaurant" id="9Do-kE-kn1"/>
                     <connections>
-                        <outletCollection property="buttonCollection" destination="HKN-nL-PLb" collectionClass="NSMutableArray" id="8vT-7i-Fxj"/>
-                        <outletCollection property="buttonCollection" destination="YJs-pn-ubD" collectionClass="NSMutableArray" id="Wjn-YW-1hr"/>
-                        <outletCollection property="buttonCollection" destination="RNi-En-NjX" collectionClass="NSMutableArray" id="pqF-3c-2go"/>
+                        <outlet property="categoryButton" destination="HKN-nL-PLb" id="KlB-5v-XGe"/>
+                        <outlet property="favoriteButton" destination="RNi-En-NjX" id="M2U-2M-AUe"/>
+                        <outlet property="priceButton" destination="YJs-pn-ubD" id="aIE-lT-FMi"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0vz-No-TJh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
