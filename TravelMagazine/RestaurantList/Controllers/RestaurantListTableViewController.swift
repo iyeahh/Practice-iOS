@@ -115,6 +115,21 @@ class RestaurantListTableViewController: UITableViewController, UISearchBarDeleg
         tableView.reloadRows(at: [IndexPath(row: sender.tag, section: 0)], with: .none)
     }
 
+    override func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+
+        let like = UIContextualAction(style: .normal, title: "Like") { [self] (UIContextualAction, UIView, success: @escaping (Bool) -> Void) in
+            self.restaurantViewModel.filteredList[indexPath.row].like.toggle()
+            restaurantViewModel.changeLikeStatus(index: indexPath.row)
+            tableView.reloadRows(at: [IndexPath(row: indexPath.row, section: 0)], with: .none)
+            success(true)
+        }
+        like.backgroundColor = .red
+        like.image = UIImage(systemName: "hand.thumbsup")
+        like.title = nil
+
+        return UISwipeActionsConfiguration(actions:[like])
+    }
+
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         restaurantViewModel.searchRestaurant(word: searchBar.text!)
         tableView.reloadData()
