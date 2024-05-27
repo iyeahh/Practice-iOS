@@ -6,14 +6,15 @@
 //
 
 import UIKit
+import Cosmos
 
 final class TravelInfoTableViewCell: UITableViewCell {
     @IBOutlet var mainLabel: UILabel!
     @IBOutlet var subLabel: UILabel!
     @IBOutlet var saveLabel: UILabel!
     @IBOutlet var mainImageView: UIImageView!
-    @IBOutlet var starImageView: UIImageView!
     @IBOutlet var likeButton: UIButton!
+    @IBOutlet var cosmosView: CosmosView!
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -22,9 +23,8 @@ final class TravelInfoTableViewCell: UITableViewCell {
         setupSaveLabelUI()
         setupMainImageViewUI()
         setupLikeButtonUI()
+        setupCosmosViewUI()
     }
-
-    // TODO: starImageViewLayout
 
     private func setupMainLabelUI() {
         mainLabel.font = .boldSystemFont(ofSize: 17)
@@ -53,10 +53,18 @@ final class TravelInfoTableViewCell: UITableViewCell {
         likeButton.tintColor = .white
     }
 
+    private func setupCosmosViewUI() {
+        cosmosView.rating = 4
+        cosmosView.text = "(123)"
+        cosmosView.settings.starMargin = 1
+    }
+
     func setupData(_ data: Travel) {
         mainLabel.text = data.titleString
         subLabel.text = data.descriptionString
         saveLabel.text = data.saveText
+        cosmosView.rating = data.gradeDouble
+        cosmosView.text = "(\(data.gradeText))"
         if let url = data.url {
             mainImageView.kf.setImage(with: url)
         } else {

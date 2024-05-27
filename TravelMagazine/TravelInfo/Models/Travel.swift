@@ -49,7 +49,11 @@ struct Travel {
         }
     }
 
+    var gradeText: String {
+        return String(gradeDouble)
+    }
+
     var saveText: String {
-        "(\(gradeDouble)) · 저장 " +  saveInt.formatted()
+        " · 저장 " +  saveInt.formatted()
     }
 }
