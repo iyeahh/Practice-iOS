@@ -27,7 +27,8 @@ final class TravelInfoTableViewCell: UITableViewCell {
     }
 
     private func setupMainLabelUI() {
-        mainLabel.font = .boldSystemFont(ofSize: 17)
+        mainLabel.font = .systemFont(ofSize: 17, weight: .heavy)
+        mainLabel.textColor = .darkGray
     }
 
     private func setupSubLabelUI() {
@@ -57,6 +58,7 @@ final class TravelInfoTableViewCell: UITableViewCell {
         cosmosView.rating = 4
         cosmosView.text = "(123)"
         cosmosView.settings.starMargin = 1
+        cosmosView.settings.starSize = 15
     }
 
     func setupData(_ data: Travel) {

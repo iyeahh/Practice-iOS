@@ -31,14 +31,14 @@ final class BannerTableViewCell: UITableViewCell {
         adLabel.layer.masksToBounds = true
         adLabel.layer.cornerRadius = 5
         adLabel.text = "AD"
-        adLabel.font = .systemFont(ofSize: 15)
+        adLabel.font = .boldSystemFont(ofSize: 13)
         adLabel.textAlignment = .center
     }
 
     private func setupMainLabel() {
         mainLabel.textAlignment = .center
         mainLabel.numberOfLines = 0
-        mainLabel.font = .boldSystemFont(ofSize: 15)
+        mainLabel.font = .systemFont(ofSize: 15, weight: .heavy)
     }
 
     func setupData(_ data: Travel) {
