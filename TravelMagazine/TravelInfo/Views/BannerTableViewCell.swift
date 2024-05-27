@@ -42,6 +42,7 @@ final class BannerTableViewCell: UITableViewCell {
     }
 
     func setupData(_ data: Travel) {
+        // TODO: 스크롤 때마다 색상 변경됨
         backgroundColorView.backgroundColor = backgroundColors.randomElement()
         mainLabel.text = data.title
     }

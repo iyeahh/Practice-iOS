@@ -10,6 +10,7 @@ import Foundation
 class RestaurantViewModel {
     var restaurantListData: [RestaurantInfo]
     var filteredList: [RestaurantInfo] = []
+    var isLikeButton = false
 
     var restaurantCount: Int {
         filteredList.count
@@ -29,11 +30,27 @@ class RestaurantViewModel {
         filteredList = restaurantListData
     }
 
-    func getLikeRestaurantList() {
-        let likeRestaurant = self.restaurantListData.filter { restaurantInfo in
-            restaurantInfo.like == true
+    func changeLikeStatus(index: Int) {
+        let firstIndex = restaurantListData.firstIndex { restaurnatInfo in
+            restaurnatInfo.name == filteredList[index].name
         }
-        filteredList = likeRestaurant
+        guard let number = firstIndex else {
+            return
+        }
+        restaurantListData[number].like.toggle()
+    }
+
+    func getLikeRestaurantList() {
+        isLikeButton.toggle()
+
+        if isLikeButton {
+            let likeRestaurant = self.restaurantListData.filter { restaurantInfo in
+                restaurantInfo.like == true
+            }
+            filteredList = likeRestaurant
+        } else {
+            filteredList = restaurantListData
+        }
     }
 
     func getCategoryRestaurantList(category: String) {

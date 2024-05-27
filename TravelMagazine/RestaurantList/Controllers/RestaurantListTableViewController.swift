@@ -110,6 +110,7 @@ class RestaurantListTableViewController: UITableViewController {
 
     @objc func likeButtonTapped(_ sender: UIButton) {
         restaurantViewModel.filteredList[sender.tag].like.toggle()
+        restaurantViewModel.changeLikeStatus(index: sender.tag)
         tableView.reloadRows(at: [IndexPath(row: sender.tag, section: 0)], with: .none)
     }
 
