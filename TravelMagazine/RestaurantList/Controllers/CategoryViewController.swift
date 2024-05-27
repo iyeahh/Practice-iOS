@@ -16,6 +16,8 @@ class CategoryViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     @IBOutlet var confimButton: UIButton!
     @IBOutlet var categoryPickerView: UIPickerView!
 
+    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         setupCategoryLabelUI()

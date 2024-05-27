@@ -11,12 +11,13 @@ protocol ViewControllerDelegate: AnyObject {
     func dismissViewController(data: String)
 }
 
-class RestaurantListTableViewController: UITableViewController {
+class RestaurantListTableViewController: UITableViewController, UISearchBarDelegate {
     var restaurantViewModel = RestaurantViewModel()
 
     @IBOutlet var categoryButton: UIButton!
     @IBOutlet var priceButton: UIButton!
     @IBOutlet var favoriteButton: UIButton!
+    @IBOutlet var searchBar: UISearchBar!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,7 +25,7 @@ class RestaurantListTableViewController: UITableViewController {
         setupPriceButtonUI()
         setupLikeButtonUI()
         tableView.rowHeight = 236
-
+        searchBar.delegate = self
     }
 
     func setupCategoryButtonUI() {
@@ -112,6 +113,11 @@ class RestaurantListTableViewController: UITableViewController {
         restaurantViewModel.filteredList[sender.tag].like.toggle()
         restaurantViewModel.changeLikeStatus(index: sender.tag)
         tableView.reloadRows(at: [IndexPath(row: sender.tag, section: 0)], with: .none)
+    }
+
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        restaurantViewModel.searchRestaurant(word: searchBar.text!)
+        tableView.reloadData()
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

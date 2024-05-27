@@ -18,24 +18,24 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <view key="tableHeaderView" contentMode="scaleToFill" id="eoU-VR-0cR">
-                            <rect key="frame" x="0.0" y="0.0" width="393" height="68"/>
+                            <rect key="frame" x="0.0" y="0.0" width="393" height="103"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="p8O-0W-lZu">
-                                    <rect key="frame" x="20" y="8" width="353" height="52"/>
+                                    <rect key="frame" x="20" y="55" width="353" height="40"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HKN-nL-PLb">
-                                            <rect key="frame" x="0.0" y="0.0" width="111" height="52"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="111" height="40"/>
                                             <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                             <state key="normal" title="카테고리"/>
                                         </button>
                                         <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YJs-pn-ubD">
-                                            <rect key="frame" x="121" y="0.0" width="111" height="52"/>
+                                            <rect key="frame" x="121" y="0.0" width="111" height="40"/>
                                             <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                             <state key="normal" title="가격"/>
                                         </button>
                                         <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RNi-En-NjX">
-                                            <rect key="frame" x="242" y="0.0" width="111" height="52"/>
+                                            <rect key="frame" x="242" y="0.0" width="111" height="40"/>
                                             <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                             <state key="normal" title="좋아요"/>
                                         </button>
@@ -44,18 +44,31 @@
                                         <constraint firstAttribute="height" constant="40" id="lyp-ld-8yk"/>
                                     </constraints>
                                 </stackView>
+                                <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="5PY-0i-Cq6">
+                                    <rect key="frame" x="8" y="0.0" width="377" height="47"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="44" id="UXb-hG-kA3"/>
+                                    </constraints>
+                                    <textInputTraits key="textInputTraits"/>
+                                    <connections>
+                                        <outlet property="delegate" destination="NuE-lt-3Ax" id="KZQ-wv-kYl"/>
+                                    </connections>
+                                </searchBar>
                             </subviews>
                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             <constraints>
                                 <constraint firstItem="p8O-0W-lZu" firstAttribute="leading" secondItem="eoU-VR-0cR" secondAttribute="leading" constant="20" id="I2j-5J-gar"/>
-                                <constraint firstItem="p8O-0W-lZu" firstAttribute="top" secondItem="eoU-VR-0cR" secondAttribute="top" constant="8" id="Vmn-pA-OAQ"/>
+                                <constraint firstItem="5PY-0i-Cq6" firstAttribute="top" secondItem="eoU-VR-0cR" secondAttribute="top" id="IDa-IN-VZm"/>
+                                <constraint firstItem="5PY-0i-Cq6" firstAttribute="leading" secondItem="eoU-VR-0cR" secondAttribute="leading" constant="8" id="Kz7-Me-hUX"/>
                                 <constraint firstAttribute="bottom" secondItem="p8O-0W-lZu" secondAttribute="bottom" constant="8" id="brV-s9-7ny"/>
                                 <constraint firstAttribute="trailing" secondItem="p8O-0W-lZu" secondAttribute="trailing" constant="20" id="gzr-P7-75e"/>
+                                <constraint firstAttribute="trailing" secondItem="5PY-0i-Cq6" secondAttribute="trailing" constant="8" id="pTU-EW-Cue"/>
+                                <constraint firstItem="p8O-0W-lZu" firstAttribute="top" secondItem="5PY-0i-Cq6" secondAttribute="bottom" constant="8" id="zbS-Uj-AZV"/>
                             </constraints>
                         </view>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="RestaurantListTableViewCell" rowHeight="236" id="xU9-Hu-77x" customClass="RestaurantListTableViewCell" customModule="TravelMagazine" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="118" width="393" height="236"/>
+                                <rect key="frame" x="0.0" y="153" width="393" height="236"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="xU9-Hu-77x" id="ED7-B8-ccp">
                                     <rect key="frame" x="0.0" y="0.0" width="393" height="236"/>
@@ -150,6 +163,7 @@
                         <outlet property="categoryButton" destination="HKN-nL-PLb" id="KlB-5v-XGe"/>
                         <outlet property="favoriteButton" destination="RNi-En-NjX" id="M2U-2M-AUe"/>
                         <outlet property="priceButton" destination="YJs-pn-ubD" id="aIE-lT-FMi"/>
+                        <outlet property="searchBar" destination="5PY-0i-Cq6" id="nxc-KQ-QAf"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0vz-No-TJh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

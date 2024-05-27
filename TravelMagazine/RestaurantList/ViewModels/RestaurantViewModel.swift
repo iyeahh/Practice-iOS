@@ -74,4 +74,11 @@ class RestaurantViewModel {
             filteredList = priceRestaurant
         }
     }
+
+    func searchRestaurant(word: String) {
+        let searchedRestaurant = restaurantListData.filter { restaurant in
+            restaurant.name.contains(word) || restaurant.address.contains(word)
+        }
+        filteredList = searchedRestaurant
+    }
 }
