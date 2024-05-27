@@ -68,4 +68,19 @@ class RestaurantListTableViewCell: UITableViewCell {
     func setupPriceLabelUI() {
         priceLabel.font = .boldSystemFont(ofSize: 13)
     }
+
+    func setData(data: RestaurantInfo) {
+        categoryLabel.text = data.category.rawValue
+        categoryLabel.textColor = data.labelColor
+        categoryLabel.layer.borderColor = data.labelColor.cgColor
+        
+        mainImageView.kf.setImage(with: data.url)
+        nameLabel.text = data.name
+        phoneNumberLabel.text = data.phoneNumber
+        addressLabel.text = data.address
+        priceLabel.text = data.price.formatted()
+
+        let likeButtonImageName = data.like ? "heart.fill" : "heart"
+        likeButton.setImage(UIImage(systemName: likeButtonImageName), for: .normal)
+    }
 }

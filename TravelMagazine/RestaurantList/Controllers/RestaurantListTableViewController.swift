@@ -134,17 +134,7 @@ class RestaurantListTableViewController: UITableViewController, UISearchBarDeleg
 
         let data = restaurantViewModel.filteredList[indexPath.row]
 
-        cell.categoryLabel.text = data.category.rawValue
-        cell.categoryLabel.textColor = data.labelColor
-        cell.categoryLabel.layer.borderColor = data.labelColor.cgColor
-        cell.mainImageView.kf.setImage(with: data.url)
-        cell.nameLabel.text = data.name
-        cell.phoneNumberLabel.text = data.phoneNumber
-        cell.addressLabel.text = data.address
-        cell.priceLabel.text = "\(data.price)"
-
-        let likeButtonImageName = data.like ? "heart.fill" : "heart"
-        setbuttonImage(cell.likeButton, name: likeButtonImageName)
+        cell.setData(data: data)
         cell.likeButton.tag = indexPath.row
         cell.likeButton.addTarget(self, action: #selector(likeButtonTapped), for: .touchUpInside)
 
