@@ -9,7 +9,7 @@ import UIKit
 import Kingfisher
 
 class TravelInfoViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-    let travelInfo = TravelInfo().travel
+    var travelInfo = TravelInfo().travel
 
     @IBOutlet var travelTableView: UITableView!
 
@@ -24,12 +24,17 @@ class TravelInfoViewController: UIViewController, UITableViewDelegate, UITableVi
         travelTableView.dataSource = self
     }
 
-    func registerXIB() {
+    private func registerXIB() {
         let xib = UINib(nibName: "TravelInfoTableViewCell", bundle: nil)
         travelTableView.register(xib, forCellReuseIdentifier: "TravelInfoTableViewCell")
 
         let xib2 = UINib(nibName: "BannerTableViewCell", bundle: nil)
         travelTableView.register(xib2, forCellReuseIdentifier: "BannerTableViewCell")
+    }
+
+    @objc private func likeButtonTapped(_ sender: UIButton) {
+        travelInfo[sender.tag].like?.toggle()
+        travelTableView.reloadRows(at: [IndexPath(row: sender.tag, section: 0)], with: .none)
     }
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -58,6 +63,8 @@ class TravelInfoViewController: UIViewController, UITableViewDelegate, UITableVi
                 return UITableViewCell()
             }
             cell.setupData(data)
+            cell.likeButton.tag = indexPath.row
+            cell.likeButton.addTarget(self, action: #selector(likeButtonTapped), for: .touchUpInside)
             return cell
         }
     }

@@ -33,7 +33,12 @@ struct Travel {
     }
 
     var likeBool: Bool {
-        return like ?? false
+        get {
+            like ?? false
+        }
+        set {
+            like = newValue
+        }
     }
 
     var url: URL? {

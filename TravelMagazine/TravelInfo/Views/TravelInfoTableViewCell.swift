@@ -62,5 +62,12 @@ final class TravelInfoTableViewCell: UITableViewCell {
         } else {
             mainImageView.image = UIImage(systemName: "star")
         }
+        if data.likeBool {
+            likeButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
+            likeButton.tintColor = .red
+        } else {
+            likeButton.setImage(UIImage(systemName: "heart"), for: .normal)
+            likeButton.tintColor = .white
+        }
     }
 }
