@@ -9,7 +9,7 @@ import UIKit
 
 class CategoryViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     let categorys = Category.categorys
-    var choiceCategory: String = "한식"
+    var choiceCategory: String = "All"
     weak var delegate: ViewControllerDelegate?
 
     @IBOutlet var categoryLabel: UILabel!

@@ -104,7 +104,7 @@ class RestaurantListTableViewController: UITableViewController {
     }
 
     @objc func likeButtonTapped(_ sender: UIButton) {
-        restaurantViewModel.restaurantListData[sender.tag].like.toggle()
+        restaurantViewModel.filteredList[sender.tag].like.toggle()
         tableView.reloadRows(at: [IndexPath(row: sender.tag, section: 0)], with: .none)
     }
 
@@ -120,7 +120,7 @@ class RestaurantListTableViewController: UITableViewController {
             return UITableViewCell()
         }
 
-        let data = restaurantViewModel.restaurantListData[indexPath.row]
+        let data = restaurantViewModel.filteredList[indexPath.row]
 
         cell.categoryLabel.text = data.category.rawValue
         cell.categoryLabel.textColor = data.labelColor

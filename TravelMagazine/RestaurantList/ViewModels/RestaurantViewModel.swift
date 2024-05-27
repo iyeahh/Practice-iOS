@@ -9,9 +9,10 @@ import Foundation
 
 class RestaurantViewModel {
     var restaurantListData: [RestaurantInfo]
+    var filteredList: [RestaurantInfo] = []
 
     var restaurantCount: Int {
-        restaurantListData.count
+        filteredList.count
     }
 
     init() {
@@ -24,26 +25,32 @@ class RestaurantViewModel {
                 category: Category(rawValue: restaurant.category)!,
                 price: restaurant.price)
         })
+
+        filteredList = restaurantListData
     }
 
     func getLikeRestaurantList() {
         let likeRestaurant = self.restaurantListData.filter { restaurantInfo in
             restaurantInfo.like == true
         }
-        restaurantListData = likeRestaurant
+        filteredList = likeRestaurant
     }
 
     func getCategoryRestaurantList(category: String) {
-        let categoryRestaurant = self.restaurantListData.filter { restaurantInfo in
-            restaurantInfo.category == Category(rawValue: category)
+        if category == "All" {
+            filteredList = restaurantListData
+        } else {
+            let categoryRestaurant = self.restaurantListData.filter { restaurantInfo in
+                restaurantInfo.category == Category(rawValue: category)
+            }
+            filteredList = categoryRestaurant
         }
-        restaurantListData = categoryRestaurant
     }
 
     func getPriceRetaurantList(price: Int) {
         let priceRestaurant = self.restaurantListData.filter { restaurantInfo in
             restaurantInfo.price < price
         }
-        restaurantListData = priceRestaurant
+        filteredList = priceRestaurant
     }
 }

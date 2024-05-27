@@ -16,5 +16,5 @@ enum Category: String, CaseIterable {
     case lightWestern = "경양식"
     case western = "양식"
 
-    static let categorys = [korean.rawValue, chinese.rawValue, cafe.rawValue, snack.rawValue, japanese.rawValue, lightWestern.rawValue, western.rawValue]
+    static let categorys = ["All", korean.rawValue, chinese.rawValue, cafe.rawValue, snack.rawValue, japanese.rawValue, lightWestern.rawValue, western.rawValue]
 }
