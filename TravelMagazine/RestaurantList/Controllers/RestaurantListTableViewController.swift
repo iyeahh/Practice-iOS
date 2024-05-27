@@ -93,6 +93,11 @@ class RestaurantListTableViewController: UITableViewController {
             self.tableView.reloadData()
         }))
 
+        actionSheet.addAction(UIAlertAction(title: "모두 보기", style: .default, handler: { _ in
+            self.restaurantViewModel.getPriceRetaurantList(price: 0)
+            self.tableView.reloadData()
+        }))
+
         actionSheet.addAction(UIAlertAction(title: "취소", style: .cancel, handler: nil))
 
         self.present(actionSheet, animated: true, completion: nil)

@@ -48,9 +48,13 @@ class RestaurantViewModel {
     }
 
     func getPriceRetaurantList(price: Int) {
-        let priceRestaurant = self.restaurantListData.filter { restaurantInfo in
-            restaurantInfo.price < price
+        if price == 0 {
+            filteredList = restaurantListData
+        } else {
+            let priceRestaurant = self.restaurantListData.filter { restaurantInfo in
+                restaurantInfo.price < price
+            }
+            filteredList = priceRestaurant
         }
-        filteredList = priceRestaurant
     }
 }
