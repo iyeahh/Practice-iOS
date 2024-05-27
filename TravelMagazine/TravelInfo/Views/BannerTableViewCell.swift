@@ -8,7 +8,6 @@
 import UIKit
 
 final class BannerTableViewCell: UITableViewCell {
-
     @IBOutlet var backgroundColorView: UIView!
     @IBOutlet var adLabel: UILabel!
     @IBOutlet var mainLabel: UILabel!
@@ -21,8 +20,6 @@ final class BannerTableViewCell: UITableViewCell {
         setupAdLabelUI()
         setupMainLabel()
     }
-
-    // TODO: backgroundColor random
 
     private func setupBackgroundColorViewUI() {
         backgroundColorView.backgroundColor = backgroundColors.randomElement()
@@ -45,6 +42,7 @@ final class BannerTableViewCell: UITableViewCell {
     }
 
     func setupData(_ data: Travel) {
+        backgroundColorView.backgroundColor = backgroundColors.randomElement()
         mainLabel.text = data.title
     }
 }

@@ -58,7 +58,7 @@ final class TravelInfoTableViewCell: UITableViewCell {
         subLabel.text = data.descriptionString
         saveLabel.text = data.saveText
         if let url = data.url {
-            mainImageView.kf.setImage(with: data.url)
+            mainImageView.kf.setImage(with: url)
         } else {
             mainImageView.image = UIImage(systemName: "star")
         }

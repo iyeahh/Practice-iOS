@@ -149,7 +149,6 @@
 			children = (
 				76262BB62C045F7E00B9553A /* Models */,
 				76262BB52C045F7800B9553A /* Views */,
-				76262BB72C045F9300B9553A /* ViewModels */,
 				76262BB42C045F6F00B9553A /* Controllers */,
 			);
 			path = Magazine;
@@ -179,13 +178,6 @@
 				7621D1FC2C018F4B001AD157 /* MagazineInfo.swift */,
 			);
 			path = Models;
-			sourceTree = "<group>";
-		};
-		76262BB72C045F9300B9553A /* ViewModels */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ViewModels;
 			sourceTree = "<group>";
 		};
 		76262BB82C045FC000B9553A /* TravelInfo */ = {
