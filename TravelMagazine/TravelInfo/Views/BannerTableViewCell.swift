@@ -12,7 +12,9 @@ final class BannerTableViewCell: UITableViewCell {
     @IBOutlet var backgroundColorView: UIView!
     @IBOutlet var adLabel: UILabel!
     @IBOutlet var mainLabel: UILabel!
-    
+
+    var backgroundColors = [#colorLiteral(red: 1, green: 0.8288480639, blue: 0.8279682994, alpha: 1), #colorLiteral(red: 0.8388726115, green: 1, blue: 0.8289427161, alpha: 1)]
+
     override func awakeFromNib() {
         super.awakeFromNib()
         setupBackgroundColorViewUI()
@@ -20,13 +22,17 @@ final class BannerTableViewCell: UITableViewCell {
         setupMainLabel()
     }
 
+    // TODO: backgroundColor random
+
     private func setupBackgroundColorViewUI() {
-        backgroundColorView.backgroundColor = .systemPink
+        backgroundColorView.backgroundColor = backgroundColors.randomElement()
         backgroundColorView.layer.cornerRadius = 10
     }
 
     private func setupAdLabelUI() {
         adLabel.backgroundColor = .white
+        adLabel.layer.masksToBounds = true
+        adLabel.layer.cornerRadius = 5
         adLabel.text = "AD"
         adLabel.font = .systemFont(ofSize: 15)
         adLabel.textAlignment = .center
@@ -36,5 +42,9 @@ final class BannerTableViewCell: UITableViewCell {
         mainLabel.textAlignment = .center
         mainLabel.numberOfLines = 0
         mainLabel.font = .boldSystemFont(ofSize: 15)
+    }
+
+    func setupData(_ data: Travel) {
+        mainLabel.text = data.title
     }
 }

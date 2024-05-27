@@ -47,9 +47,20 @@ final class TravelInfoTableViewCell: UITableViewCell {
     }
 
     private func setupLikeButtonUI() {
+        // TODO: 하트 뒤에 배경 넣기
         likeButton.setTitle("", for: .normal)
         likeButton.setImage(UIImage(systemName: "heart"), for: .normal)
-        likeButton.layer.borderWidth = 1
-        likeButton.layer.borderColor = UIColor.white.cgColor
+        likeButton.tintColor = .white
+    }
+
+    func setupData(_ data: Travel) {
+        mainLabel.text = data.titleString
+        subLabel.text = data.descriptionString
+        saveLabel.text = data.saveText
+        if let url = data.url {
+            mainImageView.kf.setImage(with: data.url)
+        } else {
+            mainImageView.image = UIImage(systemName: "star")
+        }
     }
 }

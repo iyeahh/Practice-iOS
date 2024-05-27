@@ -19,10 +19,10 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OxG-uB-ZVu">
-                        <rect key="frame" x="0.0" y="0.0" width="370" height="104"/>
+                        <rect key="frame" x="16" y="8" width="338" height="88"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l0l-fz-Udx">
-                                <rect key="frame" x="338" y="2" width="30" height="20"/>
+                                <rect key="frame" x="306" y="2" width="30" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="30" id="Cg6-o5-kfz"/>
                                     <constraint firstAttribute="height" constant="20" id="YhC-0R-33G"/>
@@ -32,7 +32,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ovJ-uv-V37">
-                                <rect key="frame" x="40" y="8" width="290" height="88"/>
+                                <rect key="frame" x="40" y="8" width="258" height="72"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -50,10 +50,10 @@
                     </view>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="OxG-uB-ZVu" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="CVW-iM-x0P"/>
-                    <constraint firstAttribute="trailing" secondItem="OxG-uB-ZVu" secondAttribute="trailing" id="Cig-hi-pyE"/>
-                    <constraint firstAttribute="bottom" secondItem="OxG-uB-ZVu" secondAttribute="bottom" id="oLb-7O-rJs"/>
-                    <constraint firstItem="OxG-uB-ZVu" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="xrP-ck-CZK"/>
+                    <constraint firstItem="OxG-uB-ZVu" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="CVW-iM-x0P"/>
+                    <constraint firstAttribute="trailing" secondItem="OxG-uB-ZVu" secondAttribute="trailing" constant="16" id="Cig-hi-pyE"/>
+                    <constraint firstAttribute="bottom" secondItem="OxG-uB-ZVu" secondAttribute="bottom" constant="8" id="oLb-7O-rJs"/>
+                    <constraint firstItem="OxG-uB-ZVu" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="xrP-ck-CZK"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>

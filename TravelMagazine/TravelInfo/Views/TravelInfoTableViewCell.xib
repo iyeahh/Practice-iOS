@@ -33,23 +33,23 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fR4-Es-fgt">
-                        <rect key="frame" x="16" y="28" width="293.66666666666669" height="20.333333333333329"/>
+                        <rect key="frame" x="16" y="28" width="293.66666666666669" height="30"/>
                         <constraints>
-                            <constraint firstAttribute="height" relation="lessThanOrEqual" constant="30" id="6WO-rD-3Jd"/>
+                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="6WO-rD-3Jd"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="n8h-hN-TeZ">
-                        <rect key="frame" x="16" y="50.333333333333336" width="100" height="20.000000000000007"/>
+                        <rect key="frame" x="16" y="60" width="100" height="20"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="100" id="2SZ-GY-tiu"/>
                             <constraint firstAttribute="height" constant="20" id="jmp-9l-Vg7"/>
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uNb-vW-hmX">
-                        <rect key="frame" x="117.99999999999999" y="50.333333333333336" width="191.66666666666663" height="20.000000000000007"/>
+                        <rect key="frame" x="117.99999999999999" y="60" width="191.66666666666663" height="20"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="20" id="Klp-ku-o5h"/>
                         </constraints>
@@ -62,8 +62,8 @@
                         <constraints>
                             <constraint firstAttribute="width" secondItem="dnB-mI-vzN" secondAttribute="height" id="VBl-OR-WFb"/>
                         </constraints>
+                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                         <state key="normal" title="Button"/>
-                        <buttonConfiguration key="configuration" style="plain" title="Button"/>
                     </button>
                 </subviews>
                 <constraints>
