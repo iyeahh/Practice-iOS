@@ -25,11 +25,11 @@ class TravelInfoViewController: UIViewController, UITableViewDelegate, UITableVi
     }
 
     private func registerXIB() {
-        let xib = UINib(nibName: "TravelInfoTableViewCell", bundle: nil)
-        travelTableView.register(xib, forCellReuseIdentifier: "TravelInfoTableViewCell")
+        let xib = UINib(nibName: TravelInfoTableViewCell.identifier, bundle: nil)
+        travelTableView.register(xib, forCellReuseIdentifier: TravelInfoTableViewCell.identifier)
 
-        let xib2 = UINib(nibName: "BannerTableViewCell", bundle: nil)
-        travelTableView.register(xib2, forCellReuseIdentifier: "BannerTableViewCell")
+        let xib2 = UINib(nibName: BannerTableViewCell.identifier, bundle: nil)
+        travelTableView.register(xib2, forCellReuseIdentifier: BannerTableViewCell.identifier)
     }
 
     @objc private func likeButtonTapped(_ sender: UIButton) {
@@ -53,13 +53,13 @@ class TravelInfoViewController: UIViewController, UITableViewDelegate, UITableVi
         let data = travelInfo[indexPath.row]
 
         if data.ad {
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: "BannerTableViewCell", for: indexPath) as? BannerTableViewCell else {
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: BannerTableViewCell.identifier, for: indexPath) as? BannerTableViewCell else {
                 return UITableViewCell()
             }
             cell.setupData(data)
             return cell
         } else {
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: "TravelInfoTableViewCell", for: indexPath) as? TravelInfoTableViewCell else {
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: TravelInfoTableViewCell.identifier, for: indexPath) as? TravelInfoTableViewCell else {
                 return UITableViewCell()
             }
             cell.setupData(data)

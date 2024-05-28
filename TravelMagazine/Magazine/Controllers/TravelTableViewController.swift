@@ -27,18 +27,14 @@ class TravelTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(
-            withIdentifier: "MagazineTableViewCell",
+            withIdentifier: MagazineTableViewCell.identifier,
             for: indexPath
         ) as? MagazineTableViewCell else {
             return UITableViewCell()
         }
 
         let data = magazineInfoData[indexPath.row]
-
-        cell.mainImageView.kf.setImage(with: data.url)
-        cell.mainLabel.text = data.title
-        cell.subLabel.text = data.subtitle
-        cell.dateLabel.text = data.formattedDate
+        cell.setupData(data)
 
         return cell
     }
