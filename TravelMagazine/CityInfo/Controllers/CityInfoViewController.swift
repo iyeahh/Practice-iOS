@@ -89,9 +89,11 @@ extension CityInfoViewController: UISearchBarDelegate {
         searchWord(text: searchText)
     }
 
-    func searchWord(text: String) {
+    private func searchWord(text: String) {
+        let lowercasedText = text.lowercased()
+
         let list = cityInfo.filter { city in
-            city.city_name.contains(text) || city.city_english_name.contains(text) || city.city_explain.contains(text)
+            city.city_name.contains(text) || (city.city_english_name).lowercased().contains(lowercasedText) || city.city_explain.contains(text)
         }
         filteredCityList = list
         cityInfoTableView.reloadData()
