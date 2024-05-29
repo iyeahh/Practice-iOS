@@ -25,20 +25,24 @@ class CityInfoTableViewCell: UITableViewCell {
 
     private func setupBackgroundImageViewUI() {
         backgroundImageView.contentMode = .scaleAspectFill
+        backgroundImageView.clipsToBounds = true
+        backgroundImageView.layer.cornerRadius = 20
+        backgroundImageView.layer.maskedCorners = CACornerMask(arrayLiteral: .layerMinXMinYCorner, .layerMaxXMaxYCorner)
     }
 
     private func setupCityNameLabelUI() {
         cityNameLabel.textAlignment = .right
         cityNameLabel.textColor = .white
-        cityNameLabel.font = .boldSystemFont(ofSize: 22)
+        cityNameLabel.font = .boldSystemFont(ofSize: 20)
     }
 
     private func setupLabelBackgroundView() {
-        labelBackgroundView.backgroundColor = .black.withAlphaComponent(0.3)
+        labelBackgroundView.backgroundColor = .black.withAlphaComponent(0.5)
     }
 
     private func setupDescriptionLabel() {
         descriptionLabel.textColor = .white
+        descriptionLabel.font = .boldSystemFont(ofSize: 13)
     }
 
     func setupData(_ data: City) {

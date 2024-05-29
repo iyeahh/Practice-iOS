@@ -26,7 +26,7 @@ class CityInfoViewController: UIViewController {
     private func setupTabelView() {
         cityInfoTableView.delegate = self
         cityInfoTableView.dataSource = self
-        cityInfoTableView.rowHeight = 120
+        cityInfoTableView.rowHeight = 130
         cityInfoTableView.separatorStyle = .none
     }
 
