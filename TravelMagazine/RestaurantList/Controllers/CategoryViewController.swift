@@ -7,7 +7,7 @@
 
 import UIKit
 
-class CategoryViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
+class CategoryViewController: UIViewController {
     let categorys = Category.categorys
     var choiceCategory: String = "All"
     weak var delegate: ViewControllerDelegate?
@@ -15,8 +15,6 @@ class CategoryViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     @IBOutlet var categoryLabel: UILabel!
     @IBOutlet var confimButton: UIButton!
     @IBOutlet var categoryPickerView: UIPickerView!
-
-    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,7 +42,9 @@ class CategoryViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
         delegate?.dismissViewController(data: choiceCategory)
         dismiss(animated: true)
     }
+}
 
+extension CategoryViewController: UIPickerViewDelegate, UIPickerViewDataSource {
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         return categorys.count
     }

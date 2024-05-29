@@ -11,7 +11,7 @@ protocol ViewControllerDelegate: AnyObject {
     func dismissViewController(data: String)
 }
 
-class RestaurantListTableViewController: UITableViewController, UISearchBarDelegate {
+class RestaurantListTableViewController: UITableViewController {
     var restaurantViewModel = RestaurantViewModel()
 
     @IBOutlet var categoryButton: UIButton!
@@ -130,11 +130,6 @@ class RestaurantListTableViewController: UITableViewController, UISearchBarDeleg
         return UISwipeActionsConfiguration(actions:[like])
     }
 
-    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        restaurantViewModel.searchRestaurant(word: searchBar.text!)
-        tableView.reloadData()
-    }
-
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         restaurantViewModel.restaurantCount
     }
@@ -154,6 +149,13 @@ class RestaurantListTableViewController: UITableViewController, UISearchBarDeleg
         cell.likeButton.addTarget(self, action: #selector(likeButtonTapped), for: .touchUpInside)
 
         return cell
+    }
+}
+
+extension RestaurantListTableViewController: UISearchBarDelegate {
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        restaurantViewModel.searchRestaurant(word: searchBar.text!)
+        tableView.reloadData()
     }
 }
 
