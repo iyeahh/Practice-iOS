@@ -13,6 +13,8 @@ class AdvertisementViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.title = "광고 화면"
+        navigationItem.leftBarButtonItem?.tintColor = .black
+        mainLabel.text = "광고 화면"
     }
 
     @IBAction func dismissButton(_ sender: UIBarButtonItem) {

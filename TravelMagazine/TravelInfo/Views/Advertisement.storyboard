@@ -33,9 +33,9 @@
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="syT-R4-pKc">
-                        <barButtonItem key="rightBarButtonItem" systemItem="stop" id="irZ-pl-4Qj">
+                        <barButtonItem key="leftBarButtonItem" systemItem="stop" id="irZ-pl-4Qj">
                             <connections>
-                                <action selector="dismissButton:" destination="Y6W-OH-hqX" id="u1u-Zs-qlM"/>
+                                <action selector="dismissButton:" destination="Y6W-OH-hqX" id="Iq1-7C-Gox"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

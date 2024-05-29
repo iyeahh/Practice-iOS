@@ -12,6 +12,7 @@ class TravelDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.title = "디테일 화면"
+        navigationItem.title = "관광지 화면"
+        mainLabel.text = "관광지 화면"
     }
 }
