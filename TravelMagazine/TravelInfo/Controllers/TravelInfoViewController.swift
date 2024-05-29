@@ -68,4 +68,27 @@ class TravelInfoViewController: UIViewController, UITableViewDelegate, UITableVi
             return cell
         }
     }
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if !travelInfo[indexPath.row].ad {
+            let sb = UIStoryboard(name: "TravelDetail", bundle: nil)
+            guard let detailVC = sb.instantiateViewController(withIdentifier: "TravelDetailViewController")
+                    as? TravelDetailViewController else {
+                return
+            }
+            navigationController?.pushViewController(detailVC, animated: true)
+        } else {
+            let sb = UIStoryboard(name: "Advertisement", bundle: nil)
+            guard let adVC = sb.instantiateViewController(withIdentifier: "AdvertisementViewController")
+                    as? AdvertisementViewController else {
+                        return
+                    }
+            let nav = UINavigationController(rootViewController: adVC)
+            nav.modalPresentationStyle = .fullScreen
+
+            present(nav, animated: true)
+        }
+        tableView.reloadRows(at: [indexPath], with: .automatic)
+    }
 }
+
