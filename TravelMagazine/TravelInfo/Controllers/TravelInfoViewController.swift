@@ -8,7 +8,7 @@
 import UIKit
 import Kingfisher
 
-class TravelInfoViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class TravelInfoViewController: UIViewController {
     var travelInfo = TravelInfo().travel
 
     @IBOutlet var travelTableView: UITableView!
@@ -36,7 +36,9 @@ class TravelInfoViewController: UIViewController, UITableViewDelegate, UITableVi
         travelInfo[sender.tag].like?.toggle()
         travelTableView.reloadRows(at: [IndexPath(row: sender.tag, section: 0)], with: .none)
     }
+}
 
+extension TravelInfoViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if travelInfo[indexPath.row].ad {
             return 100
@@ -91,4 +93,3 @@ class TravelInfoViewController: UIViewController, UITableViewDelegate, UITableVi
         tableView.reloadRows(at: [indexPath], with: .automatic)
     }
 }
-
