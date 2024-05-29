@@ -12,11 +12,14 @@ class CityInfoViewController: UIViewController {
     var filteredCityList: [City] = []
 
     @IBOutlet var cityInfoTableView: UITableView!
+    @IBOutlet var searchBar: UISearchBar!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTabelView()
         registerXIB()
+        navigationItem.title = "인기 도시"
+        searchBar.delegate = self
         filteredCityList = cityInfo
     }
 
@@ -35,7 +38,7 @@ class CityInfoViewController: UIViewController {
     @IBAction func segmentedControlTapped(_ sender: UISegmentedControl) {
         if sender.selectedSegmentIndex == 0 {
             filteredCityList = cityInfo
-        } else if sender.selectedSegmentIndex == 0 {
+        } else if sender.selectedSegmentIndex == 1 {
             isDomesticCity(true)
         } else {
             isDomesticCity(false)
@@ -45,15 +48,15 @@ class CityInfoViewController: UIViewController {
 
     private func isDomesticCity(_ isDomestic: Bool) {
         if isDomestic {
-            let domesticCities = cityInfo.filter { city in
+            let domesticCityList = cityInfo.filter { city in
                 city.domestic_travel == true
             }
-            filteredCityList = domesticCities
+            filteredCityList = domesticCityList
         } else {
-            let overseasCities = cityInfo.filter { city in
+            let overseasCityList = cityInfo.filter { city in
                 city.domestic_travel == false
             }
-            filteredCityList = overseasCities
+            filteredCityList = overseasCityList
         }
     }
 }
@@ -71,5 +74,26 @@ extension CityInfoViewController: UITableViewDelegate, UITableViewDataSource {
         cell.setupData(data)
 
         return cell
+    }
+}
+
+extension CityInfoViewController: UISearchBarDelegate {
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        guard let inputText = searchBar.text else {
+            return
+        }
+        searchWord(text: inputText)
+    }
+
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        searchWord(text: searchText)
+    }
+
+    func searchWord(text: String) {
+        let list = cityInfo.filter { city in
+            city.city_name.contains(text) || city.city_english_name.contains(text) || city.city_explain.contains(text)
+        }
+        filteredCityList = list
+        cityInfoTableView.reloadData()
     }
 }

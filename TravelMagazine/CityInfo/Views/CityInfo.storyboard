@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="86g-j5-pHO">
-                                <rect key="frame" x="20" y="79" width="353" height="31"/>
+                                <rect key="frame" x="20" y="113" width="353" height="31"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="ldi-x9-ip7"/>
                                 </constraints>
@@ -33,24 +33,38 @@
                                 </connections>
                             </segmentedControl>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="eAl-jJ-rAK">
-                                <rect key="frame" x="20" y="129" width="353" height="689"/>
+                                <rect key="frame" x="20" y="163" width="353" height="655"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="AOd-Em-5Ym">
+                                <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="SUM-KM-IDL"/>
+                                </constraints>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="Y6W-OH-hqX" id="9zV-TM-2Fl"/>
+                                </connections>
+                            </searchBar>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="eAl-jJ-rAK" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="2NO-s2-45w"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="AOd-Em-5Ym" secondAttribute="trailing" id="Egp-6n-wui"/>
+                            <constraint firstItem="AOd-Em-5Ym" firstAttribute="leading" secondItem="5EZ-qb-Rvc" secondAttribute="leading" id="IIi-5m-oKl"/>
+                            <constraint firstItem="AOd-Em-5Ym" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="JQs-1w-gBx"/>
                             <constraint firstItem="86g-j5-pHO" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="Kol-zO-ciy"/>
                             <constraint firstItem="eAl-jJ-rAK" firstAttribute="top" secondItem="86g-j5-pHO" secondAttribute="bottom" constant="20" id="PLu-eR-g0e"/>
                             <constraint firstItem="eAl-jJ-rAK" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" constant="-20" id="W0G-eH-Zi7"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="86g-j5-pHO" secondAttribute="trailing" constant="20" id="cdK-U8-3lK"/>
-                            <constraint firstItem="86g-j5-pHO" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="20" id="mw9-9o-8Dm"/>
+                            <constraint firstItem="86g-j5-pHO" firstAttribute="top" secondItem="AOd-Em-5Ym" secondAttribute="bottom" constant="10" id="mw9-9o-8Dm"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="eAl-jJ-rAK" secondAttribute="bottom" id="n7I-eM-bN7"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="cityInfoTableView" destination="eAl-jJ-rAK" id="5dZ-o6-O18"/>
+                        <outlet property="searchBar" destination="AOd-Em-5Ym" id="VKH-q0-6WA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
