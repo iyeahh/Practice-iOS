@@ -23,11 +23,13 @@
                                     <constraint firstAttribute="height" constant="30" id="ldi-x9-ip7"/>
                                 </constraints>
                                 <segments>
-                                    <segment title="First"/>
-                                    <segment title="Second"/>
+                                    <segment title="모두"/>
+                                    <segment title="국내"/>
+                                    <segment title="해외"/>
                                 </segments>
                                 <connections>
                                     <action selector="segmentedControl:" destination="Zxk-VU-ezM" eventType="valueChanged" id="fLe-HD-smy"/>
+                                    <action selector="segmentedControlTapped:" destination="Y6W-OH-hqX" eventType="valueChanged" id="FqL-GX-5Ig"/>
                                 </connections>
                             </segmentedControl>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="eAl-jJ-rAK">

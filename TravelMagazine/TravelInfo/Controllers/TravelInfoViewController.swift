@@ -87,8 +87,10 @@ extension TravelInfoViewController: UITableViewDelegate, UITableViewDataSource {
                     }
             let nav = UINavigationController(rootViewController: adVC)
             nav.modalPresentationStyle = .fullScreen
-
             present(nav, animated: true)
+
+//            navigationController?.modalPresentationStyle = .fullScreen
+//            navigationController?.present(adVC, animated: true)
         }
         tableView.reloadRows(at: [indexPath], with: .automatic)
     }
