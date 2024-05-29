@@ -42,7 +42,7 @@ class CityInfoTableViewCell: UITableViewCell {
     }
 
     func setupData(_ data: City) {
-        backgroundImageView.kf.setImage(with: data.url)
+        backgroundImageView.kf.setImage(with: data.url, placeholder: UIImage(systemName: "gear"))
         cityNameLabel.text = data.cityName
         descriptionLabel.text = data.city_explain
     }
