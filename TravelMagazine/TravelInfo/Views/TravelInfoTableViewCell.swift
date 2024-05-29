@@ -64,11 +64,17 @@ final class TravelInfoTableViewCell: UITableViewCell {
     }
 
     func setupData(_ data: Travel) {
-        mainLabel.text = data.titleString
-        subLabel.text = data.descriptionString
-        saveLabel.text = data.saveText
-        cosmosView.rating = data.gradeDouble
-        cosmosView.text = "(\(data.gradeText))"
+
+        guard let description = data.description,
+              let save = data.save,
+              let grade = data.grade else {
+            return
+        }
+        mainLabel.text = data.title
+        subLabel.text = description
+        saveLabel.text = " · 저장 " + save.formatted()
+        cosmosView.rating = grade
+        cosmosView.text = "(\(grade))"
         if let url = data.url {
             mainImageView.kf.setImage(with: url)
         } else {

@@ -8,29 +8,13 @@
 import Foundation
 
 struct Travel {
-    var title: String?
+    var title: String
     var description: String?
     var travel_image: String?
     var grade: Double?
     var save: Int?
     var like: Bool?
     var ad: Bool
-
-    var titleString: String {
-        return title ?? "제목 없음"
-    }
-
-    var descriptionString: String {
-        return description ?? "설명 없음"
-    }
-
-    var gradeDouble: Double {
-        return grade ?? 0.0
-    }
-
-    var saveInt: Int {
-        return save ?? 0
-    }
 
     var likeBool: Bool {
         get {
@@ -47,13 +31,5 @@ struct Travel {
         } else {
             return nil
         }
-    }
-
-    var gradeText: String {
-        return String(gradeDouble)
-    }
-
-    var saveText: String {
-        " · 저장 " +  saveInt.formatted()
     }
 }
