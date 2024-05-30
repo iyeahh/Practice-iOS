@@ -8,6 +8,7 @@
 import Foundation
 
 enum Category: String, CaseIterable {
+    case all = "All"
     case korean = "한식"
     case chinese = "중식"
     case cafe = "카페"
@@ -16,5 +17,5 @@ enum Category: String, CaseIterable {
     case lightWestern = "경양식"
     case western = "양식"
 
-    static let categorys = ["All", korean.rawValue, chinese.rawValue, cafe.rawValue, snack.rawValue, japanese.rawValue, lightWestern.rawValue, western.rawValue]
+    static let categorys = [all.rawValue, korean.rawValue, chinese.rawValue, cafe.rawValue, snack.rawValue, japanese.rawValue, lightWestern.rawValue, western.rawValue]
 }

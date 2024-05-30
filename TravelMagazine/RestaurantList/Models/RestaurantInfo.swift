@@ -24,6 +24,8 @@ struct RestaurantInfo {
 
     var labelColor: UIColor {
         switch category {
+        case .all:
+                .white
         case .korean:
                 .blue
         case .chinese:
