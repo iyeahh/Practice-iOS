@@ -12,12 +12,19 @@ class AdvertisementViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.title = "광고 화면"
-        navigationItem.leftBarButtonItem?.tintColor = .black
+        setupNavigationItem()
         mainLabel.text = "광고 화면"
     }
 
-    @IBAction func dismissButton(_ sender: UIBarButtonItem) {
+    private func setupNavigationItem() {
+        navigationItem.title = "광고 화면"
+
+        let dismissButton = UIBarButtonItem(image: UIImage(systemName: "xmark"), style: .plain, target: self, action: #selector(dimissButtonTapped))
+        navigationItem.leftBarButtonItem = dismissButton
+        navigationItem.leftBarButtonItem?.tintColor = .black
+    }
+
+    @objc func dimissButtonTapped() {
         dismiss(animated: true)
     }
 }
