@@ -10,6 +10,7 @@ import UIKit
 class CityInfoViewController: UIViewController {
     let cityInfo = CityInfo().city
     var filteredCityList: [City] = []
+    var dummyText: String = ""
 
     @IBOutlet var cityInfoTableView: UITableView!
     @IBOutlet var searchBar: UISearchBar!
@@ -59,6 +60,11 @@ class CityInfoViewController: UIViewController {
             filteredCityList = overseasCityList
         }
     }
+
+    // 스크롤 내렸을 때 키보드 내려가기
+    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+        view.endEditing(true)
+    }
 }
 
 extension CityInfoViewController: UITableViewDelegate, UITableViewDataSource {
@@ -71,18 +77,19 @@ extension CityInfoViewController: UITableViewDelegate, UITableViewDataSource {
             return UITableViewCell()
         }
         let data = filteredCityList[indexPath.row]
-        cell.setupData(data)
-
+        cell.setupData(data, text: dummyText)
         return cell
     }
 }
 
 extension CityInfoViewController: UISearchBarDelegate {
-    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
-        guard let inputText = searchBar.text else {
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        guard let searchText = searchBar.text else {
             return
         }
-        searchWord(text: inputText)
+        searchWord(text: searchText)
+        // 검색 눌렀을 때 키보드 내려가기
+        view.endEditing(true)
     }
 
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
@@ -96,7 +103,9 @@ extension CityInfoViewController: UISearchBarDelegate {
         let list = cityInfo.filter { city in
             city.city_name.contains(searchText) || (city.city_english_name).lowercased().contains(lowercasedText) || city.city_explain.contains(searchText)
         }
+
         filteredCityList = list
+        dummyText = searchText
         cityInfoTableView.reloadData()
     }
 }

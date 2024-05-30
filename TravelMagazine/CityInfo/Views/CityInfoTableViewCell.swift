@@ -45,9 +45,27 @@ class CityInfoTableViewCell: UITableViewCell {
         descriptionLabel.font = .boldSystemFont(ofSize: 13)
     }
 
-    func setupData(_ data: City) {
+    func setupData(_ data: City, text: String) {
         backgroundImageView.kf.setImage(with: data.url, placeholder: UIImage(systemName: "gear"))
         cityNameLabel.text = data.cityName
         descriptionLabel.text = data.city_explain
+
+        if text != "" {
+            changeTextColor(data: data, text: text)
+        }
+    }
+
+    func changeTextColor(data: City, text: String) {
+        let lowercasedText = text.lowercased()
+
+        if data.city_name.contains(text) {
+            cityNameLabel.asColor(targetString: text, color: .red)
+        }
+        if (data.city_english_name).lowercased().contains(lowercasedText) {
+            cityNameLabel.asColor(targetString: lowercasedText, color: .red)
+        }
+        if data.city_explain.contains(text) {
+            descriptionLabel.asColor(targetString: text, color: .red)
+        }
     }
 }
