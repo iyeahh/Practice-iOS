@@ -9,10 +9,12 @@ import UIKit
 
 class TravelDetailViewController: UIViewController {
     @IBOutlet var mainLabel: UILabel!
-    
+    var travel: Travel?
+
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.title = "관광지 화면"
-        mainLabel.text = "관광지 화면"
+        guard let travel = travel else { return }
+        mainLabel.text = travel.title
     }
 }

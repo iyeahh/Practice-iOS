@@ -9,11 +9,13 @@ import UIKit
 
 class AdvertisementViewController: UIViewController {
     @IBOutlet var mainLabel: UILabel!
-    
+    var travel: Travel?
+
     override func viewDidLoad() {
         super.viewDidLoad()
         setupNavigationItem()
-        mainLabel.text = "광고 화면"
+        guard let travel = travel else { return }
+        mainLabel.text = travel.title
     }
 
     private func setupNavigationItem() {

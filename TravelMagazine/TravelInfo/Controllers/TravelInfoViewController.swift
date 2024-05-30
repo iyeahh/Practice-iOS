@@ -78,6 +78,7 @@ extension TravelInfoViewController: UITableViewDelegate, UITableViewDataSource {
                     as? TravelDetailViewController else {
                 return
             }
+            detailVC.travel = travelInfo[indexPath.row]
             navigationController?.pushViewController(detailVC, animated: true)
         } else {
             let sb = UIStoryboard(name: "Advertisement", bundle: nil)
@@ -85,12 +86,10 @@ extension TravelInfoViewController: UITableViewDelegate, UITableViewDataSource {
                     as? AdvertisementViewController else {
                         return
                     }
+            adVC.travel = travelInfo[indexPath.row]
             let nav = UINavigationController(rootViewController: adVC)
             nav.modalPresentationStyle = .fullScreen
             present(nav, animated: true)
-
-//            navigationController?.modalPresentationStyle = .fullScreen
-//            navigationController?.present(adVC, animated: true)
         }
         tableView.reloadRows(at: [indexPath], with: .automatic)
     }
