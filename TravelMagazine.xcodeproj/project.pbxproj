@@ -46,6 +46,7 @@
 		76D247B52C01AFD700C46644 /* RestaurantListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76D247B42C01AFD700C46644 /* RestaurantListTableViewController.swift */; };
 		76D817FF2C04643D00E1B648 /* Travel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76D817FE2C04643D00E1B648 /* Travel.swift */; };
 		76D818022C04775300E1B648 /* Cosmos in Frameworks */ = {isa = PBXBuildFile; productRef = 76D818012C04775300E1B648 /* Cosmos */; };
+		76F0F4EF2C0863C9005F7824 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76F0F4EE2C0863C9005F7824 /* MapViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -88,6 +89,7 @@
 		76D247B22C01AFBD00C46644 /* RestaurantListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantListTableViewCell.swift; sourceTree = "<group>"; };
 		76D247B42C01AFD700C46644 /* RestaurantListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantListTableViewController.swift; sourceTree = "<group>"; };
 		76D817FE2C04643D00E1B648 /* Travel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Travel.swift; sourceTree = "<group>"; };
+		76F0F4EE2C0863C9005F7824 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -284,6 +286,7 @@
 			children = (
 				76D247B42C01AFD700C46644 /* RestaurantListTableViewController.swift */,
 				76262B962C0355E100B9553A /* CategoryViewController.swift */,
+				76F0F4EE2C0863C9005F7824 /* MapViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -421,6 +424,7 @@
 				76262BA82C04594A00B9553A /* TravelModel.swift in Sources */,
 				76262B852C01C67C00B9553A /* Restaurant.swift in Sources */,
 				76D247A72C01A8D800C46644 /* MagazineInfo.swift in Sources */,
+				76F0F4EF2C0863C9005F7824 /* MapViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

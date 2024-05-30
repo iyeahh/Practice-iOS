@@ -24,8 +24,23 @@ class RestaurantListTableViewController: UITableViewController {
         setupCategoryButtonUI()
         setupPriceButtonUI()
         setupLikeButtonUI()
+        setupNavigationItem()
         tableView.rowHeight = 236
         searchBar.delegate = self
+    }
+
+    func setupNavigationItem() {
+        let map = UIBarButtonItem(title: "Map", style: .plain, target: self, action: #selector(showMapView))
+        navigationItem.rightBarButtonItem = map
+        navigationItem.rightBarButtonItem?.tintColor = .black
+    }
+
+    @objc func showMapView() {
+        guard let vc = storyboard?.instantiateViewController(withIdentifier: MapViewController.identifier) as? MapViewController else {
+            return
+        }
+        vc.viewModel = restaurantViewModel
+        navigationController?.pushViewController(vc, animated: true)
     }
 
     func setupCategoryButtonUI() {
