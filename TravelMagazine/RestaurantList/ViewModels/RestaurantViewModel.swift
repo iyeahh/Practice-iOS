@@ -20,6 +20,8 @@ class RestaurantViewModel {
         restaurantListData = RestaurantList().restaurantArray.map({ restaurant in
             RestaurantInfo(
                 image: restaurant.image,
+                latitude: restaurant.latitude,
+                longitude: restaurant.longitude,
                 name: restaurant.name,
                 address: restaurant.address,
                 phoneNumber: restaurant.phoneNumber,

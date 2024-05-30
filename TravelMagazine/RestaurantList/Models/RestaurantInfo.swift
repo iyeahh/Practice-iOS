@@ -9,6 +9,8 @@ import UIKit
 
 struct RestaurantInfo {
     let image: String
+    let latitude: Double
+    let longitude: Double
     let name: String
     let address: String
     let phoneNumber: String

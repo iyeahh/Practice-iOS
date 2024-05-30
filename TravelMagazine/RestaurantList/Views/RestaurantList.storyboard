@@ -267,7 +267,7 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="mapkit" destination="h7N-be-Wg7" id="DfY-kW-AX1"/>
+                        <outlet property="mapView" destination="h7N-be-Wg7" id="DfY-kW-AX1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Hgc-fz-sr3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
