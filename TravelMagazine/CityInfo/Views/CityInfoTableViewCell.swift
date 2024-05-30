@@ -38,6 +38,9 @@ class CityInfoTableViewCell: UITableViewCell {
 
     private func setupLabelBackgroundView() {
         labelBackgroundView.backgroundColor = .black.withAlphaComponent(0.5)
+        labelBackgroundView.layer.masksToBounds = true
+        labelBackgroundView.layer.cornerRadius = 20
+        labelBackgroundView.layer.maskedCorners = CACornerMask(arrayLiteral: .layerMaxXMaxYCorner)
     }
 
     private func setupDescriptionLabel() {

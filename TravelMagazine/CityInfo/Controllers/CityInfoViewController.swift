@@ -8,9 +8,10 @@
 import UIKit
 
 class CityInfoViewController: UIViewController {
-    let cityInfo = CityInfo().city
+    let cityInfo = CityInfo()
     var filteredCityList: [City] = []
-    var dummyText: String = ""
+    var currentCityList: [City] = []
+    var searchWord: String = ""
 
     @IBOutlet var cityInfoTableView: UITableView!
     @IBOutlet var searchBar: UISearchBar!
@@ -21,7 +22,7 @@ class CityInfoViewController: UIViewController {
         registerXIB()
         navigationItem.title = "인기 도시"
         searchBar.delegate = self
-        filteredCityList = cityInfo
+        filteredCityList = cityInfo.city
     }
 
     private func setupTabelView() {
@@ -38,27 +39,14 @@ class CityInfoViewController: UIViewController {
 
     @IBAction func segmentedControlTapped(_ sender: UISegmentedControl) {
         if sender.selectedSegmentIndex == 0 {
-            filteredCityList = cityInfo
+            filteredCityList = cityInfo.city
         } else if sender.selectedSegmentIndex == 1 {
-            isDomesticCity(true)
+            filteredCityList = cityInfo.domesticCityList
         } else {
-            isDomesticCity(false)
+            filteredCityList = cityInfo.overseasCityList
         }
+        currentCityList = filteredCityList
         cityInfoTableView.reloadData()
-    }
-
-    private func isDomesticCity(_ isDomestic: Bool) {
-        if isDomestic {
-            let domesticCityList = cityInfo.filter { city in
-                city.domestic_travel == true
-            }
-            filteredCityList = domesticCityList
-        } else {
-            let overseasCityList = cityInfo.filter { city in
-                city.domestic_travel == false
-            }
-            filteredCityList = overseasCityList
-        }
     }
 
     // 스크롤 내렸을 때 키보드 내려가기
@@ -77,7 +65,7 @@ extension CityInfoViewController: UITableViewDelegate, UITableViewDataSource {
             return UITableViewCell()
         }
         let data = filteredCityList[indexPath.row]
-        cell.setupData(data, text: dummyText)
+        cell.setupData(data, text: searchWord)
         return cell
     }
 }
@@ -100,12 +88,12 @@ extension CityInfoViewController: UISearchBarDelegate {
         let searchText = text.removeWhitespaces()
         let lowercasedText = searchText.lowercased()
 
-        let list = cityInfo.filter { city in
+        let list = currentCityList.filter { city in
             city.city_name.contains(searchText) || (city.city_english_name).lowercased().contains(lowercasedText) || city.city_explain.contains(searchText)
         }
 
         filteredCityList = list
-        dummyText = searchText
+        searchWord = searchText
         cityInfoTableView.reloadData()
     }
 }
