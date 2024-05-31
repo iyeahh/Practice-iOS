@@ -18,14 +18,34 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="79H-Sy-raT">
-                                <rect key="frame" x="0.0" y="59" width="393" height="659"/>
+                                <rect key="frame" x="0.0" y="59" width="393" height="714"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="nAn-5g-q2g">
-                                <rect key="frame" x="0.0" y="718" width="393" height="100"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DUI-IK-L7y">
+                                <rect key="frame" x="20" y="773" width="353" height="35"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4e9-js-11a">
+                                        <rect key="frame" x="318" y="0.0" width="35" height="35"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="35" id="8ya-AX-eme"/>
+                                            <constraint firstAttribute="width" constant="35" id="KDF-GX-aIA"/>
+                                        </constraints>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="Button"/>
+                                    </button>
+                                </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="100" id="B7Q-g8-tck"/>
+                                    <constraint firstAttribute="bottom" secondItem="4e9-js-11a" secondAttribute="bottom" id="cjn-7A-4Kz"/>
+                                    <constraint firstItem="4e9-js-11a" firstAttribute="top" secondItem="DUI-IK-L7y" secondAttribute="top" id="oRf-rw-1q3"/>
+                                    <constraint firstAttribute="trailing" secondItem="4e9-js-11a" secondAttribute="trailing" id="wog-2b-Fkv"/>
+                                </constraints>
+                            </view>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="nAn-5g-q2g">
+                                <rect key="frame" x="30" y="773" width="313" height="35"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="lessThanOrEqual" constant="44" id="B7Q-g8-tck"/>
                                 </constraints>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <color key="textColor" systemColor="labelColor"/>
@@ -36,18 +56,24 @@
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="DUI-IK-L7y" secondAttribute="bottom" constant="10" id="1mU-AU-NlM"/>
+                            <constraint firstItem="DUI-IK-L7y" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="41I-a5-hZa"/>
+                            <constraint firstItem="DUI-IK-L7y" firstAttribute="height" secondItem="nAn-5g-q2g" secondAttribute="height" id="450-Oj-BYT"/>
                             <constraint firstItem="79H-Sy-raT" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="721-h7-l0D"/>
-                            <constraint firstItem="nAn-5g-q2g" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="EZC-WJ-a9x"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="nAn-5g-q2g" secondAttribute="trailing" id="S4N-VQ-hjw"/>
+                            <constraint firstItem="nAn-5g-q2g" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="30" id="EZC-WJ-a9x"/>
+                            <constraint firstItem="nAn-5g-q2g" firstAttribute="top" secondItem="79H-Sy-raT" secondAttribute="bottom" id="R3n-3H-f7K"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="nAn-5g-q2g" secondAttribute="trailing" constant="50" id="S4N-VQ-hjw"/>
                             <constraint firstItem="79H-Sy-raT" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="Vgu-Gr-812"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="DUI-IK-L7y" secondAttribute="trailing" constant="20" id="goz-cP-Fh9"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="79H-Sy-raT" secondAttribute="trailing" id="iqq-qR-LJj"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="nAn-5g-q2g" secondAttribute="bottom" id="jgI-bJ-7eI"/>
-                            <constraint firstItem="nAn-5g-q2g" firstAttribute="top" secondItem="79H-Sy-raT" secondAttribute="bottom" id="v44-N1-l2y"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="nAn-5g-q2g" secondAttribute="bottom" constant="10" id="jgI-bJ-7eI"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="chatTableView" destination="79H-Sy-raT" id="nzt-Es-pzJ"/>
                         <outlet property="chatTextView" destination="nAn-5g-q2g" id="o8W-uP-iHt"/>
+                        <outlet property="sendButton" destination="4e9-js-11a" id="TY9-Oy-FdP"/>
+                        <outlet property="textViewBackgroundView" destination="DUI-IK-L7y" id="H4Q-Or-yZa"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

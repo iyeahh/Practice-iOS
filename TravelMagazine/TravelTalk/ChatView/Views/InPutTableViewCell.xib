@@ -22,17 +22,17 @@
                         <rect key="frame" x="8" y="4" width="380.66666666666669" height="250"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nUT-5P-739">
-                                <rect key="frame" x="4" y="4" width="60" height="60"/>
+                                <rect key="frame" x="4" y="4" width="40" height="40"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="60" id="RMV-zu-Y3w"/>
-                                    <constraint firstAttribute="width" constant="60" id="qK8-x3-li3"/>
+                                    <constraint firstAttribute="height" constant="40" id="RMV-zu-Y3w"/>
+                                    <constraint firstAttribute="width" constant="40" id="qK8-x3-li3"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ACX-4L-1Ar">
-                                <rect key="frame" x="68" y="4" width="308.66666666666669" height="20"/>
+                                <rect key="frame" x="48" y="4" width="328.66666666666669" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="4yv-iR-mof"/>
                                 </constraints>
@@ -41,16 +41,16 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PgF-zR-f5W">
-                                <rect key="frame" x="68" y="28" width="264.66666666666669" height="218"/>
+                                <rect key="frame" x="48" y="28" width="264.66666666666669" height="218"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aqh-Gj-gQm">
-                                <rect key="frame" x="336.66666666666669" y="226" width="40" height="20"/>
+                                <rect key="frame" x="316.66666666666669" y="226" width="60" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="eqM-gg-Kj9"/>
-                                    <constraint firstAttribute="width" constant="40" id="j6V-L9-2Hv"/>
+                                    <constraint firstAttribute="width" constant="60" id="j6V-L9-2Hv"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -82,9 +82,7 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
-                <outlet property="backView" destination="zvT-71-9v8" id="fLr-42-vm8"/>
-                <outlet property="contentLabel" destination="PgF-zR-f5W" id="aiX-Ki-fCd"/>
-                <outlet property="inputContentView" destination="H2p-sc-9uM" id="Khw-8e-Gjo"/>
+                <outlet property="contentLabel" destination="PgF-zR-f5W" id="FrB-IC-vpE"/>
                 <outlet property="nameLabel" destination="ACX-4L-1Ar" id="q7A-ZU-idG"/>
                 <outlet property="profileLabel" destination="nUT-5P-739" id="MzA-BE-dy8"/>
                 <outlet property="timeLabel" destination="aqh-Gj-gQm" id="nL2-Ud-pKD"/>

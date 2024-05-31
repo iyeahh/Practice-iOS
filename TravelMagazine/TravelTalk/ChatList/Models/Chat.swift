@@ -19,7 +19,7 @@ struct Chat {
         dateFormatter.dateFormat = "yyyy-MM-dd HH:mm"
         let convertDate = dateFormatter.date(from: dateStr)
         let myDateFormatter = DateFormatter()
-        myDateFormatter.dateFormat = "MM/dd"
+        myDateFormatter.dateFormat = "yy.MM.dd"
         return myDateFormatter.string(from: convertDate!)
     }
 
@@ -30,6 +30,7 @@ struct Chat {
         let convertDate = dateFormatter.date(from: dateStr)
         let myDateFormatter = DateFormatter()
         myDateFormatter.dateFormat = "hh:mm a"
+        myDateFormatter.locale = Locale(identifier:"ko_KR")
         return myDateFormatter.string(from: convertDate!)
     }
 }

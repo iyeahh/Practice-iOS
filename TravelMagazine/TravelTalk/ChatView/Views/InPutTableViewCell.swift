@@ -8,8 +8,6 @@
 import UIKit
 
 class InPutTableViewCell: UITableViewCell {
-    @IBOutlet var inputContentView: UIView!
-    @IBOutlet var backView: UIView!
     @IBOutlet var profileLabel: UILabel!
     @IBOutlet var nameLabel: UILabel!
     @IBOutlet var contentLabel: UILabel!
@@ -17,30 +15,22 @@ class InPutTableViewCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        setupBackgroundViewUI()
         setupProfileLabelUI()
         setupNameLabelUI()
         setupTimeLabelUI()
         setupContentLabelUI()
     }
 
-    private func setupBackgroundViewUI() {
-        inputContentView.backgroundColor = UIColor.chatBackground
-        backView.backgroundColor = UIColor.clear
-    }
-
     private func setupProfileLabelUI() {
         profileLabel.textAlignment = .center
         profileLabel.font = UIFont.smallProfileImage
-        profileLabel.backgroundColor = #colorLiteral(red: 0.6941176471, green: 0.8196078431, blue: 0.5098039216, alpha: 1)
+        profileLabel.backgroundColor = UIColor.natural
         profileLabel.clipsToBounds = true
-        profileLabel.layer.cornerRadius = 5
+        profileLabel.layer.cornerRadius = profileLabel.frame.width / 2
     }
 
     private func setupNameLabelUI() {
         nameLabel.font = UIFont.chatName
-        nameLabel.textColor = UIColor.profileBackground
-        nameLabel.backgroundColor = .clear
     }
 
     private func setupTimeLabelUI() {
@@ -54,11 +44,12 @@ class InPutTableViewCell: UITableViewCell {
         contentLabel.textColor = UIColor.primary
         contentLabel.clipsToBounds = true
         contentLabel.layer.cornerRadius = 5
-        contentLabel.backgroundColor = .white
+        contentLabel.layer.borderColor = UIColor.natural.cgColor
+        contentLabel.layer.borderWidth = 1
     }
 
     func setupData(_ data: Chat) {
-        profileLabel.text = data.user.profileImage
+        profileLabel.text = data.user.profileImage.firstCharactor
         nameLabel.text = data.user.rawValue
         timeLabel.text = data.formattedTime
         contentLabel.text = data.message

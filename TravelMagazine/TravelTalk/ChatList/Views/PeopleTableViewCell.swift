@@ -21,13 +21,19 @@ class PeopleTableViewCell: UITableViewCell {
         setupContentLabelUI()
     }
 
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        profileLabelCollection.forEach { label in
+            label.layer.cornerRadius = label.frame.width / 2
+        }
+    }
+
     private func setupProfileLabel() {
         profileLabelCollection.forEach { label in
             label.textAlignment = .center
             label.font = UIFont.smallProfileImage
-            label.backgroundColor = UIColor.profileBackground
+            label.backgroundColor = UIColor.natural
             label.clipsToBounds = true
-            label.layer.cornerRadius = 30
         }
     }
 
@@ -38,19 +44,18 @@ class PeopleTableViewCell: UITableViewCell {
     private func setupDateLabelUI() {
         dateLabel.font = UIFont.date
         dateLabel.textColor = UIColor.secondary
+        dateLabel.textAlignment = .right
     }
 
     private func setupContentLabelUI() {
         contentLabel.font = UIFont.content
         contentLabel.textColor = UIColor.secondary
-        contentLabel.numberOfLines = 2
     }
 
     func setupData(_ data: ChatRoom) {
-        profileLabelCollection[0].text = data.chatroomImage[0]
-        profileLabelCollection[1].text = data.chatroomImage[1]
-        profileLabelCollection[2].text = data.chatroomImage[2]
-        profileLabelCollection[3].text = data.chatroomImage[3]
+        profileLabelCollection.forEach { label in
+            label.text = data.chatroomImage[label.tag].firstCharactor
+        }
         nameLabel.text = data.chatroomName
         guard let chat = data.chatList.last else {
             return

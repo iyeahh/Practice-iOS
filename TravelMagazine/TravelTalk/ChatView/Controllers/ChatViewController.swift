@@ -10,26 +10,47 @@ import UIKit
 class ChatViewController: UIViewController {
     @IBOutlet var chatTableView: UITableView!
     @IBOutlet var chatTextView: UITextView!
-
+    @IBOutlet var textViewBackgroundView: UIView!
+    @IBOutlet var sendButton: UIButton!
+    
     var chatList: [Chat]?
     var chatroomName: String = ""
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupUI()
+        setupNavigationUI()
         setupTableView()
         registerTableViewCells()
+        setupTextViewUI()
+        setupButtonUI()
+        setupTextViewBackgroundViewUI()
     }
 
-    private func setupUI() {
+    private func setupNavigationUI() {
         navigationItem.title = chatroomName
-        view.backgroundColor = UIColor.chatBackground
-        chatTableView.backgroundColor = UIColor.chatBackground
+    }
+
+    private func setupTextViewBackgroundViewUI() {
+        textViewBackgroundView.backgroundColor = UIColor.secondary
+        textViewBackgroundView.layer.cornerRadius = 10
+    }
+
+    private func setupTextViewUI() {
+        chatTextView.text = ""
+        chatTextView.backgroundColor = .clear
+    }
+
+    private func setupButtonUI() {
+        sendButton.backgroundColor = .clear
+        sendButton.setImage(UIImage(systemName: "arrow.right.circle"), for: .normal)
+        sendButton.setTitle("", for: .normal)
+        sendButton.tintColor = UIColor.natural
     }
 
     private func setupTableView() {
         chatTableView.delegate = self
         chatTableView.dataSource = self
+        chatTableView.separatorStyle = .none
     }
 
     private func registerTableViewCells() {

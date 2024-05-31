@@ -28,17 +28,19 @@ class TravelTalkViewController: UIViewController {
     }
 
     private func setupUI() {
-        navigationItem.title = "채팅목록"
+        navigationItem.title = "TRAVEL TALK"
     }
 
     private func setupSearchBar() {
         talkSearchBar.delegate = self
+        talkSearchBar.placeholder = "친구 이름을 검색해보세요"
     }
 
     private func setupTableView() {
         talkTableView.delegate = self
         talkTableView.dataSource = self
-        talkTableView.rowHeight = 100
+        talkTableView.rowHeight = 70
+        talkTableView.separatorStyle = .none
     }
 
     private func registerTableViewCells() {
@@ -87,6 +89,7 @@ extension TravelTalkViewController: UITableViewDelegate, UITableViewDataSource {
         vc.chatroomName = chatList[indexPath.row].chatroomName
         vc.chatList = chatList[indexPath.row].chatList
         navigationController?.pushViewController(vc, animated: true)
+        tableView.reloadRows(at: [indexPath], with: .none)
     }
 }
 
