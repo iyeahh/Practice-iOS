@@ -8,8 +8,6 @@
 import UIKit
 
 final class BannerTableViewCell: UITableViewCell {
-    static let identifier = "BannerTableViewCell"
-
     @IBOutlet var backgroundColorView: UIView!
     @IBOutlet var adLabel: UILabel!
     @IBOutlet var mainLabel: UILabel!

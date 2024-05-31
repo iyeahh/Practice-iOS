@@ -9,7 +9,6 @@ import UIKit
 import MapKit
 
 class MapViewController: UIViewController {
-    static let identifier = "MapViewController"
     var viewModel: RestaurantViewModel?
 
     @IBOutlet var mapView: MKMapView!
