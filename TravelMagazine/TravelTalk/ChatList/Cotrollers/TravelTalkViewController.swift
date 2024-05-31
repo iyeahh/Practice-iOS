@@ -17,14 +17,18 @@ class TravelTalkViewController: UIViewController {
             talkTableView.reloadData()
         }
     }
-    var tempArray: [ChatRoom] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupUI()
         setupSearchBar()
         setupTableView()
         registerTableViewCells()
         chatList = chatAllList
+    }
+
+    private func setupUI() {
+        navigationItem.title = "채팅목록"
     }
 
     private func setupSearchBar() {
@@ -73,6 +77,16 @@ extension TravelTalkViewController: UITableViewDelegate, UITableViewDataSource {
             return peopleCell
         }
         return UITableViewCell()
+    }
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let sb = UIStoryboard(name: "ChatView", bundle: nil)
+        guard let vc = sb.instantiateViewController(withIdentifier: ChatViewController.identifier) as? ChatViewController else {
+            return
+        }
+        vc.chatroomName = chatList[indexPath.row].chatroomName
+        vc.chatList = chatList[indexPath.row].chatList
+        navigationController?.pushViewController(vc, animated: true)
     }
 }
 

@@ -18,14 +18,14 @@ class PeopleTableViewCell: UITableViewCell {
         setupProfileLabel()
         setupNameLabelUI()
         setupDateLabelUI()
-        setupTalkLabelUI()
+        setupContentLabelUI()
     }
 
     private func setupProfileLabel() {
         profileLabelCollection.forEach { label in
             label.textAlignment = .center
             label.font = UIFont.smallProfileImage
-            label.backgroundColor = #colorLiteral(red: 0.4078431373, green: 0.5607843137, blue: 0.2588235294, alpha: 1)
+            label.backgroundColor = UIColor.profileBackground
             label.clipsToBounds = true
             label.layer.cornerRadius = 30
         }
@@ -37,12 +37,12 @@ class PeopleTableViewCell: UITableViewCell {
 
     private func setupDateLabelUI() {
         dateLabel.font = UIFont.date
-        dateLabel.textColor = .lightGray
+        dateLabel.textColor = UIColor.secondary
     }
 
-    private func setupTalkLabelUI() {
+    private func setupContentLabelUI() {
         contentLabel.font = UIFont.content
-        contentLabel.textColor = .lightGray
+        contentLabel.textColor = UIColor.secondary
         contentLabel.numberOfLines = 2
     }
 

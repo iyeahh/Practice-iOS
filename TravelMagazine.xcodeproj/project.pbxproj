@@ -55,6 +55,13 @@
 		76D7D8362C09B7B60015B90B /* PersonTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 76D7D8342C09B7B60015B90B /* PersonTableViewCell.xib */; };
 		76D7D83B2C09B7D30015B90B /* PeopleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76D7D8392C09B7D30015B90B /* PeopleTableViewCell.swift */; };
 		76D7D83C2C09B7D30015B90B /* PeopleTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 76D7D83A2C09B7D30015B90B /* PeopleTableViewCell.xib */; };
+		76D7D8462C09C4B30015B90B /* ChatView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 76D7D8452C09C4B30015B90B /* ChatView.storyboard */; };
+		76D7D84D2C09C5E80015B90B /* InPutTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76D7D84B2C09C5E80015B90B /* InPutTableViewCell.swift */; };
+		76D7D84E2C09C5E80015B90B /* InPutTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 76D7D84C2C09C5E80015B90B /* InPutTableViewCell.xib */; };
+		76D7D8502C09C60E0015B90B /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76D7D84F2C09C60E0015B90B /* ChatViewController.swift */; };
+		76D7D8532C09C7820015B90B /* OutPutTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76D7D8512C09C7820015B90B /* OutPutTableViewCell.swift */; };
+		76D7D8542C09C7820015B90B /* OutPutTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 76D7D8522C09C7820015B90B /* OutPutTableViewCell.xib */; };
+		76D7D8562C09D0570015B90B /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76D7D8552C09D0570015B90B /* UIColor+.swift */; };
 		76D817FF2C04643D00E1B648 /* Travel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76D817FE2C04643D00E1B648 /* Travel.swift */; };
 		76D818022C04775300E1B648 /* Cosmos in Frameworks */ = {isa = PBXBuildFile; productRef = 76D818012C04775300E1B648 /* Cosmos */; };
 		76F0F4EF2C0863C9005F7824 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76F0F4EE2C0863C9005F7824 /* MapViewController.swift */; };
@@ -110,6 +117,13 @@
 		76D7D8342C09B7B60015B90B /* PersonTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PersonTableViewCell.xib; sourceTree = "<group>"; };
 		76D7D8392C09B7D30015B90B /* PeopleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleTableViewCell.swift; sourceTree = "<group>"; };
 		76D7D83A2C09B7D30015B90B /* PeopleTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PeopleTableViewCell.xib; sourceTree = "<group>"; };
+		76D7D8452C09C4B30015B90B /* ChatView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ChatView.storyboard; sourceTree = "<group>"; };
+		76D7D84B2C09C5E80015B90B /* InPutTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InPutTableViewCell.swift; sourceTree = "<group>"; };
+		76D7D84C2C09C5E80015B90B /* InPutTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InPutTableViewCell.xib; sourceTree = "<group>"; };
+		76D7D84F2C09C60E0015B90B /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
+		76D7D8512C09C7820015B90B /* OutPutTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutPutTableViewCell.swift; sourceTree = "<group>"; };
+		76D7D8522C09C7820015B90B /* OutPutTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OutPutTableViewCell.xib; sourceTree = "<group>"; };
+		76D7D8552C09D0570015B90B /* UIColor+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
 		76D817FE2C04643D00E1B648 /* Travel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Travel.swift; sourceTree = "<group>"; };
 		76F0F4EE2C0863C9005F7824 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -254,6 +268,7 @@
 				763E89772C07231F00F767C6 /* String+.swift */,
 				76B958AE2C08200D00EA9CBB /* UILabel+.swift */,
 				76D7D82D2C09ACB80015B90B /* UIFont+.swift */,
+				76D7D8552C09D0570015B90B /* UIColor+.swift */,
 			);
 			path = "Extensions+";
 			sourceTree = "<group>";
@@ -340,6 +355,7 @@
 			isa = PBXGroup;
 			children = (
 				76D7D83D2C09BFEC0015B90B /* ChatList */,
+				76D7D8422C09C4790015B90B /* ChatView */,
 			);
 			path = TravelTalk;
 			sourceTree = "<group>";
@@ -390,6 +406,35 @@
 				76D7D80F2C09A3AE0015B90B /* Cotrollers */,
 			);
 			path = ChatList;
+			sourceTree = "<group>";
+		};
+		76D7D8422C09C4790015B90B /* ChatView */ = {
+			isa = PBXGroup;
+			children = (
+				76D7D8442C09C49C0015B90B /* Views */,
+				76D7D8432C09C48F0015B90B /* Controllers */,
+			);
+			path = ChatView;
+			sourceTree = "<group>";
+		};
+		76D7D8432C09C48F0015B90B /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				76D7D84F2C09C60E0015B90B /* ChatViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		76D7D8442C09C49C0015B90B /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				76D7D8452C09C4B30015B90B /* ChatView.storyboard */,
+				76D7D84B2C09C5E80015B90B /* InPutTableViewCell.swift */,
+				76D7D84C2C09C5E80015B90B /* InPutTableViewCell.xib */,
+				76D7D8512C09C7820015B90B /* OutPutTableViewCell.swift */,
+				76D7D8522C09C7820015B90B /* OutPutTableViewCell.xib */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -465,9 +510,12 @@
 				76D0E00E2C0702E400959C9A /* CityInfoTableViewCell.xib in Resources */,
 				76D0DFFA2C06ED3C00959C9A /* TravelDetail.storyboard in Resources */,
 				76262BAE2C045B0900B9553A /* TravelInfoTableViewCell.xib in Resources */,
+				76D7D8462C09C4B30015B90B /* ChatView.storyboard in Resources */,
 				7621D1EB2C01823E001AD157 /* Main.storyboard in Resources */,
 				76D7D80A2C09A2580015B90B /* TravelTalk.storyboard in Resources */,
 				76D7D8362C09B7B60015B90B /* PersonTableViewCell.xib in Resources */,
+				76D7D84E2C09C5E80015B90B /* InPutTableViewCell.xib in Resources */,
+				76D7D8542C09C7820015B90B /* OutPutTableViewCell.xib in Resources */,
 				76262BB22C045BBE00B9553A /* BannerTableViewCell.xib in Resources */,
 				76D0E00A2C0702CE00959C9A /* CityInfo.storyboard in Resources */,
 				76D7D83C2C09B7D30015B90B /* PeopleTableViewCell.xib in Resources */,
@@ -490,6 +538,7 @@
 				76262BB12C045BBE00B9553A /* BannerTableViewCell.swift in Sources */,
 				76262B972C0355E100B9553A /* CategoryViewController.swift in Sources */,
 				7621D1FA2C018EF8001AD157 /* Magazine.swift in Sources */,
+				76D7D8562C09D0570015B90B /* UIColor+.swift in Sources */,
 				76D247B52C01AFD700C46644 /* RestaurantListTableViewController.swift in Sources */,
 				76D817FF2C04643D00E1B648 /* Travel.swift in Sources */,
 				76B958AF2C08200D00EA9CBB /* UILabel+.swift in Sources */,
@@ -502,10 +551,13 @@
 				76D7D8282C09A8EC0015B90B /* ReuseIdentifierProtocol.swift in Sources */,
 				76D247AF2C01AE1A00C46644 /* RestaurantList.swift in Sources */,
 				76262BAD2C045B0900B9553A /* TravelInfoTableViewCell.swift in Sources */,
+				76D7D8502C09C60E0015B90B /* ChatViewController.swift in Sources */,
 				76D0E00D2C0702E400959C9A /* CityInfoTableViewCell.swift in Sources */,
 				76D247B32C01AFBD00C46644 /* RestaurantListTableViewCell.swift in Sources */,
 				76D0E0062C0701DA00959C9A /* CityInfo.swift in Sources */,
 				76D7D83B2C09B7D30015B90B /* PeopleTableViewCell.swift in Sources */,
+				76D7D84D2C09C5E80015B90B /* InPutTableViewCell.swift in Sources */,
+				76D7D8532C09C7820015B90B /* OutPutTableViewCell.swift in Sources */,
 				7621D1E42C01823E001AD157 /* AppDelegate.swift in Sources */,
 				76262B952C01D34700B9553A /* Category.swift in Sources */,
 				7621D1E62C01823E001AD157 /* SceneDelegate.swift in Sources */,
