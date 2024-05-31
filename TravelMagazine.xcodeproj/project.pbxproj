@@ -130,10 +130,10 @@
 				76262BB32C045F5E00B9553A /* Magazine */,
 				76262BB82C045FC000B9553A /* TravelInfo */,
 				76D0E0012C07018B00959C9A /* CityInfo */,
-				7621D1EC2C01823F001AD157 /* Assets.xcassets */,
-				7621D1EE2C01823F001AD157 /* LaunchScreen.storyboard */,
-				7621D1F12C01823F001AD157 /* Info.plist */,
 				76D247A82C01ADA400C46644 /* RestaurantList */,
+				7621D1EE2C01823F001AD157 /* LaunchScreen.storyboard */,
+				7621D1EC2C01823F001AD157 /* Assets.xcassets */,
+				7621D1F12C01823F001AD157 /* Info.plist */,
 			);
 			path = TravelMagazine;
 			sourceTree = "<group>";

@@ -33,6 +33,7 @@ class RestaurantListTableViewController: UITableViewController {
         let map = UIBarButtonItem(title: "Map", style: .plain, target: self, action: #selector(showMapView))
         navigationItem.rightBarButtonItem = map
         navigationItem.rightBarButtonItem?.tintColor = .black
+        navigationItem.title = "SeSAC Restaurant"
     }
 
     @objc func showMapView() {

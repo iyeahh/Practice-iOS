@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum Category: String, CaseIterable {
+enum Category: String {
     case all = "All"
     case korean = "한식"
     case chinese = "중식"
