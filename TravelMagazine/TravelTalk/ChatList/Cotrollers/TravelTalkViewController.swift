@@ -73,8 +73,10 @@ extension TravelTalkViewController: UITableViewDelegate, UITableViewDataSource {
 
         if data.chatroomImage.count == 1 {
             personCell.setupData(data)
+            personCell.selectionStyle = .none
             return personCell
         } else if data.chatroomImage.count == 4 {
+            peopleCell.selectionStyle = .none
             peopleCell.setupData(data)
             return peopleCell
         }
@@ -86,6 +88,9 @@ extension TravelTalkViewController: UITableViewDelegate, UITableViewDataSource {
         guard let vc = sb.instantiateViewController(withIdentifier: ChatViewController.identifier) as? ChatViewController else {
             return
         }
+        let backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: self, action: nil)
+        backBarButtonItem.tintColor = .black
+        self.navigationItem.backBarButtonItem = backBarButtonItem
         vc.chatroomName = chatList[indexPath.row].chatroomName
         vc.chatList = chatList[indexPath.row].chatList
         navigationController?.pushViewController(vc, animated: true)

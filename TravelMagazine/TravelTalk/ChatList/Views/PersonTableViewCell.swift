@@ -8,14 +8,14 @@
 import UIKit
 
 class PersonTableViewCell: UITableViewCell {
-    @IBOutlet var profileLabel: UILabel!
+    @IBOutlet var profileImageView: UIImageView!
     @IBOutlet var nameLabel: UILabel!
     @IBOutlet var dateLabel: UILabel!
     @IBOutlet var contentLabel: UILabel!
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        setupProfileLabel()
+        setupProfileImgeView()
         setupNameLabelUI()
         setupDateLabelUI()
         setupContentLabelUI()
@@ -23,15 +23,11 @@ class PersonTableViewCell: UITableViewCell {
 
     override func layoutSubviews() {
         super.layoutSubviews()
-        profileLabel.layer.cornerRadius = profileLabel.frame.width / 2
+        profileImageView.layer.cornerRadius = profileImageView.frame.width / 2
     }
 
-    private func setupProfileLabel() {
-        profileLabel.textAlignment = .center
-        profileLabel.font = UIFont.profileImage
-        profileLabel.backgroundColor = UIColor.natural
-        profileLabel.clipsToBounds = true
-        profileLabel.layer.cornerRadius = 30
+    private func setupProfileImgeView() {
+        profileImageView.contentMode = .scaleAspectFill
     }
 
     private func setupNameLabelUI() {
@@ -50,7 +46,7 @@ class PersonTableViewCell: UITableViewCell {
     }
 
     func setupData(_ data: ChatRoom) {
-        profileLabel.text = data.chatroomImage[0].firstCharactor
+        profileImageView.image = UIImage(named: data.chatroomImage.first!)
         nameLabel.text = data.chatroomName
         guard let chat = data.chatList.last else {
             return

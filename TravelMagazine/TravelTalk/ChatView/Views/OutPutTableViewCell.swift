@@ -9,16 +9,14 @@ import UIKit
 
 class OutPutTableViewCell: UITableViewCell {
     @IBOutlet var contentLabel: UILabel!
+    @IBOutlet var contentBackgroundView: UIView!
     @IBOutlet var timeLabel: UILabel!
 
     override func awakeFromNib() {
         super.awakeFromNib()
         setupTimeLabelUI()
         setupContentLabelUI()
-    }
-
-    override func layoutIfNeeded() {
-        super.layoutIfNeeded()
+        setupContentBackgroundViewUI()
     }
 
     private func setupTimeLabelUI() {
@@ -27,16 +25,18 @@ class OutPutTableViewCell: UITableViewCell {
         timeLabel.textAlignment = .right
     }
 
+    private func setupContentBackgroundViewUI() {
+        contentBackgroundView.layer.cornerRadius = 10
+        contentBackgroundView.layer.borderColor = UIColor.natural.cgColor
+        contentBackgroundView.layer.borderWidth = 1
+        contentBackgroundView.backgroundColor = UIColor.secondary.withAlphaComponent(0.5)
+    }
+
     private func setupContentLabelUI() {
         contentLabel.font = UIFont.chatContent
         contentLabel.textColor = UIColor.primary
         contentLabel.numberOfLines = 0
         contentLabel.textAlignment = .right
-        contentLabel.clipsToBounds = true
-        contentLabel.layer.cornerRadius = 5
-        contentLabel.backgroundColor = UIColor.natural
-        contentLabel.layer.borderColor = UIColor.primary.cgColor
-        contentLabel.layer.borderWidth = 1
     }
 
     func setupData(_ data: Chat) {

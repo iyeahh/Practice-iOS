@@ -11,11 +11,4 @@ extension String {
     func removeWhitespaces() -> String {
         return components(separatedBy: .whitespaces).joined()
     }
-
-    var firstCharactor: String {
-        if let firstCharactor = self.first {
-            return "\(firstCharactor)"
-        }
-        return ""
-    }
 }

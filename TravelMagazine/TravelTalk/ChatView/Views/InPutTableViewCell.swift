@@ -8,25 +8,25 @@
 import UIKit
 
 class InPutTableViewCell: UITableViewCell {
-    @IBOutlet var profileLabel: UILabel!
+    @IBOutlet var profileImageView: UIImageView!
     @IBOutlet var nameLabel: UILabel!
+    @IBOutlet var contentBackgroundView: UIView!
     @IBOutlet var contentLabel: UILabel!
     @IBOutlet var timeLabel: UILabel!
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        setupProfileLabelUI()
+        setupProfileImageViewUI()
         setupNameLabelUI()
         setupTimeLabelUI()
+        setupContentBackgroundViewUI()
         setupContentLabelUI()
     }
 
-    private func setupProfileLabelUI() {
-        profileLabel.textAlignment = .center
-        profileLabel.font = UIFont.smallProfileImage
-        profileLabel.backgroundColor = UIColor.natural
-        profileLabel.clipsToBounds = true
-        profileLabel.layer.cornerRadius = profileLabel.frame.width / 2
+    private func setupProfileImageViewUI() {
+        profileImageView.contentMode = .scaleAspectFill
+        profileImageView.clipsToBounds = true
+        profileImageView.layer.cornerRadius = profileImageView.frame.width / 2
     }
 
     private func setupNameLabelUI() {
@@ -38,18 +38,20 @@ class InPutTableViewCell: UITableViewCell {
         timeLabel.textColor = UIColor.secondary
     }
 
+    private func setupContentBackgroundViewUI() {
+        contentBackgroundView.layer.cornerRadius = 10
+        contentBackgroundView.layer.borderColor = UIColor.natural.cgColor
+        contentBackgroundView.layer.borderWidth = 1
+    }
+
     private func setupContentLabelUI() {
         contentLabel.font = UIFont.chatContent
         contentLabel.numberOfLines = 0
         contentLabel.textColor = UIColor.primary
-        contentLabel.clipsToBounds = true
-        contentLabel.layer.cornerRadius = 5
-        contentLabel.layer.borderColor = UIColor.natural.cgColor
-        contentLabel.layer.borderWidth = 1
     }
 
     func setupData(_ data: Chat) {
-        profileLabel.text = data.user.profileImage.firstCharactor
+        profileImageView.image = UIImage(named: data.user.profileImage)
         nameLabel.text = data.user.rawValue
         timeLabel.text = data.formattedTime
         contentLabel.text = data.message

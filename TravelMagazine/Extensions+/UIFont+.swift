@@ -8,8 +8,6 @@
 import UIKit
 
 extension UIFont {
-    static let profileImage = UIFont.boldSystemFont(ofSize: 30)
-    static let smallProfileImage = UIFont.boldSystemFont(ofSize: 10)
     static let name = UIFont.boldSystemFont(ofSize: 15)
     static let date = UIFont.systemFont(ofSize: 10)
     static let content = UIFont.systemFont(ofSize: 13)
