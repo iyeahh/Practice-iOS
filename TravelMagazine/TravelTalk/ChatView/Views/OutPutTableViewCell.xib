@@ -22,7 +22,7 @@
                         <rect key="frame" x="4" y="4" width="389" height="169"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iYL-XT-rPK">
-                                <rect key="frame" x="4" y="145" width="60" height="20"/>
+                                <rect key="frame" x="279.66666666666669" y="145" width="60" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="XXb-33-7B1"/>
                                     <constraint firstAttribute="width" constant="60" id="ZNh-gZ-txW"/>
@@ -32,7 +32,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wpl-zG-0NY">
-                                <rect key="frame" x="68" y="4" width="317" height="161"/>
+                                <rect key="frame" x="343.66666666666669" y="4" width="41.333333333333314" height="161"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -43,9 +43,9 @@
                             <constraint firstItem="wpl-zG-0NY" firstAttribute="top" secondItem="3Fs-PO-O1l" secondAttribute="top" constant="4" id="1Mr-dV-ed8"/>
                             <constraint firstAttribute="bottom" secondItem="iYL-XT-rPK" secondAttribute="bottom" constant="4" id="3Ed-Za-cU5"/>
                             <constraint firstAttribute="bottom" secondItem="wpl-zG-0NY" secondAttribute="bottom" constant="4" id="4Wd-qF-lGf"/>
-                            <constraint firstItem="iYL-XT-rPK" firstAttribute="leading" secondItem="3Fs-PO-O1l" secondAttribute="leading" constant="4" id="IHl-pw-uSr"/>
                             <constraint firstAttribute="trailing" secondItem="wpl-zG-0NY" secondAttribute="trailing" constant="4" id="S4u-JE-0WA"/>
                             <constraint firstItem="wpl-zG-0NY" firstAttribute="leading" secondItem="iYL-XT-rPK" secondAttribute="trailing" constant="4" id="X4U-uT-Bmp"/>
+                            <constraint firstItem="iYL-XT-rPK" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="3Fs-PO-O1l" secondAttribute="leading" constant="4" id="miR-6W-HMu"/>
                         </constraints>
                     </view>
                 </subviews>
