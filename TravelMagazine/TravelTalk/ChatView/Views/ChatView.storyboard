@@ -18,11 +18,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="79H-Sy-raT">
-                                <rect key="frame" x="0.0" y="60" width="393" height="718"/>
+                                <rect key="frame" x="0.0" y="60" width="393" height="698"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DUI-IK-L7y">
-                                <rect key="frame" x="20" y="778" width="353" height="30"/>
+                                <rect key="frame" x="20" y="768" width="353" height="40"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4e9-js-11a">
                                         <rect key="frame" x="318" y="0.0" width="35" height="35"/>
@@ -41,10 +41,10 @@
                                 </constraints>
                             </view>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="nAn-5g-q2g">
-                                <rect key="frame" x="20" y="778" width="323" height="30"/>
+                                <rect key="frame" x="25" y="773" width="308" height="30"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="A8g-X8-1Wl"/>
+                                    <constraint firstAttribute="height" constant="30" id="3O9-AZ-vwB"/>
                                 </constraints>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <color key="textColor" systemColor="labelColor"/>
@@ -65,16 +65,16 @@
                             <constraint firstItem="DUI-IK-L7y" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="41I-a5-hZa"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="DUI-IK-L7y" secondAttribute="bottom" constant="10" id="4SF-Np-hgv"/>
                             <constraint firstItem="1Wr-mR-YMP" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="6cD-hr-GML"/>
-                            <constraint firstItem="nAn-5g-q2g" firstAttribute="top" secondItem="DUI-IK-L7y" secondAttribute="top" id="ANN-Hc-iZ6"/>
+                            <constraint firstItem="nAn-5g-q2g" firstAttribute="leading" secondItem="DUI-IK-L7y" secondAttribute="leading" constant="5" id="9E6-pR-aA5"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="1Wr-mR-YMP" secondAttribute="trailing" id="PSY-tv-Zqz"/>
-                            <constraint firstItem="DUI-IK-L7y" firstAttribute="top" secondItem="79H-Sy-raT" secondAttribute="bottom" id="Qy6-9E-AA8"/>
-                            <constraint firstItem="nAn-5g-q2g" firstAttribute="bottom" secondItem="DUI-IK-L7y" secondAttribute="bottom" id="Upu-bi-2ns"/>
+                            <constraint firstItem="DUI-IK-L7y" firstAttribute="top" secondItem="79H-Sy-raT" secondAttribute="bottom" constant="10" id="Qy6-9E-AA8"/>
                             <constraint firstItem="79H-Sy-raT" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="Vgu-Gr-812"/>
-                            <constraint firstItem="nAn-5g-q2g" firstAttribute="trailing" secondItem="4e9-js-11a" secondAttribute="leading" constant="5" id="dCv-3X-DVB"/>
+                            <constraint firstItem="nAn-5g-q2g" firstAttribute="bottom" secondItem="DUI-IK-L7y" secondAttribute="bottom" constant="-5" id="bsU-RQ-EWq"/>
+                            <constraint firstItem="nAn-5g-q2g" firstAttribute="trailing" secondItem="4e9-js-11a" secondAttribute="leading" constant="-5" id="dCv-3X-DVB"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="DUI-IK-L7y" secondAttribute="trailing" constant="20" id="goz-cP-Fh9"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="79H-Sy-raT" secondAttribute="trailing" id="iqq-qR-LJj"/>
                             <constraint firstItem="79H-Sy-raT" firstAttribute="top" secondItem="1Wr-mR-YMP" secondAttribute="bottom" id="jGQ-Pp-e2q"/>
-                            <constraint firstItem="nAn-5g-q2g" firstAttribute="leading" secondItem="DUI-IK-L7y" secondAttribute="leading" id="m5W-D1-r5Z"/>
+                            <constraint firstItem="nAn-5g-q2g" firstAttribute="top" secondItem="DUI-IK-L7y" secondAttribute="top" constant="5" id="rQt-oO-64e"/>
                             <constraint firstItem="1Wr-mR-YMP" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="vXt-vE-IZI"/>
                         </constraints>
                     </view>
@@ -84,6 +84,7 @@
                         <outlet property="sendButton" destination="4e9-js-11a" id="TY9-Oy-FdP"/>
                         <outlet property="textViewBackgroundView" destination="DUI-IK-L7y" id="5VT-tx-XtX"/>
                         <outlet property="textViewConstraint" destination="4SF-Np-hgv" id="UgA-SW-uzp"/>
+                        <outlet property="textViewHeightConstraint" destination="3O9-AZ-vwB" id="Upp-Fl-IOA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -99,7 +100,7 @@
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemGray5Color">
-            <color red="0.89803921568627454" green="0.89803921568627454" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.8980392157" green="0.8980392157" blue="0.91764705879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

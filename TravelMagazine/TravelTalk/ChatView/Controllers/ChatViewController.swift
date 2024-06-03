@@ -14,6 +14,7 @@ class ChatViewController: UIViewController {
     @IBOutlet var sendButton: UIButton!
 
     @IBOutlet var textViewConstraint: NSLayoutConstraint!
+    @IBOutlet var textViewHeightConstraint: NSLayoutConstraint!
 
     var chatList: [Chat]?
     var chatroomName: String = ""
@@ -29,42 +30,42 @@ class ChatViewController: UIViewController {
     }
 
     override func viewWillAppear(_ animated: Bool) {
-         super.viewWillAppear(animated)
+        super.viewWillAppear(animated)
 
-         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
-         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
 
     override func viewWillDisappear(_ animated: Bool) {
-         super.viewWillDisappear(animated)
+        super.viewWillDisappear(animated)
 
-         NotificationCenter.default.removeObserver(self)
+        NotificationCenter.default.removeObserver(self)
     }
 
     @objc private func keyboardWillShow(_ notification: Notification) {
-         guard let tabBar = self.tabBarController?.tabBar else {
-              return
-         }
-         let tabBarHeight = tabBar.frame.size.height
+        guard let tabBar = self.tabBarController?.tabBar else {
+            return
+        }
+        let tabBarHeight = tabBar.frame.size.height
 
-         guard let keyboardFrame = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue else {
-              return
-         }
+        guard let keyboardFrame = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue else {
+            return
+        }
 
-         let keyboardHeight = keyboardFrame.size.height
+        let keyboardHeight = keyboardFrame.size.height
 
-        textViewConstraint.constant = keyboardHeight - tabBarHeight + 10
-         UIView.animate(withDuration: 0.3) {
-             self.view.layoutIfNeeded()
-         }
+        textViewConstraint.constant = keyboardHeight - tabBarHeight + 20
+        UIView.animate(withDuration: 0.3) {
+            self.view.layoutIfNeeded()
+        }
         scrollToLastIndexRow()
     }
 
     @objc private func keyboardWillHide(_ notification: Notification) {
         textViewConstraint.constant = 0
-         UIView.animate(withDuration: 0.3) {
-             self.view.layoutIfNeeded()
-         }
+        UIView.animate(withDuration: 0.3) {
+            self.view.layoutIfNeeded()
+        }
         scrollToLastIndexRow()
     }
 
@@ -81,6 +82,8 @@ class ChatViewController: UIViewController {
         chatTextView.text = "메세지를 입력하세요"
         chatTextView.textColor = UIColor.secondary
         chatTextView.backgroundColor = .clear
+        chatTextView.isScrollEnabled = false
+        chatTextView.delegate = self
     }
 
     private func setupButtonUI() {
@@ -121,10 +124,10 @@ extension ChatViewController: UITableViewDelegate, UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard 
+        guard
             let inputCell = tableView.dequeueReusableCell(
-            withIdentifier: InPutTableViewCell.identifier,
-            for: indexPath) as? InPutTableViewCell,
+                withIdentifier: InPutTableViewCell.identifier,
+                for: indexPath) as? InPutTableViewCell,
             let outputCell = tableView.dequeueReusableCell(
                 withIdentifier: OutPutTableViewCell.identifier,
                 for: indexPath) as? OutPutTableViewCell,
@@ -140,6 +143,21 @@ extension ChatViewController: UITableViewDelegate, UITableViewDataSource {
             inputCell.setupData(chat)
             inputCell.selectionStyle = .none
             return inputCell
+        }
+    }
+}
+
+extension ChatViewController: UITextViewDelegate {
+    func textViewDidChange(_ textView: UITextView) {
+        let size = CGSize(width: view.frame.width, height: .infinity)
+        let estimatedSize = textView.sizeThatFits(size)
+
+        if estimatedSize.height > 67 {
+            textView.isScrollEnabled = true
+            return
+        } else {
+            textView.isScrollEnabled = false
+            textViewHeightConstraint.constant = estimatedSize.height
         }
     }
 }

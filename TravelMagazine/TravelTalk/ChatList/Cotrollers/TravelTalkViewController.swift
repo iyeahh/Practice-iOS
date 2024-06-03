@@ -34,6 +34,7 @@ class TravelTalkViewController: UIViewController {
     private func setupSearchBar() {
         talkSearchBar.delegate = self
         talkSearchBar.placeholder = "친구 이름을 검색해보세요"
+        talkSearchBar.searchBarStyle = .minimal
     }
 
     private func setupTableView() {

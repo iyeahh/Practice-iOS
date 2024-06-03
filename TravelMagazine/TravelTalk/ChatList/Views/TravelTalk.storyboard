@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="NaC-mb-yS7">
-                                <rect key="frame" x="0.0" y="103" width="393" height="715"/>
+                                <rect key="frame" x="0.0" y="112" width="393" height="706"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
                             <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="EaL-cF-01j">
@@ -31,15 +31,25 @@
                                     <outlet property="delegate" destination="Y6W-OH-hqX" id="0vV-l6-oV3"/>
                                 </connections>
                             </searchBar>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SJb-qz-r0c">
+                                <rect key="frame" x="0.0" y="111" width="393" height="1"/>
+                                <color key="backgroundColor" systemColor="systemGray4Color"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1" id="nTm-yB-GOP"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="EaL-cF-01j" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="3gh-12-wdl"/>
+                            <constraint firstItem="SJb-qz-r0c" firstAttribute="top" secondItem="EaL-cF-01j" secondAttribute="bottom" constant="8" id="B2h-6G-r9T"/>
                             <constraint firstItem="EaL-cF-01j" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" constant="-16" id="DYx-0g-0jW"/>
+                            <constraint firstItem="NaC-mb-yS7" firstAttribute="top" secondItem="SJb-qz-r0c" secondAttribute="bottom" id="FWi-Po-piQ"/>
                             <constraint firstItem="EaL-cF-01j" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="KxO-hI-4yS"/>
-                            <constraint firstItem="NaC-mb-yS7" firstAttribute="top" secondItem="EaL-cF-01j" secondAttribute="bottom" id="PSM-58-e95"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="SJb-qz-r0c" secondAttribute="trailing" id="Q1x-1K-l1a"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="NaC-mb-yS7" secondAttribute="trailing" id="f2v-VF-Fqd"/>
+                            <constraint firstItem="SJb-qz-r0c" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="jX6-WG-sVE"/>
                             <constraint firstItem="NaC-mb-yS7" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="vm7-PH-Cf4"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="NaC-mb-yS7" secondAttribute="bottom" id="wQN-Ee-wGv"/>
                         </constraints>
@@ -51,12 +61,15 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="138" y="-17"/>
+            <point key="canvasLocation" x="136.64122137404578" y="-17.605633802816904"/>
         </scene>
     </scenes>
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray4Color">
+            <color red="0.81960784310000001" green="0.81960784310000001" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
