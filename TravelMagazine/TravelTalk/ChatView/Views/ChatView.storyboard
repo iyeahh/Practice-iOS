@@ -25,7 +25,7 @@
                                 <rect key="frame" x="20" y="768" width="353" height="40"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4e9-js-11a">
-                                        <rect key="frame" x="318" y="0.0" width="35" height="35"/>
+                                        <rect key="frame" x="318" y="3" width="35" height="35"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="35" id="8ya-AX-eme"/>
                                             <constraint firstAttribute="width" constant="35" id="KDF-GX-aIA"/>
@@ -36,7 +36,7 @@
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstItem="4e9-js-11a" firstAttribute="top" secondItem="DUI-IK-L7y" secondAttribute="top" id="k25-b9-TBg"/>
+                                    <constraint firstItem="4e9-js-11a" firstAttribute="top" secondItem="DUI-IK-L7y" secondAttribute="top" constant="3" id="k25-b9-TBg"/>
                                     <constraint firstAttribute="trailing" secondItem="4e9-js-11a" secondAttribute="trailing" id="wog-2b-Fkv"/>
                                 </constraints>
                             </view>

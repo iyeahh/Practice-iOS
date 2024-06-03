@@ -8,15 +8,23 @@
 import UIKit
 
 class OutPutTableViewCell: UITableViewCell {
+
+    @IBOutlet var lineView: UIView!
+    
     @IBOutlet var contentLabel: UILabel!
     @IBOutlet var contentBackgroundView: UIView!
     @IBOutlet var timeLabel: UILabel!
 
     override func awakeFromNib() {
         super.awakeFromNib()
+        setupLineViewUI()
         setupTimeLabelUI()
         setupContentLabelUI()
         setupContentBackgroundViewUI()
+    }
+
+    private func setupLineViewUI() {
+        lineView.isHidden = true
     }
 
     private func setupTimeLabelUI() {

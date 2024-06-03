@@ -91,6 +91,14 @@ class ChatViewController: UIViewController {
         sendButton.setImage(UIImage(systemName: "arrow.right.circle"), for: .normal)
         sendButton.setTitle("", for: .normal)
         sendButton.tintColor = UIColor.natural
+        sendButton.addTarget(self, action: #selector(sendButtonTapped), for: .touchUpInside)
+    }
+
+    @objc private func sendButtonTapped() {
+        let newMessage = chatTextView.text!
+        chatList?.append(Chat(user: .user, date: "2323-12-22 22:22", message: newMessage))
+        scrollToLastIndexRow()
+        chatTableView.reloadData()
     }
 
     private func setupTableView() {
@@ -113,6 +121,20 @@ class ChatViewController: UIViewController {
             self.chatTableView.scrollToRow(at: index, at: .bottom, animated: false)
         }
     }
+
+    private func compareDate(date1: String, date2: String) -> Bool {
+        let dateFormatter: DateFormatter = .init()
+        dateFormatter.dateFormat = "yy.MM.dd"
+        if let targetDate: Date = dateFormatter.date(from: date1),
+           let fromDate: Date = dateFormatter.date(from: date2) {
+            switch targetDate.compare(fromDate) {
+            case .orderedSame: return false
+            case .orderedDescending: return true
+            case .orderedAscending: return true
+            }
+        }
+        return false
+    }
 }
 
 extension ChatViewController: UITableViewDelegate, UITableViewDataSource {
@@ -124,22 +146,38 @@ extension ChatViewController: UITableViewDelegate, UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard
-            let inputCell = tableView.dequeueReusableCell(
-                withIdentifier: InPutTableViewCell.identifier,
-                for: indexPath) as? InPutTableViewCell,
-            let outputCell = tableView.dequeueReusableCell(
-                withIdentifier: OutPutTableViewCell.identifier,
-                for: indexPath) as? OutPutTableViewCell,
-            let chat = chatList?[indexPath.row] else {
+
+        guard let chat = chatList?[indexPath.row] else {
             return UITableViewCell()
         }
 
         if chat.user == .user {
+            guard let outputCell = tableView.dequeueReusableCell(
+                withIdentifier: OutPutTableViewCell.identifier,
+                for: indexPath
+            ) as? OutPutTableViewCell else {
+                return UITableViewCell()
+            }
+            if indexPath.row == 0 || compareDate(date1: chatList![indexPath.row - 1].formattedDate, date2: chat.formattedDate) {
+                outputCell.lineView.isHidden = false
+            } else {
+                outputCell.lineView.isHidden = true
+            }
             outputCell.setupData(chat)
             outputCell.selectionStyle = .none
             return outputCell
         } else {
+            guard let inputCell = tableView.dequeueReusableCell(
+                withIdentifier: InPutTableViewCell.identifier,
+                for: indexPath
+            ) as? InPutTableViewCell else {
+                return UITableViewCell()
+            }
+            if indexPath.row == 0 || compareDate(date1: chatList![indexPath.row - 1].formattedDate, date2: chat.formattedDate) {
+                inputCell.lineView.isHidden = false
+            } else {
+                inputCell.lineView.isHidden = true
+            }
             inputCell.setupData(chat)
             inputCell.selectionStyle = .none
             return inputCell
@@ -159,5 +197,11 @@ extension ChatViewController: UITextViewDelegate {
             textView.isScrollEnabled = false
             textViewHeightConstraint.constant = estimatedSize.height
         }
+    }
+
+    func textViewDidEndEditing(_ textView: UITextView) {
+        let a = textView.text!
+        chatList?.append(Chat(user: .user, date: "2", message: a))
+        chatTableView.reloadData()
     }
 }

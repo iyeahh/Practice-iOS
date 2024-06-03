@@ -77,18 +77,31 @@
                             <constraint firstItem="VZq-Dl-br8" firstAttribute="bottom" secondItem="PgF-zR-f5W" secondAttribute="bottom" constant="8" id="skD-tJ-xt3"/>
                         </constraints>
                     </view>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dpB-gk-7eI">
+                        <rect key="frame" x="0.0" y="0.0" width="476" height="1"/>
+                        <color key="backgroundColor" systemColor="systemGray4Color"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="1" id="hfF-wh-ISH"/>
+                        </constraints>
+                    </view>
                 </subviews>
                 <constraints>
                     <constraint firstItem="zvT-71-9v8" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="4" id="JAT-qz-0yJ"/>
+                    <constraint firstItem="dpB-gk-7eI" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="JJt-p4-r2o"/>
                     <constraint firstItem="zvT-71-9v8" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="LVf-ls-LfF"/>
+                    <constraint firstAttribute="trailing" secondItem="dpB-gk-7eI" secondAttribute="trailing" id="nL4-CI-Quh"/>
                     <constraint firstAttribute="trailing" secondItem="zvT-71-9v8" secondAttribute="trailing" constant="4" id="pep-Hy-75i"/>
                     <constraint firstAttribute="bottom" secondItem="zvT-71-9v8" secondAttribute="bottom" constant="4" id="uGN-K8-IZr"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <constraints>
+                <constraint firstItem="dpB-gk-7eI" firstAttribute="leading" secondItem="njF-e1-oar" secondAttribute="leading" id="5uP-KS-I9T"/>
+            </constraints>
             <connections>
                 <outlet property="contentBackgroundView" destination="VZq-Dl-br8" id="cv4-3b-um2"/>
                 <outlet property="contentLabel" destination="PgF-zR-f5W" id="FrB-IC-vpE"/>
+                <outlet property="lineView" destination="dpB-gk-7eI" id="1Hq-MP-qBE"/>
                 <outlet property="nameLabel" destination="ACX-4L-1Ar" id="q7A-ZU-idG"/>
                 <outlet property="profileImageView" destination="B7J-AS-bQr" id="LUC-zl-pPM"/>
                 <outlet property="timeLabel" destination="aqh-Gj-gQm" id="nL2-Ud-pKD"/>
@@ -99,6 +112,9 @@
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray4Color">
+            <color red="0.81960784310000001" green="0.81960784310000001" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

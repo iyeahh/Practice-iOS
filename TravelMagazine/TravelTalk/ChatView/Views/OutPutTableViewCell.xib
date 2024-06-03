@@ -41,6 +41,13 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WOY-mO-Wjb">
+                                <rect key="frame" x="-4" y="-4" width="397" height="1"/>
+                                <color key="backgroundColor" systemColor="systemGray4Color"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1" id="boR-vo-zsP"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
@@ -65,9 +72,15 @@
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <constraints>
+                <constraint firstItem="WOY-mO-Wjb" firstAttribute="leading" secondItem="njF-e1-oar" secondAttribute="leading" id="4O5-97-BUg"/>
+                <constraint firstItem="njF-e1-oar" firstAttribute="trailing" secondItem="WOY-mO-Wjb" secondAttribute="trailing" id="JY9-7i-x4y"/>
+                <constraint firstItem="WOY-mO-Wjb" firstAttribute="top" secondItem="njF-e1-oar" secondAttribute="top" id="WYD-V4-BA4"/>
+            </constraints>
             <connections>
                 <outlet property="contentBackgroundView" destination="8oo-bR-30i" id="XFQ-uX-GKO"/>
                 <outlet property="contentLabel" destination="wpl-zG-0NY" id="cEv-Ik-qPU"/>
+                <outlet property="lineView" destination="WOY-mO-Wjb" id="li4-xt-MIU"/>
                 <outlet property="timeLabel" destination="iYL-XT-rPK" id="dMH-XM-RxM"/>
             </connections>
             <point key="canvasLocation" x="124.42748091603053" y="46.83098591549296"/>
@@ -76,6 +89,9 @@
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray4Color">
+            <color red="0.81960784310000001" green="0.81960784310000001" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

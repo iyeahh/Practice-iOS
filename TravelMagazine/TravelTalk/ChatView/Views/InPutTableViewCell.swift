@@ -8,6 +8,7 @@
 import UIKit
 
 class InPutTableViewCell: UITableViewCell {
+    @IBOutlet var lineView: UIView!
     @IBOutlet var profileImageView: UIImageView!
     @IBOutlet var nameLabel: UILabel!
     @IBOutlet var contentBackgroundView: UIView!
@@ -16,11 +17,16 @@ class InPutTableViewCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
+        setupLineViewUI()
         setupProfileImageViewUI()
         setupNameLabelUI()
         setupTimeLabelUI()
         setupContentBackgroundViewUI()
         setupContentLabelUI()
+    }
+
+    private func setupLineViewUI() {
+        lineView.isHidden = true
     }
 
     private func setupProfileImageViewUI() {

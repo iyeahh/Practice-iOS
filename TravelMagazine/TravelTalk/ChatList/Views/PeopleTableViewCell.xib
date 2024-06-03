@@ -119,6 +119,7 @@
                 <outletCollection property="profileImageViewCollection" destination="2Wv-Dj-rD3" collectionClass="NSMutableArray" id="EtM-Ps-wdj"/>
                 <outletCollection property="profileImageViewCollection" destination="Enf-0R-WoH" collectionClass="NSMutableArray" id="XCe-g5-kcU"/>
                 <outletCollection property="profileImageViewCollection" destination="KWo-ji-OgS" collectionClass="NSMutableArray" id="G5u-sH-vdl"/>
+                <outletCollection property="profileImageViewCollection" destination="ryw-27-I8W" collectionClass="NSMutableArray" id="tHM-1Q-Ojt"/>
             </connections>
             <point key="canvasLocation" x="249.61832061068702" y="83.802816901408448"/>
         </tableViewCell>
