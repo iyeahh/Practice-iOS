@@ -6,9 +6,16 @@
 //
 
 import UIKit
+import Alamofire
 import SnapKit
 
 class MovieRankingViewController: UIViewController {
+    var boxOfficeList: [DailyBoxOfficeList] = [] {
+        didSet {
+            movieTableView.reloadData()
+        }
+    }
+
     let dateTextField: UITextField = {
         let textField = UITextField()
         textField.keyboardType = .numberPad
@@ -43,6 +50,7 @@ class MovieRankingViewController: UIViewController {
         configureLayout()
         configureTableView()
         configureUI()
+        callRequest()
     }
 
     private func configureHierachy() {
@@ -88,20 +96,30 @@ class MovieRankingViewController: UIViewController {
     private func configureUI() {
         view.backgroundColor = .black
     }
+
+    private func callRequest() {
+        let url = URLString.movieRanking
+        AF.request(url).responseDecodable(of: BoxOfficeData.self) { response in
+            switch response.result {
+            case .success(let value):
+                self.boxOfficeList = value.boxOfficeResult?.dailyBoxOfficeList ?? []
+            case .failure(let error):
+                print(error)
+            }
+        }
+    }
 }
 
 extension MovieRankingViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return boxOfficeList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: MovieTableViewCell.identifier, for: indexPath) as? MovieTableViewCell else {
             return UITableViewCell()
         }
-        cell.rankingLabel.text = "1"
-        cell.movieTitleLable.text = "dddddd"
-        cell.dateLabel.text = "dkdkdk"
+        cell.setData(boxOfficeList[indexPath.row])
         return cell
     }
 }

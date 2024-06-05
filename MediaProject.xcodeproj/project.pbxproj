@@ -22,6 +22,7 @@
 		76F052222C1040440018AB88 /* Lotto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76F052212C1040440018AB88 /* Lotto.swift */; };
 		76F052282C1057D60018AB88 /* MovieRankingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76F052272C1057D60018AB88 /* MovieRankingViewController.swift */; };
 		76F0522A2C1057FA0018AB88 /* MovieTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76F052292C1057FA0018AB88 /* MovieTableViewCell.swift */; };
+		76F0522C2C1064970018AB88 /* MovieRanking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76F0522B2C1064970018AB88 /* MovieRanking.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		76F052212C1040440018AB88 /* Lotto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lotto.swift; sourceTree = "<group>"; };
 		76F052272C1057D60018AB88 /* MovieRankingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieRankingViewController.swift; sourceTree = "<group>"; };
 		76F052292C1057FA0018AB88 /* MovieTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieTableViewCell.swift; sourceTree = "<group>"; };
+		76F0522B2C1064970018AB88 /* MovieRanking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieRanking.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -160,6 +162,7 @@
 		76F052252C1055FC0018AB88 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				76F0522B2C1064970018AB88 /* MovieRanking.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -260,6 +263,7 @@
 				76DD082C2C0EFD46007C751E /* AppDelegate.swift in Sources */,
 				76DD082E2C0EFD46007C751E /* SceneDelegate.swift in Sources */,
 				76DD08482C0F1DE2007C751E /* HomeViewController.swift in Sources */,
+				76F0522C2C1064970018AB88 /* MovieRanking.swift in Sources */,
 				76F052152C103ED50018AB88 /* Int+.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

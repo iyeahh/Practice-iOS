@@ -77,4 +77,10 @@ class MovieTableViewCell: UITableViewCell {
     private func configureUI() {
         contentView.backgroundColor = .black
     }
+
+    func setData(_ data: DailyBoxOfficeList) {
+        rankingLabel.text = data.rank
+        movieTitleLable.text = data.movieNm
+        dateLabel.text = data.openDt
+    }
 }
