@@ -7,6 +7,7 @@
 
 import UIKit
 import SnapKit
+import Alamofire
 
 class LottoViewController: UIViewController {
 
@@ -51,7 +52,7 @@ class LottoViewController: UIViewController {
         let label = UILabel()
         label.textAlignment = .center
         label.font = .boldSystemFont(ofSize: 20)
-        label.text = "913회 당첨결과"
+        label.text = "1110회 당첨결과"
         return label
     }()
 
@@ -64,19 +65,18 @@ class LottoViewController: UIViewController {
     lazy var numberLabel7 = configureNumberLabel()
     lazy var numberLabel8 = configureNumberLabel()
 
+    lazy var numberLabels: [UILabel] = [
+        numberLabel1, numberLabel2, numberLabel3, numberLabel4, numberLabel5, numberLabel6, numberLabel7, numberLabel8
+    ]
+
     lazy var numberLabelStackView: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .horizontal
         stackView.spacing = 5
         stackView.distribution = .fillEqually
-        stackView.addArrangedSubview(numberLabel1)
-        stackView.addArrangedSubview(numberLabel2)
-        stackView.addArrangedSubview(numberLabel3)
-        stackView.addArrangedSubview(numberLabel4)
-        stackView.addArrangedSubview(numberLabel5)
-        stackView.addArrangedSubview(numberLabel6)
-        stackView.addArrangedSubview(numberLabel7)
-        stackView.addArrangedSubview(numberLabel8)
+        numberLabels.forEach { label in
+            stackView.addArrangedSubview(label)
+        }
         return stackView
     }()
 
@@ -95,7 +95,12 @@ class LottoViewController: UIViewController {
         configureLayout()
         configureUI()
         configurePickerView()
+        callRequest(number: 1110)
     }
+
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){
+         self.view.endEditing(true)
+   }
 
     private func configureHierachy() {
         view.addSubview(inputTextField)
@@ -169,7 +174,42 @@ class LottoViewController: UIViewController {
         label.layer.cornerRadius = label.frame.width / 2
         label.clipsToBounds = true
         label.backgroundColor = .gray
+        label.textAlignment = .center
         return label
+    }
+
+    private func callRequest(number: Int) {
+        let url = URLString.lotto + "\(number)"
+        AF.request(url).responseDecodable(of: Lotto.self) { response in
+            switch response.result {
+            case .success(let value):
+                self.setData(value)
+            case .failure(let error):
+                print(error)
+            }
+        }
+    }
+
+    private func setData(_ data: Lotto) {
+        dateLabel.text = data.date
+        resultLabel.text = data.numberDescription
+        setNumberLabels(data)
+    }
+
+    private func setNumberLabels(_ data: Lotto) {
+        let numbers = data.sortedNumber
+        for num in 0...5 {
+            numberLabels[num].text = "\(numbers[num])"
+            numberLabels[num].backgroundColor = numbers[num].backgroundColor
+        }
+
+        numberLabel7.text = "+"
+        numberLabel7.textColor = .black
+        numberLabel7.backgroundColor = .white
+
+        guard let bonusNum = data.bnusNo else { return }
+        numberLabel8.text = "\(bonusNum)"
+        numberLabel8.backgroundColor = bonusNum.backgroundColor
     }
 }
 
@@ -179,11 +219,21 @@ extension LottoViewController: UIPickerViewDelegate, UIPickerViewDataSource {
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return 10
+        return 100
     }
 
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return "타이틀"
+        var nums: [Int] = []
+
+        for num in 1011...1110 {
+            nums.append(num)
+        }
+
+        return "\(nums[row])"
+    }
+
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        callRequest(number: row + 1011)
     }
 }
 
