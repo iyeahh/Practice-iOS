@@ -14,6 +14,7 @@
 		76DD08412C0EFD69007C751E /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 76DD08402C0EFD69007C751E /* SnapKit */; };
 		76DD08452C0F013E007C751E /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76DD08442C0F013E007C751E /* LoginViewController.swift */; };
 		76DD08482C0F1DE2007C751E /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76DD08472C0F1DE2007C751E /* HomeViewController.swift */; };
+		76F052102C102B190018AB88 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 76F0520F2C102B190018AB88 /* .gitignore */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +26,7 @@
 		76DD08392C0EFD47007C751E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		76DD08442C0F013E007C751E /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		76DD08472C0F1DE2007C751E /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		76F0520F2C102B190018AB88 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -42,6 +44,7 @@
 		76DD081F2C0EFD46007C751E = {
 			isa = PBXGroup;
 			children = (
+				76F0520F2C102B190018AB88 /* .gitignore */,
 				76DD082A2C0EFD46007C751E /* MediaProject */,
 				76DD08292C0EFD46007C751E /* Products */,
 			);
@@ -142,6 +145,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				76DD08382C0EFD47007C751E /* LaunchScreen.storyboard in Resources */,
+				76F052102C102B190018AB88 /* .gitignore in Resources */,
 				76DD08352C0EFD47007C751E /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
