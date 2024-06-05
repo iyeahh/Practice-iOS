@@ -250,6 +250,8 @@ extension LottoViewController: UIPickerViewDelegate, UIPickerViewDataSource {
 
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         callRequest(number: row + 1011)
+        inputTextField.text = "\(row + 1011)"
+        inputTextField.textAlignment = .center
     }
 }
 
