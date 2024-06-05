@@ -19,9 +19,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let loginViewController = LoginViewController()
         let homeViewController = UINavigationController(rootViewController: HomeViewController())
         let lottoViewController = LottoViewController()
+        let movieRankingViewController = MovieRankingViewController()
 
         let tabBarController = UITabBarController()
-        tabBarController.setViewControllers([loginViewController, homeViewController, lottoViewController], animated: true)
+        tabBarController.setViewControllers([loginViewController, homeViewController, lottoViewController, movieRankingViewController], animated: true)
 
         tabBarController.tabBar.tintColor = .white
         tabBarController.tabBar.unselectedItemTintColor = .gray
@@ -36,6 +37,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
             items[2].image = UIImage(systemName: "checkmark")
             items[2].title = "Lotto"
+
+            items[3].image = UIImage(systemName: "list.number")
+            items[3].title = "Ranking"
         }
         window?.rootViewController = tabBarController
         window?.makeKeyAndVisible()

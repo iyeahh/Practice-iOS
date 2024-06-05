@@ -20,6 +20,8 @@
 		76F052182C103F790018AB88 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 76F052172C103F790018AB88 /* Alamofire */; };
 		76F0521A2C103FAE0018AB88 /* APIKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76F052192C103FAE0018AB88 /* APIKey.swift */; };
 		76F052222C1040440018AB88 /* Lotto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76F052212C1040440018AB88 /* Lotto.swift */; };
+		76F052282C1057D60018AB88 /* MovieRankingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76F052272C1057D60018AB88 /* MovieRankingViewController.swift */; };
+		76F0522A2C1057FA0018AB88 /* MovieTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76F052292C1057FA0018AB88 /* MovieTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +38,8 @@
 		76F052142C103ED50018AB88 /* Int+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+.swift"; sourceTree = "<group>"; };
 		76F052192C103FAE0018AB88 /* APIKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKey.swift; sourceTree = "<group>"; };
 		76F052212C1040440018AB88 /* Lotto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lotto.swift; sourceTree = "<group>"; };
+		76F052272C1057D60018AB88 /* MovieRankingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieRankingViewController.swift; sourceTree = "<group>"; };
+		76F052292C1057FA0018AB88 /* MovieTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +78,7 @@
 				76F052202C10402F0018AB88 /* Helper */,
 				76F052132C103EC30018AB88 /* Extensions */,
 				76F0521D2C1040030018AB88 /* Lotto */,
+				76F052232C1055CD0018AB88 /* MovieRanking */,
 				76DD082B2C0EFD46007C751E /* AppDelegate.swift */,
 				76DD082D2C0EFD46007C751E /* SceneDelegate.swift */,
 				76DD08342C0EFD47007C751E /* Assets.xcassets */,
@@ -132,6 +137,39 @@
 				76F052192C103FAE0018AB88 /* APIKey.swift */,
 			);
 			path = Helper;
+			sourceTree = "<group>";
+		};
+		76F052232C1055CD0018AB88 /* MovieRanking */ = {
+			isa = PBXGroup;
+			children = (
+				76F052252C1055FC0018AB88 /* Model */,
+				76F052262C1056130018AB88 /* View */,
+				76F052242C1055EC0018AB88 /* Controller */,
+			);
+			path = MovieRanking;
+			sourceTree = "<group>";
+		};
+		76F052242C1055EC0018AB88 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				76F052272C1057D60018AB88 /* MovieRankingViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		76F052252C1055FC0018AB88 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		76F052262C1056130018AB88 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				76F052292C1057FA0018AB88 /* MovieTableViewCell.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -213,10 +251,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				76F0522A2C1057FA0018AB88 /* MovieTableViewCell.swift in Sources */,
 				76F052222C1040440018AB88 /* Lotto.swift in Sources */,
 				76F052122C102B5E0018AB88 /* LottoViewController.swift in Sources */,
 				76F0521A2C103FAE0018AB88 /* APIKey.swift in Sources */,
 				76DD08452C0F013E007C751E /* LoginViewController.swift in Sources */,
+				76F052282C1057D60018AB88 /* MovieRankingViewController.swift in Sources */,
 				76DD082C2C0EFD46007C751E /* AppDelegate.swift in Sources */,
 				76DD082E2C0EFD46007C751E /* SceneDelegate.swift in Sources */,
 				76DD08482C0F1DE2007C751E /* HomeViewController.swift in Sources */,
