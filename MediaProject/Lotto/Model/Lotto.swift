@@ -30,7 +30,11 @@ struct Lotto: Decodable {
               let num5 = drwtNo5,
               let num6 = drwtNo6 else { return [0]}
 
-        var array = [num1, num2, num3, num4, num5, num6]
+        let array = [num1, num2, num3, num4, num5, num6]
         return array.sorted()
+    }
+
+    var splitedString: [String] {
+        return numberDescription.components(separatedBy: " ")
     }
 }

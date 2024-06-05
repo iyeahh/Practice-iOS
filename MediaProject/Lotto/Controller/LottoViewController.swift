@@ -98,6 +98,13 @@ class LottoViewController: UIViewController {
         callRequest(number: 1110)
     }
 
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        numberLabels.forEach { label in
+            label.layer.cornerRadius = label.frame.width / 2
+        }
+    }
+
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){
          self.view.endEditing(true)
    }
@@ -192,11 +199,20 @@ class LottoViewController: UIViewController {
 
     private func setData(_ data: Lotto) {
         dateLabel.text = data.date
-        resultLabel.text = data.numberDescription
-        setNumberLabels(data)
+        setDataResultLabel(data)
+        setDataNumberLabels(data)
     }
 
-    private func setNumberLabels(_ data: Lotto) {
+    private func setDataResultLabel(_ data: Lotto) {
+        let numberString = data.splitedString[0]
+        let fullText = data.numberDescription
+        let attributedString = NSMutableAttributedString(string: fullText)
+        let range = (fullText as NSString).range(of: numberString)
+        attributedString.addAttribute(.foregroundColor, value: #colorLiteral(red: 0.9962949157, green: 0.7961898446, blue: 0, alpha: 1), range: range)
+        resultLabel.attributedText = attributedString
+    }
+
+    private func setDataNumberLabels(_ data: Lotto) {
         let numbers = data.sortedNumber
         for num in 0...5 {
             numberLabels[num].text = "\(numbers[num])"

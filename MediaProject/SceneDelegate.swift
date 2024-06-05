@@ -34,8 +34,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             items[1].image = UIImage(systemName: "house")
             items[1].title = "Home"
 
-            items[2].image = UIImage(systemName: "house")
-            items[2].title = "checkmark"
+            items[2].image = UIImage(systemName: "checkmark")
+            items[2].title = "Lotto"
         }
         window?.rootViewController = tabBarController
         window?.makeKeyAndVisible()
