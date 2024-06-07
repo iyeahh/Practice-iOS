@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		761C98012C12F51300092EB1 /* Tamagochi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 761C98002C12F51300092EB1 /* Tamagochi.swift */; };
 		761C98032C12F59C00092EB1 /* TamagochiList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 761C98022C12F59C00092EB1 /* TamagochiList.swift */; };
+		761C98052C12FEC700092EB1 /* GrowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 761C98042C12FEC700092EB1 /* GrowViewController.swift */; };
+		763C513D2C13043E0018CD9C /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = 763C513C2C13043E0018CD9C /* Character.swift */; };
+		763C51412C13092D0018CD9C /* UIViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 763C51402C13092D0018CD9C /* UIViewController+.swift */; };
+		763C51432C1326920018CD9C /* Exp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 763C51422C1326920018CD9C /* Exp.swift */; };
 		7650838B2C12E67F00478176 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7650838A2C12E67F00478176 /* DetailViewController.swift */; };
 		768DBE242C12AF0000F70C2F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 768DBE232C12AF0000F70C2F /* AppDelegate.swift */; };
 		768DBE262C12AF0000F70C2F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 768DBE252C12AF0000F70C2F /* SceneDelegate.swift */; };
@@ -27,6 +31,10 @@
 /* Begin PBXFileReference section */
 		761C98002C12F51300092EB1 /* Tamagochi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tamagochi.swift; sourceTree = "<group>"; };
 		761C98022C12F59C00092EB1 /* TamagochiList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TamagochiList.swift; sourceTree = "<group>"; };
+		761C98042C12FEC700092EB1 /* GrowViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrowViewController.swift; sourceTree = "<group>"; };
+		763C513C2C13043E0018CD9C /* Character.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Character.swift; sourceTree = "<group>"; };
+		763C51402C13092D0018CD9C /* UIViewController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+.swift"; sourceTree = "<group>"; };
+		763C51422C1326920018CD9C /* Exp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exp.swift; sourceTree = "<group>"; };
 		7650838A2C12E67F00478176 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		768DBE202C12AF0000F70C2F /* Tamagochi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tamagochi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		768DBE232C12AF0000F70C2F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -59,6 +67,8 @@
 			isa = PBXGroup;
 			children = (
 				761C98002C12F51300092EB1 /* Tamagochi.swift */,
+				763C513C2C13043E0018CD9C /* Character.swift */,
+				763C51422C1326920018CD9C /* Exp.swift */,
 				761C98022C12F59C00092EB1 /* TamagochiList.swift */,
 			);
 			path = Models;
@@ -104,6 +114,7 @@
 				768DBE3A2C12AFE600F70C2F /* UIColor+.swift */,
 				768DBE3C2C12B06100F70C2F /* UIFont+.swift */,
 				768DBE3E2C12B0CD00F70C2F /* UIImage+.swift */,
+				763C51402C13092D0018CD9C /* UIViewController+.swift */,
 			);
 			path = "Extensions+";
 			sourceTree = "<group>";
@@ -121,6 +132,7 @@
 			children = (
 				768DBE272C12AF0000F70C2F /* ChoiceViewController.swift */,
 				7650838A2C12E67F00478176 /* DetailViewController.swift */,
+				761C98042C12FEC700092EB1 /* GrowViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -210,9 +222,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				763C51412C13092D0018CD9C /* UIViewController+.swift in Sources */,
+				763C513D2C13043E0018CD9C /* Character.swift in Sources */,
 				7650838B2C12E67F00478176 /* DetailViewController.swift in Sources */,
 				768DBE282C12AF0000F70C2F /* ChoiceViewController.swift in Sources */,
 				768DBE482C12B53300F70C2F /* ReuseIdentifierProtocol.swift in Sources */,
+				761C98052C12FEC700092EB1 /* GrowViewController.swift in Sources */,
 				761C98012C12F51300092EB1 /* Tamagochi.swift in Sources */,
 				768DBE3B2C12AFE600F70C2F /* UIColor+.swift in Sources */,
 				768DBE3D2C12B06100F70C2F /* UIFont+.swift in Sources */,
@@ -221,6 +236,7 @@
 				768DBE4A2C12CC5000F70C2F /* TamagochiCollectionViewCell.swift in Sources */,
 				768DBE262C12AF0000F70C2F /* SceneDelegate.swift in Sources */,
 				761C98032C12F59C00092EB1 /* TamagochiList.swift in Sources */,
+				763C51432C1326920018CD9C /* Exp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

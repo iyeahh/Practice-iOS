@@ -10,15 +10,6 @@ import SnapKit
 
 class DetailViewController: UIViewController {
     var tamagochi: Tamagochi
-
-    init(tamagochi: Tamagochi) {
-        self.tamagochi = tamagochi
-        super.init(nibName: nil, bundle: nil)
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
     
     let popUpView = {
         let view = UIView()
@@ -28,36 +19,11 @@ class DetailViewController: UIViewController {
         return view
     }()
 
-    let iconImageView = {
-        let imageView = UIImageView()
-        imageView.clipsToBounds = true
-        imageView.layer.borderWidth = 2
-        imageView.layer.borderColor = UIColor.secondary.cgColor
-        imageView.contentMode = .scaleAspectFill
-        return imageView
-    }()
+    lazy var iconImageView = configureIconImageView()
+    lazy var labelBackgroundView = configureLabelBackgroundView()
+    lazy var nameLabel = configureNameLabel()
 
-    let labelBackgroundView = {
-        let view = UIView()
-        view.layer.cornerRadius = 5
-        view.layer.borderWidth = 1
-        view.layer.borderColor = UIColor.secondary.cgColor
-        return view
-    }()
-
-    let nameLabel = {
-        let label = UILabel()
-        label.font = UIFont.small
-        label.textColor = .secondary
-        label.textAlignment = .center
-        return label
-    }()
-
-    let barView = {
-        let view = UIView()
-        view.backgroundColor = .secondary
-        return view
-    }()
+    lazy var barView = configureBarView(color: .secondary)
 
     let descriptionLabel = {
         let label = UILabel()
@@ -68,11 +34,7 @@ class DetailViewController: UIViewController {
         return label
     }()
 
-    let lineView = {
-        let view = UIView()
-        view.backgroundColor = .lightGray
-        return view
-    }()
+    lazy var lineView = configureBarView(color: .lightGray)
 
     let cancelButton = {
         let button = UIButton()
@@ -83,6 +45,7 @@ class DetailViewController: UIViewController {
         button.layer.cornerRadius = 5
         button.layer.maskedCorners = .layerMinXMaxYCorner
         button.setTitleColor(.secondary, for: .normal)
+        button.addTarget(nil, action: #selector(cancelButtonTapped), for: .touchUpInside)
         return button
     }()
 
@@ -92,8 +55,18 @@ class DetailViewController: UIViewController {
         button.titleLabel?.font = .small
         button.backgroundColor = .clear
         button.setTitleColor(.secondary, for: .normal)
+        button.addTarget(nil, action: #selector(startButtonTapped), for: .touchUpInside)
         return button
     }()
+
+    init(tamagochi: Tamagochi) {
+        self.tamagochi = tamagochi
+        super.init(nibName: nil, bundle: nil)
+    }
+
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -180,7 +153,17 @@ class DetailViewController: UIViewController {
 
     private func configureData() {
         iconImageView.image = tamagochi.image
-        nameLabel.text = tamagochi.fullName
-        descriptionLabel.text = tamagochi.description
+        nameLabel.text = tamagochi.character.fullName
+        descriptionLabel.text = tamagochi.character.description
+    }
+
+    @objc private func cancelButtonTapped() {
+        dismiss(animated: true)
+    }
+
+    @objc private func startButtonTapped() {
+        let vc = UINavigationController(rootViewController: GrowViewController(tamagochi: tamagochi))
+        vc.modalPresentationStyle = .fullScreen
+        present(vc, animated: true)
     }
 }

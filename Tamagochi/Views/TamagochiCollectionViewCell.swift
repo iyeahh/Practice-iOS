@@ -77,6 +77,6 @@ class TamagochiCollectionViewCell: UICollectionViewCell {
 
     func setData(_ data: Tamagochi) {
         iconImageView.image = data.image
-        nameLabel.text = data.fullName
+        nameLabel.text = data.character.fullName
     }
 }

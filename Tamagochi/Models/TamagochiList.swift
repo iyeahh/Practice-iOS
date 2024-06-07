@@ -15,11 +15,17 @@ class TamagochiList {
     }
 
     func setReadyCell() {
-        list.append(Tamagochi(name: "따끔따끔", imageString: "1-6"))
-        list.append(Tamagochi(name: "방실방실", imageString: "2-6"))
-        list.append(Tamagochi(name: "반짝반짝", imageString: "3-6"))
+        list.append(
+            Tamagochi(character: .tingling, exp: Exp(riceCount: 50, waterCount: 100))
+        )
+        list.append(
+            Tamagochi(character: .tingling, exp: Exp(riceCount: 50, waterCount: 100))
+        )
+        list.append(
+            Tamagochi(character: .tingling, exp: Exp(riceCount: 50, waterCount: 100))
+        )
         for _ in 1...18 {
-            list.append(Tamagochi(name: "준비중에요", imageString: "noImage"))
+            list.append(Tamagochi(character: .none, exp: Exp()))
         }
     }
 }
