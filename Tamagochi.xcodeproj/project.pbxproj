@@ -13,6 +13,9 @@
 		768DBE2D2C12AF0100F70C2F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 768DBE2C2C12AF0100F70C2F /* Assets.xcassets */; };
 		768DBE302C12AF0100F70C2F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 768DBE2E2C12AF0100F70C2F /* LaunchScreen.storyboard */; };
 		768DBE382C12AF5F00F70C2F /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 768DBE372C12AF5F00F70C2F /* .gitignore */; };
+		768DBE3B2C12AFE600F70C2F /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 768DBE3A2C12AFE600F70C2F /* UIColor+.swift */; };
+		768DBE3D2C12B06100F70C2F /* UIFont+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 768DBE3C2C12B06100F70C2F /* UIFont+.swift */; };
+		768DBE3F2C12B0CD00F70C2F /* UIImage+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 768DBE3E2C12B0CD00F70C2F /* UIImage+.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +27,9 @@
 		768DBE2F2C12AF0100F70C2F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		768DBE312C12AF0100F70C2F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		768DBE372C12AF5F00F70C2F /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		768DBE3A2C12AFE600F70C2F /* UIColor+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
+		768DBE3C2C12B06100F70C2F /* UIFont+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+.swift"; sourceTree = "<group>"; };
+		768DBE3E2C12B0CD00F70C2F /* UIImage+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +63,7 @@
 		768DBE222C12AF0000F70C2F /* Tamagochi */ = {
 			isa = PBXGroup;
 			children = (
+				768DBE392C12AFD300F70C2F /* Extensions+ */,
 				768DBE232C12AF0000F70C2F /* AppDelegate.swift */,
 				768DBE252C12AF0000F70C2F /* SceneDelegate.swift */,
 				768DBE272C12AF0000F70C2F /* ViewController.swift */,
@@ -65,6 +72,16 @@
 				768DBE312C12AF0100F70C2F /* Info.plist */,
 			);
 			path = Tamagochi;
+			sourceTree = "<group>";
+		};
+		768DBE392C12AFD300F70C2F /* Extensions+ */ = {
+			isa = PBXGroup;
+			children = (
+				768DBE3A2C12AFE600F70C2F /* UIColor+.swift */,
+				768DBE3C2C12B06100F70C2F /* UIFont+.swift */,
+				768DBE3E2C12B0CD00F70C2F /* UIImage+.swift */,
+			);
+			path = "Extensions+";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -139,6 +156,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				768DBE282C12AF0000F70C2F /* ViewController.swift in Sources */,
+				768DBE3B2C12AFE600F70C2F /* UIColor+.swift in Sources */,
+				768DBE3D2C12B06100F70C2F /* UIFont+.swift in Sources */,
+				768DBE3F2C12B0CD00F70C2F /* UIImage+.swift in Sources */,
 				768DBE242C12AF0000F70C2F /* AppDelegate.swift in Sources */,
 				768DBE262C12AF0000F70C2F /* SceneDelegate.swift in Sources */,
 			);
