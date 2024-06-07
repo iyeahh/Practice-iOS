@@ -75,20 +75,8 @@ class TamagochiCollectionViewCell: UICollectionViewCell {
         }
     }
 
-    func setData(_ num: Int) {
-        switch num {
-        case 0:
-            iconImageView.image = UIImage(named: "1-6")
-            nameLabel.text = "따끔따끔 다마고치"
-        case 1:
-            iconImageView.image = UIImage(named: "2-6")
-            nameLabel.text = "방실방실 다마고치"
-        case 2:
-            iconImageView.image = UIImage(named: "3-6")
-            nameLabel.text = "반짝반짝 다마고치"
-        default:
-            iconImageView.image = UIImage(named: "noImage")
-            nameLabel.text = "준비중이에요"
-        }
+    func setData(_ data: Tamagochi) {
+        iconImageView.image = data.image
+        nameLabel.text = data.fullName
     }
 }

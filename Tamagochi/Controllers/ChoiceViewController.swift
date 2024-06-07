@@ -8,6 +8,8 @@
 import UIKit
 
 class ChoiceViewController: UIViewController {
+    let tamagochiList = TamagochiList()
+
     let collectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
@@ -32,7 +34,8 @@ class ChoiceViewController: UIViewController {
 
     private func configureLayout() {
         collectionView.snp.makeConstraints { make in
-            make.edges.equalTo(view.safeAreaLayoutGuide).inset(20)
+            make.horizontalEdges.bottom.equalToSuperview().inset(20)
+            make.top.equalTo(view.safeAreaLayoutGuide).inset(20)
         }
     }
 
@@ -50,7 +53,7 @@ class ChoiceViewController: UIViewController {
 
 extension ChoiceViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 21
+        return tamagochiList.list.count
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -61,8 +64,17 @@ extension ChoiceViewController: UICollectionViewDelegate, UICollectionViewDataSo
             return UICollectionViewCell()
         }
 
-        cell.setData(indexPath.row)
+        let data = tamagochiList.list[indexPath.row]
+
+        cell.setData(data)
         return cell
+    }
+
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let tamagochi = tamagochiList.list[indexPath.row]
+        let detailVC = DetailViewController(tamagochi: tamagochi)
+        detailVC.modalPresentationStyle = .overFullScreen
+        present(detailVC, animated: true)
     }
 }
 
@@ -76,27 +88,3 @@ extension ChoiceViewController: UICollectionViewDelegateFlowLayout {
         return 20
     }
 }
-
-#if DEBUG
-import SwiftUI
-struct ViewControllerRepresentable_CVC: UIViewControllerRepresentable {
-
-func updateUIViewController(_ uiView: UIViewController,context: Context) {
-    // leave this empty
-}
-@available(iOS 13.0.0, *)
-func makeUIViewController(context: Context) -> UIViewController{
-    ChoiceViewController()
-  }
-}
-@available(iOS 13.0, *)
-struct ViewControllerRepresentable_CVC_PreviewProvider: PreviewProvider {
-  static var previews: some View {
-    Group {
-      ViewControllerRepresentable_CVC()
-        .ignoresSafeArea()
-        .previewDisplayName(/*@START_MENU_TOKEN@*/"Preview"/*@END_MENU_TOKEN@*/)
-    }
-
-  }
-} #endif
