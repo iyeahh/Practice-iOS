@@ -56,19 +56,19 @@ class MovieTableViewCell: UITableViewCell {
         rankingLabel.snp.makeConstraints { make in
             make.top.bottom.equalToSuperview().inset(5)
             make.leading.equalToSuperview()
-            make.width.equalTo(30)
+            make.width.equalTo(40)
         }
 
         dateLabel.snp.makeConstraints { make in
             make.trailing.equalToSuperview()
-            make.top.equalTo(contentView.snp.top).offset(5)
+            make.centerY.equalTo(contentView.snp.centerY)
             make.height.equalTo(30)
             make.width.equalTo(80)
         }
 
         movieTitleLable.snp.makeConstraints { make in
             make.leading.equalTo(rankingLabel.snp.trailing).offset(20)
-            make.top.equalTo(contentView.snp.top).offset(5)
+            make.centerY.equalTo(contentView.snp.centerY)
             make.height.equalTo(40)
             make.trailing.equalTo(dateLabel.snp.leading).inset(5)
         }

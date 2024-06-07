@@ -29,6 +29,7 @@ class MovieRankingViewController: UIViewController {
         button.backgroundColor = .white
         button.setTitle("검색", for: .normal)
         button.setTitleColor(.black, for: .normal)
+        button.titleLabel?.font = .systemFont(ofSize: 12, weight: .regular)
         return button
     }()
 
@@ -41,6 +42,7 @@ class MovieRankingViewController: UIViewController {
     let movieTableView: UITableView = {
         let tableView = UITableView()
         tableView.backgroundColor = .black
+        tableView.separatorStyle = .none
         return tableView
     }()
 
@@ -63,20 +65,20 @@ class MovieRankingViewController: UIViewController {
     private func configureLayout() {
         searchButton.snp.makeConstraints { make in
             make.top.trailing.equalTo(view.safeAreaLayoutGuide).inset(20)
-            make.width.equalTo(80)
-            make.height.equalTo(60)
+            make.width.equalTo(70)
+            make.height.equalTo(50)
         }
 
         barView.snp.makeConstraints { make in
             make.leading.equalTo(view.safeAreaLayoutGuide).offset(20)
-            make.trailing.equalTo(searchButton).inset(20)
+            make.trailing.equalTo(searchButton.snp.leading).offset(-20)
             make.bottom.equalTo(searchButton.snp.bottom)
             make.height.equalTo(3)
         }
 
         dateTextField.snp.makeConstraints { make in
             make.top.leading.equalTo(view.safeAreaLayoutGuide).inset(20)
-            make.trailing.equalTo(searchButton).inset(10)
+            make.trailing.equalTo(searchButton.snp.leading).inset(10)
             make.bottom.equalTo(barView.snp.top).inset(5)
         }
 
@@ -90,7 +92,7 @@ class MovieRankingViewController: UIViewController {
         movieTableView.delegate = self
         movieTableView.dataSource = self
         movieTableView.register(MovieTableViewCell.self, forCellReuseIdentifier: MovieTableViewCell.identifier)
-        movieTableView.rowHeight = 60
+        movieTableView.rowHeight = 40
     }
 
     private func configureUI() {
