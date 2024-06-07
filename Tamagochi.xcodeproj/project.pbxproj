@@ -9,20 +9,23 @@
 /* Begin PBXBuildFile section */
 		768DBE242C12AF0000F70C2F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 768DBE232C12AF0000F70C2F /* AppDelegate.swift */; };
 		768DBE262C12AF0000F70C2F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 768DBE252C12AF0000F70C2F /* SceneDelegate.swift */; };
-		768DBE282C12AF0000F70C2F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 768DBE272C12AF0000F70C2F /* ViewController.swift */; };
+		768DBE282C12AF0000F70C2F /* ChoiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 768DBE272C12AF0000F70C2F /* ChoiceViewController.swift */; };
 		768DBE2D2C12AF0100F70C2F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 768DBE2C2C12AF0100F70C2F /* Assets.xcassets */; };
 		768DBE302C12AF0100F70C2F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 768DBE2E2C12AF0100F70C2F /* LaunchScreen.storyboard */; };
 		768DBE382C12AF5F00F70C2F /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 768DBE372C12AF5F00F70C2F /* .gitignore */; };
 		768DBE3B2C12AFE600F70C2F /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 768DBE3A2C12AFE600F70C2F /* UIColor+.swift */; };
 		768DBE3D2C12B06100F70C2F /* UIFont+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 768DBE3C2C12B06100F70C2F /* UIFont+.swift */; };
 		768DBE3F2C12B0CD00F70C2F /* UIImage+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 768DBE3E2C12B0CD00F70C2F /* UIImage+.swift */; };
+		768DBE482C12B53300F70C2F /* ReuseIdentifierProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 768DBE472C12B53300F70C2F /* ReuseIdentifierProtocol.swift */; };
+		768DBE4A2C12CC5000F70C2F /* TamagochiCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 768DBE492C12CC5000F70C2F /* TamagochiCollectionViewCell.swift */; };
+		768DBE4D2C12CD6D00F70C2F /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 768DBE4C2C12CD6D00F70C2F /* SnapKit */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		768DBE202C12AF0000F70C2F /* Tamagochi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tamagochi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		768DBE232C12AF0000F70C2F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		768DBE252C12AF0000F70C2F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		768DBE272C12AF0000F70C2F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		768DBE272C12AF0000F70C2F /* ChoiceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoiceViewController.swift; sourceTree = "<group>"; };
 		768DBE2C2C12AF0100F70C2F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		768DBE2F2C12AF0100F70C2F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		768DBE312C12AF0100F70C2F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -30,6 +33,8 @@
 		768DBE3A2C12AFE600F70C2F /* UIColor+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
 		768DBE3C2C12B06100F70C2F /* UIFont+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+.swift"; sourceTree = "<group>"; };
 		768DBE3E2C12B0CD00F70C2F /* UIImage+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+.swift"; sourceTree = "<group>"; };
+		768DBE472C12B53300F70C2F /* ReuseIdentifierProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReuseIdentifierProtocol.swift; sourceTree = "<group>"; };
+		768DBE492C12CC5000F70C2F /* TamagochiCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TamagochiCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -37,6 +42,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				768DBE4D2C12CD6D00F70C2F /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -63,10 +69,12 @@
 		768DBE222C12AF0000F70C2F /* Tamagochi */ = {
 			isa = PBXGroup;
 			children = (
-				768DBE392C12AFD300F70C2F /* Extensions+ */,
 				768DBE232C12AF0000F70C2F /* AppDelegate.swift */,
 				768DBE252C12AF0000F70C2F /* SceneDelegate.swift */,
-				768DBE272C12AF0000F70C2F /* ViewController.swift */,
+				768DBE462C12B52300F70C2F /* Helper */,
+				768DBE392C12AFD300F70C2F /* Extensions+ */,
+				768DBE422C12B2CC00F70C2F /* Views */,
+				768DBE432C12B2D100F70C2F /* Controllers */,
 				768DBE2C2C12AF0100F70C2F /* Assets.xcassets */,
 				768DBE2E2C12AF0100F70C2F /* LaunchScreen.storyboard */,
 				768DBE312C12AF0100F70C2F /* Info.plist */,
@@ -82,6 +90,30 @@
 				768DBE3E2C12B0CD00F70C2F /* UIImage+.swift */,
 			);
 			path = "Extensions+";
+			sourceTree = "<group>";
+		};
+		768DBE422C12B2CC00F70C2F /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				768DBE492C12CC5000F70C2F /* TamagochiCollectionViewCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		768DBE432C12B2D100F70C2F /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				768DBE272C12AF0000F70C2F /* ChoiceViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		768DBE462C12B52300F70C2F /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				768DBE472C12B53300F70C2F /* ReuseIdentifierProtocol.swift */,
+			);
+			path = Helper;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -100,6 +132,9 @@
 			dependencies = (
 			);
 			name = Tamagochi;
+			packageProductDependencies = (
+				768DBE4C2C12CD6D00F70C2F /* SnapKit */,
+			);
 			productName = Tamagochi;
 			productReference = 768DBE202C12AF0000F70C2F /* Tamagochi.app */;
 			productType = "com.apple.product-type.application";
@@ -128,6 +163,9 @@
 				Base,
 			);
 			mainGroup = 768DBE172C12AF0000F70C2F;
+			packageReferences = (
+				768DBE4B2C12CD6D00F70C2F /* XCRemoteSwiftPackageReference "SnapKit" */,
+			);
 			productRefGroup = 768DBE212C12AF0000F70C2F /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -155,11 +193,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				768DBE282C12AF0000F70C2F /* ViewController.swift in Sources */,
+				768DBE282C12AF0000F70C2F /* ChoiceViewController.swift in Sources */,
+				768DBE482C12B53300F70C2F /* ReuseIdentifierProtocol.swift in Sources */,
 				768DBE3B2C12AFE600F70C2F /* UIColor+.swift in Sources */,
 				768DBE3D2C12B06100F70C2F /* UIFont+.swift in Sources */,
 				768DBE3F2C12B0CD00F70C2F /* UIImage+.swift in Sources */,
 				768DBE242C12AF0000F70C2F /* AppDelegate.swift in Sources */,
+				768DBE4A2C12CC5000F70C2F /* TamagochiCollectionViewCell.swift in Sources */,
 				768DBE262C12AF0000F70C2F /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -381,6 +421,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		768DBE4B2C12CD6D00F70C2F /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.7.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		768DBE4C2C12CD6D00F70C2F /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 768DBE4B2C12CD6D00F70C2F /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 768DBE182C12AF0000F70C2F /* Project object */;
 }
