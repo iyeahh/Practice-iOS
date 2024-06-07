@@ -9,7 +9,11 @@ import UIKit
 import SnapKit
 
 class GrowViewController: UIViewController {
-    var tamagochi: Tamagochi
+    var tamagochi: Tamagochi {
+        didSet {
+            configureData()
+        }
+    }
 
     var randomStory: [String] = [
         "고래밥님, 밥주세요",
@@ -71,12 +75,18 @@ class GrowViewController: UIViewController {
         configureHierarchy()
         configureLayout()
         configureData()
+        configureTextField()
+        addTargetButton()
     }
 
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         iconImageView.layer.cornerRadius = iconImageView.frame.width / 2
     }
+
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){
+         self.view.endEditing(true)
+   }
 
     private func configureUI() {
         navigationItem.title = "대장님의 다마고치"
@@ -182,9 +192,51 @@ class GrowViewController: UIViewController {
     }
 
     private func configureData() {
-        storyLabel.text = "복습 아직 안하셨다구요? 지금 잠이 오세여? 대장님??"
+        storyLabel.text = randomStory.randomElement()
         nameLabel.text = tamagochi.character.fullName
         iconImageView.image = tamagochi.image
         descriptionLabel.text = tamagochi.exp.description
     }
+
+    private func configureTextField() {
+        riceTextField.delegate = self
+        waterTextField.delegate = self
+    }
+
+    private func addTargetButton() {
+        riceButton.addTarget(self, action: #selector(riceButtonTapped), for: .touchUpInside)
+        waterButton.addTarget(self, action: #selector(waterButtonTapped), for: .touchUpInside)
+    }
+
+    @objc private func riceButtonTapped() {
+        guard let text = riceTextField.text,
+              let count = Int(text)
+        else {
+            UserDefaultManager.riceCount += 1
+            tamagochi.exp.riceCount = UserDefaultManager.riceCount
+            riceTextField.text = ""
+            return
+        }
+        UserDefaultManager.riceCount += count
+        tamagochi.exp.riceCount = UserDefaultManager.riceCount
+        riceTextField.text = ""
+    }
+
+    @objc private func waterButtonTapped() {
+        guard let text = waterTextField.text,
+              let count = Int(text)
+        else {
+            UserDefaultManager.waterCount += 1
+            tamagochi.exp.waterCount = UserDefaultManager.waterCount
+            waterTextField.text = ""
+            return
+        }
+        UserDefaultManager.waterCount += count
+        tamagochi.exp.waterCount = UserDefaultManager.waterCount
+        waterTextField.text = ""
+    }
+}
+
+extension GrowViewController: UITextFieldDelegate {
+
 }

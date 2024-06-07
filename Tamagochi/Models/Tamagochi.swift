@@ -14,6 +14,8 @@ struct Tamagochi {
     var image: UIImage? {
         if character == .none {
             return UIImage(named: "noImage")
+        } else if exp.levelImage == "10" {
+            return UIImage(named: character.imageString + "9")
         } else {
             return UIImage(named: character.imageString + exp.levelImage)
         }

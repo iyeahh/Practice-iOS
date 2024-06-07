@@ -16,13 +16,28 @@ class TamagochiList {
 
     func setReadyCell() {
         list.append(
-            Tamagochi(character: .tingling, exp: Exp(riceCount: 50, waterCount: 100))
+            Tamagochi(
+                character: .tingling,
+                exp: Exp(
+                    riceCount: UserDefaultManager.riceCount,
+                    waterCount: UserDefaultManager.waterCount)
+            )
         )
         list.append(
-            Tamagochi(character: .tingling, exp: Exp(riceCount: 50, waterCount: 100))
+            Tamagochi(
+                character: .smile,
+                exp: Exp(
+                    riceCount: UserDefaultManager.riceCount,
+                    waterCount: UserDefaultManager.waterCount)
+            )
         )
         list.append(
-            Tamagochi(character: .tingling, exp: Exp(riceCount: 50, waterCount: 100))
+            Tamagochi(
+                character: .twinkle,
+                exp: Exp(
+                    riceCount: UserDefaultManager.riceCount,
+                    waterCount: UserDefaultManager.waterCount)
+            )
         )
         for _ in 1...18 {
             list.append(Tamagochi(character: .none, exp: Exp()))
