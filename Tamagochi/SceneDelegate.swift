@@ -16,9 +16,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let scene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: scene)
 
-        let vc = UINavigationController(
-            rootViewController: ChoiceViewController()
-        )
+        let main = GrowViewController(tamagochi: Tamagochi(character: Character(rawValue: UserDefaultManager.character) ?? .smile, exp: Exp(riceCount: UserDefaultManager.riceCount, waterCount: UserDefaultManager.waterCount)))
+        let first = ChoiceViewController()
+
+        let initailVC = UserDefaultManager.isSelected ? main : first
+
+        let vc = UINavigationController(rootViewController: initailVC)
         window?.rootViewController = vc
         window?.makeKeyAndVisible()
     }

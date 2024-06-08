@@ -8,18 +8,19 @@
 import Foundation
 
 @propertyWrapper
-struct UserDefault {
+struct UserDefault<T> {
     let key: String
+    let defaultValue: T
     let reset: Bool
     let storage: UserDefaults = UserDefaults.standard
 
-    var wrappedValue: Int {
+    var wrappedValue: T {
         get {
             if reset {
                 self.storage.removeObject(forKey: key)
-                return self.storage.integer(forKey: key)
+                return self.storage.object(forKey: key) as? T ?? defaultValue
             } else {
-                return self.storage.integer(forKey: key)
+                return self.storage.object(forKey: key) as? T ?? defaultValue
             }
         }
         set {

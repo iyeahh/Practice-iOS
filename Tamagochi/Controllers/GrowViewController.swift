@@ -15,13 +15,15 @@ class GrowViewController: UIViewController {
         }
     }
 
-    var randomStory: [String] = [
-        "고래밥님, 밥주세요",
-        "좋은 하루에요, 고래밥님",
-        "밥과 물을 잘먹었더니 레벨업 했어요 고마워요 고래밥님",
-        "복습 아직 안하셨다구요? 지금 잠이 오세여? 고래밥님??",
+    var nickName = UserDefaultManager.nickname
+
+    lazy var randomStory: [String] = [
+        "\(nickName)님, 밥주세요",
+        "좋은 하루에요, \(nickName)님",
+        "밥과 물을 잘먹었더니 레벨업 했어요 고마워요 \(nickName)님",
+        "복습 아직 안하셨다구요? 지금 잠이 오세여? \(nickName)님??",
         "테이블뷰 컨트롤러와 뷰 컨트롤러는 어떤 차이가 있을까요?",
-        "고래밥님 오늘 깃허브 푸쉬 하셨어영?"
+        "\(nickName)님 오늘 깃허브 푸쉬 하셨어영?"
     ]
 
     let storyImageView = {
@@ -89,9 +91,9 @@ class GrowViewController: UIViewController {
    }
 
     private func configureUI() {
-        navigationItem.title = "대장님의 다마고치"
+        navigationItem.title = "\(nickName)의 다마고치"
         view.backgroundColor = .primary
-        let barItem = UIBarButtonItem(image: UIImage(systemName: "person.circle"), style: .plain, target: nil, action: nil)
+        let barItem = UIBarButtonItem(image: UIImage(systemName: "person.circle"), style: .plain, target: self, action: #selector(settingButtonTapped))
         barItem.tintColor = .secondary
         navigationItem.rightBarButtonItem = barItem
     }
@@ -234,6 +236,14 @@ class GrowViewController: UIViewController {
         UserDefaultManager.waterCount += count
         tamagochi.exp.waterCount = UserDefaultManager.waterCount
         waterTextField.text = ""
+    }
+
+    @objc private func settingButtonTapped() {
+        let vc = SettingViewController()
+        let backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: self, action: nil)
+            backBarButtonItem.tintColor = .secondary
+            self.navigationItem.backBarButtonItem = backBarButtonItem
+        navigationController?.pushViewController(vc, animated: true)
     }
 }
 

@@ -164,6 +164,8 @@ class DetailViewController: UIViewController {
     @objc private func startButtonTapped() {
         let vc = UINavigationController(rootViewController: GrowViewController(tamagochi: tamagochi))
         vc.modalPresentationStyle = .fullScreen
+        UserDefaultManager.character = tamagochi.character.rawValue
+        UserDefaultManager.isSelected = true
         present(vc, animated: true)
     }
 }
