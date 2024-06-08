@@ -164,10 +164,25 @@ class DetailViewController: UIViewController {
     }
 
     @objc private func startButtonTapped() {
+        if UserDefaultManager.isSelected {
+
+        } else {
+            UserDefaultManager.riceCount = 0
+            UserDefaultManager.waterCount = 0
+            UserDefaultManager.isSelected = true
+        }
+
+        let tamagochi = Tamagochi(
+            character: tamagochi.character,
+            exp: Exp(
+                riceCount: UserDefaultManager.riceCount,
+                waterCount: UserDefaultManager.waterCount
+            )
+        )
+
         let vc = UINavigationController(rootViewController: GrowViewController(tamagochi: tamagochi))
         vc.modalPresentationStyle = .fullScreen
         UserDefaultManager.character = tamagochi.character.rawValue
-        UserDefaultManager.isSelected = true
         present(vc, animated: true)
     }
 }

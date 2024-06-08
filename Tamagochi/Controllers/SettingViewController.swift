@@ -128,8 +128,8 @@ extension SettingViewController: UITableViewDelegate, UITableViewDataSource {
 
     private func resetData() {
         UserDefaultManager.nickname = "대장"
-        UserDefaultManager.waterCount = 0
-        UserDefaultManager.riceCount = 0
+        UserDefaultManager.waterCount = 100
+        UserDefaultManager.riceCount = 100
         UserDefaultManager.character = "twinkle"
         UserDefaultManager.isSelected = false
 

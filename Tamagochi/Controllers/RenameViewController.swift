@@ -57,7 +57,8 @@ class RenameViewController: UIViewController {
     }
 
     private func configureTextField() {
-        textField.delegate = self
+        textField.text = UserDefaultManager.nickname
+        textField.addTarget(self, action: #selector(textFieldDidChange), for: .editingChanged)
     }
 
     @objc private func saveButtonTapped() {
@@ -68,8 +69,10 @@ class RenameViewController: UIViewController {
         UserDefaultManager.nickname = text
         navigationController?.popViewController(animated: true)
     }
-}
 
-extension RenameViewController: UITextFieldDelegate {
-    
+    @objc private func textFieldDidChange(_ sender: UITextField) {
+        if sender.text == "" {
+            sender.placeholder = "대장님의 이름을 알려주세요!"
+        }
+    }
 }
