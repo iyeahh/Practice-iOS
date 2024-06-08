@@ -15,16 +15,7 @@ class GrowViewController: UIViewController {
         }
     }
 
-    var nickName = UserDefaultManager.nickname
-
-    lazy var randomStory: [String] = [
-        "\(nickName)님, 밥주세요",
-        "좋은 하루에요, \(nickName)님",
-        "밥과 물을 잘먹었더니 레벨업 했어요 고마워요 \(nickName)님",
-        "복습 아직 안하셨다구요? 지금 잠이 오세여? \(nickName)님??",
-        "테이블뷰 컨트롤러와 뷰 컨트롤러는 어떤 차이가 있을까요?",
-        "\(nickName)님 오늘 깃허브 푸쉬 하셨어영?"
-    ]
+    var randomStory: [String] = []
 
     let storyImageView = {
         let imageView = UIImageView()
@@ -74,28 +65,36 @@ class GrowViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
+        configureNavi()
         configureHierarchy()
         configureLayout()
         configureData()
         configureTextField()
         addTargetButton()
+        configureRandomStory()
     }
 
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        iconImageView.layer.cornerRadius = iconImageView.frame.width / 2
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationItem.title = "\(UserDefaultManager.nickname)님의 다마고치"
+        configureRandomStory()
+        storyLabel.text = randomStory.randomElement()
     }
-
+    
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){
          self.view.endEditing(true)
    }
 
     private func configureUI() {
-        navigationItem.title = "\(nickName)의 다마고치"
         view.backgroundColor = .primary
+    }
+
+    private func configureNavi() {
+        navigationItem.title = "\(UserDefaultManager.nickname)의 다마고치"
         let barItem = UIBarButtonItem(image: UIImage(systemName: "person.circle"), style: .plain, target: self, action: #selector(settingButtonTapped))
-        barItem.tintColor = .secondary
         navigationItem.rightBarButtonItem = barItem
+        navigationController?.navigationBar.tintColor = .secondary
+        navigationController?.navigationBar.shadowImage = nil
     }
 
     private func configureHierarchy() {
@@ -212,7 +211,8 @@ class GrowViewController: UIViewController {
 
     @objc private func riceButtonTapped() {
         guard let text = riceTextField.text,
-              let count = Int(text)
+              let count = Int(text),
+              count < 100
         else {
             UserDefaultManager.riceCount += 1
             tamagochi.exp.riceCount = UserDefaultManager.riceCount
@@ -226,7 +226,8 @@ class GrowViewController: UIViewController {
 
     @objc private func waterButtonTapped() {
         guard let text = waterTextField.text,
-              let count = Int(text)
+              let count = Int(text),
+              count < 50
         else {
             UserDefaultManager.waterCount += 1
             tamagochi.exp.waterCount = UserDefaultManager.waterCount
@@ -241,12 +242,21 @@ class GrowViewController: UIViewController {
     @objc private func settingButtonTapped() {
         let vc = SettingViewController()
         let backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: self, action: nil)
-            backBarButtonItem.tintColor = .secondary
-            self.navigationItem.backBarButtonItem = backBarButtonItem
+        backBarButtonItem.tintColor = .secondary
+        self.navigationItem.backBarButtonItem = backBarButtonItem
         navigationController?.pushViewController(vc, animated: true)
+        navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.secondary]
+    }
+
+    private func configureRandomStory() {
+        randomStory = ["\(UserDefaultManager.nickname)님, 밥주세요",
+                       "좋은 하루에요, \(UserDefaultManager.nickname)님",
+                       "밥과 물을 잘먹었더니 레벨업 했어요 고마워요 \(UserDefaultManager.nickname)님",
+                       "복습 아직 안하셨다구요? 지금 잠이 오세여? \(UserDefaultManager.nickname)님??",
+                       "테이블뷰 컨트롤러와 뷰 컨트롤러는 어떤 차이가 있을까요?",
+                       "\(UserDefaultManager.nickname)님 오늘 깃허브 푸쉬 하셨어영?"]
     }
 }
 
 extension GrowViewController: UITextFieldDelegate {
-
 }

@@ -10,7 +10,8 @@ import SnapKit
 
 class DetailViewController: UIViewController {
     var tamagochi: Tamagochi
-    
+    var status: Status
+
     let popUpView = {
         let view = UIView()
         view.backgroundColor = .primary
@@ -49,9 +50,9 @@ class DetailViewController: UIViewController {
         return button
     }()
 
-    let startButton = {
+    lazy var startButton = {
         let button = UIButton()
-        button.setTitle("시작하기", for: .normal)
+        button.setTitle(self.status.buttonTitle, for: .normal)
         button.titleLabel?.font = .small
         button.backgroundColor = .clear
         button.setTitleColor(.secondary, for: .normal)
@@ -59,8 +60,9 @@ class DetailViewController: UIViewController {
         return button
     }()
 
-    init(tamagochi: Tamagochi) {
+    init(tamagochi: Tamagochi, status: Status) {
         self.tamagochi = tamagochi
+        self.status = status
         super.init(nibName: nil, bundle: nil)
     }
 

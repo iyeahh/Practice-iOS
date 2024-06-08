@@ -10,9 +10,6 @@ import UIKit
 extension UIViewController {
     func configureIconImageView() -> UIImageView {
         let imageView = UIImageView()
-        imageView.clipsToBounds = true
-        imageView.layer.borderWidth = 2
-        imageView.layer.borderColor = UIColor.secondary.cgColor
         imageView.contentMode = .scaleAspectFill
         return imageView
     }

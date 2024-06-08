@@ -8,18 +8,18 @@
 import Foundation
 
 final class UserDefaultManager {
-    @UserDefault(key: "character",defaultValue: "twinkle", reset: false)
+    @UserDefault(key: "character", defaultValue: "twinkle")
     static var character: String
 
-    @UserDefault(key: "rice",defaultValue: 0, reset: false)
+    @UserDefault(key: "rice", defaultValue: 0)
     static var riceCount: Int
 
-    @UserDefault(key: "water",defaultValue: 0, reset: false)
+    @UserDefault(key: "water", defaultValue: 0)
     static var waterCount: Int
 
-    @UserDefault(key: "nickname",defaultValue: "대장님", reset: false)
+    @UserDefault(key: "nickname", defaultValue: "대장")
     static var nickname: String
 
-    @UserDefault(key: "isSelected",defaultValue: false, reset: false)
+    @UserDefault(key: "isSelected", defaultValue: false)
     static var isSelected: Bool
 }

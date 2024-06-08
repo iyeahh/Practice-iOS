@@ -30,6 +30,7 @@
 		768DBE4D2C12CD6D00F70C2F /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 768DBE4C2C12CD6D00F70C2F /* SnapKit */; };
 		76CE45D82C13DE5E00025E98 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76CE45D72C13DE5E00025E98 /* SettingViewController.swift */; };
 		76CE45DA2C13E7CC00025E98 /* RenameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76CE45D92C13E7CC00025E98 /* RenameViewController.swift */; };
+		76CE45DC2C13FA8E00025E98 /* Status.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76CE45DB2C13FA8E00025E98 /* Status.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -57,6 +58,7 @@
 		768DBE492C12CC5000F70C2F /* TamagochiCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TamagochiCollectionViewCell.swift; sourceTree = "<group>"; };
 		76CE45D72C13DE5E00025E98 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		76CE45D92C13E7CC00025E98 /* RenameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RenameViewController.swift; sourceTree = "<group>"; };
+		76CE45DB2C13FA8E00025E98 /* Status.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Status.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +80,7 @@
 				763C513C2C13043E0018CD9C /* Character.swift */,
 				763C51422C1326920018CD9C /* Exp.swift */,
 				761C98022C12F59C00092EB1 /* TamagochiList.swift */,
+				76CE45DB2C13FA8E00025E98 /* Status.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -245,6 +248,7 @@
 				768DBE3B2C12AFE600F70C2F /* UIColor+.swift in Sources */,
 				768DBE3D2C12B06100F70C2F /* UIFont+.swift in Sources */,
 				768DBE3F2C12B0CD00F70C2F /* UIImage+.swift in Sources */,
+				76CE45DC2C13FA8E00025E98 /* Status.swift in Sources */,
 				768DBE242C12AF0000F70C2F /* AppDelegate.swift in Sources */,
 				768DBE4A2C12CC5000F70C2F /* TamagochiCollectionViewCell.swift in Sources */,
 				768DBE262C12AF0000F70C2F /* SceneDelegate.swift in Sources */,

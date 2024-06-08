@@ -17,16 +17,27 @@ class SettingViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
+        configureNavi()
         configureHeierarchy()
         configureLayout()
         configureTableView()
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tableView.reloadRows(at: [IndexPath(row: 0, section: 0)], with: .none)
+    }
+
     private func configureUI() {
+        view.backgroundColor = .primary
+    }
+
+    private func configureNavi() {
         navigationItem.title = "설정"
         let button = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         navigationItem.backBarButtonItem = button
         view.backgroundColor = .primary
+        navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.secondary]
     }
 
     private func configureHeierarchy() {
@@ -42,6 +53,7 @@ class SettingViewController: UIViewController {
     private func configureTableView() {
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.backgroundColor = .clear
     }
 }
 
@@ -68,6 +80,7 @@ extension SettingViewController: UITableViewDelegate, UITableViewDataSource {
         cell.tintColor = .secondary
         cell.textLabel?.textColor = .secondary
         cell.accessoryType = .disclosureIndicator
+        cell.backgroundColor = .clear
         return cell
     }
 
@@ -75,13 +88,18 @@ extension SettingViewController: UITableViewDelegate, UITableViewDataSource {
         switch indexPath.row {
         case 0 :
             let vc = RenameViewController()
+            vc.navigationItem.backButtonTitle = "설정"
+            let backBarButtonItem = UIBarButtonItem(title: "설정", style: .plain, target: self, action: nil)
+            backBarButtonItem.tintColor = .secondary
+            self.navigationItem.backBarButtonItem = backBarButtonItem
             navigationController?.pushViewController(vc, animated: true)
         case 1:
-            let vc = ChoiceViewController()
+            let vc = ChoiceViewController(status: .edit)
             navigationController?.pushViewController(vc, animated: true)
         default:
             presentAlert()
         }
+        tableView.reloadRows(at: [indexPath], with: .none)
     }
 
     private func presentAlert() {
@@ -109,13 +127,13 @@ extension SettingViewController: UITableViewDelegate, UITableViewDataSource {
     }
 
     private func resetData() {
-        UserDefaultManager.nickname = "대장님"
+        UserDefaultManager.nickname = "대장"
         UserDefaultManager.waterCount = 0
         UserDefaultManager.riceCount = 0
         UserDefaultManager.character = "twinkle"
         UserDefaultManager.isSelected = false
 
-        let vc = UINavigationController(rootViewController: ChoiceViewController())
+        let vc = UINavigationController(rootViewController: ChoiceViewController(status: .choice))
         vc.modalPresentationStyle = .fullScreen
         present(vc, animated: true)
     }

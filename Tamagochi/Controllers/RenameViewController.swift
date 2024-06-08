@@ -19,6 +19,7 @@ class RenameViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
+        configureNavi()
         configureHeierarchy()
         configureLayout()
         configureTextField()
@@ -26,9 +27,14 @@ class RenameViewController: UIViewController {
 
     private func configureUI() {
         view.backgroundColor = .primary
+    }
+
+    private func configureNavi() {
+        navigationItem.title = "대장님 이름 정하기"
         let button = UIBarButtonItem(title: "저장", style: .plain, target: self, action: #selector(saveButtonTapped))
         button.tintColor = .secondary
         navigationItem.rightBarButtonItem = button
+        navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.secondary]
     }
 
     private func configureHeierarchy() {
@@ -38,8 +44,8 @@ class RenameViewController: UIViewController {
 
     private func configureLayout() {
         textField.snp.makeConstraints { make in
-            make.horizontalEdges.equalToSuperview().inset(20)
-            make.top.equalTo(view.safeAreaLayoutGuide.snp.top).offset(30)
+            make.horizontalEdges.equalToSuperview().inset(30)
+            make.top.equalTo(view.safeAreaLayoutGuide.snp.top).offset(20)
             make.height.equalTo(50)
         }
 

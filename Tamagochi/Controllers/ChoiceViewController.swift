@@ -9,6 +9,7 @@ import UIKit
 
 class ChoiceViewController: UIViewController {
     let tamagochiList = TamagochiList()
+    var status: Status
 
     let collectionView = {
         let layout = UICollectionViewFlowLayout()
@@ -20,11 +21,21 @@ class ChoiceViewController: UIViewController {
         return cv
     }()
 
+    init(status: Status) {
+        self.status = status
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configureHierarchy()
         configureLayout()
         configureUI()
+        configureNavi()
         configureCollectionView()
     }
 
@@ -40,8 +51,12 @@ class ChoiceViewController: UIViewController {
     }
 
     private func configureUI() {
-        navigationItem.title = "다마고치 선택하기"
         view.backgroundColor = .primary
+    }
+
+    private func configureNavi() {
+        navigationItem.title = status.navigationTitle
+        navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.secondary]
     }
 
     private func configureCollectionView() {
@@ -72,7 +87,7 @@ extension ChoiceViewController: UICollectionViewDelegate, UICollectionViewDataSo
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let tamagochi = tamagochiList.list[indexPath.row]
-        let detailVC = DetailViewController(tamagochi: tamagochi)
+        let detailVC = DetailViewController(tamagochi: tamagochi, status: status)
         detailVC.modalPresentationStyle = .overFullScreen
         present(detailVC, animated: true)
     }
