@@ -20,9 +20,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let homeViewController = UINavigationController(rootViewController: HomeViewController())
         let lottoViewController = LottoViewController()
         let movieRankingViewController = MovieRankingViewController()
+        let weatherViewController = WeatherViewController()
 
         let tabBarController = UITabBarController()
-        tabBarController.setViewControllers([loginViewController, homeViewController, lottoViewController, movieRankingViewController], animated: true)
+        tabBarController.setViewControllers([loginViewController, homeViewController, lottoViewController, movieRankingViewController, weatherViewController], animated: true)
 
         tabBarController.tabBar.tintColor = .white
         tabBarController.tabBar.unselectedItemTintColor = .gray
@@ -40,6 +41,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
             items[3].image = UIImage(systemName: "list.number")
             items[3].title = "Ranking"
+
+            items[4].image = UIImage(systemName: "star")
+            items[4].title = "Weather"
         }
         window?.rootViewController = tabBarController
         window?.makeKeyAndVisible()
