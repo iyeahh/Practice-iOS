@@ -16,22 +16,26 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: windowScene)
 
-        let loginViewController = LoginViewController()
+//        let loginViewController = LoginViewController()
+        let movieViewControleer = UINavigationController(rootViewController: MovieViewController())
         let homeViewController = UINavigationController(rootViewController: HomeViewController())
         let lottoViewController = LottoViewController()
         let movieRankingViewController = MovieRankingViewController()
         let weatherViewController = WeatherViewController()
 
         let tabBarController = UITabBarController()
-        tabBarController.setViewControllers([loginViewController, homeViewController, lottoViewController, movieRankingViewController, weatherViewController], animated: true)
+        tabBarController.setViewControllers([movieViewControleer, homeViewController, lottoViewController, movieRankingViewController, weatherViewController], animated: true)
 
         tabBarController.tabBar.tintColor = .white
         tabBarController.tabBar.unselectedItemTintColor = .gray
         tabBarController.tabBar.backgroundColor = .lightGray
 
         if let items = tabBarController.tabBar.items {
+//            items[0].image = UIImage(systemName: "info.square")
+//            items[0].title = "Login"
+
             items[0].image = UIImage(systemName: "info.square")
-            items[0].title = "Login"
+            items[0].title = "Movie"
 
             items[1].image = UIImage(systemName: "house")
             items[1].title = "Home"

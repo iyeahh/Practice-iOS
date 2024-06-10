@@ -14,7 +14,7 @@ class TamagochiList {
         setReadyCell()
     }
 
-    func setReadyCell() {
+    private func setReadyCell() {
         list.append(
             Tamagochi(
                 character: .tingling,

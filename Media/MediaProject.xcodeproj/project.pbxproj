@@ -11,6 +11,15 @@
 		761C557C2C142B8000A0479B /* WeatherImageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 761C557B2C142B8000A0479B /* WeatherImageTableViewCell.swift */; };
 		761C557E2C142C4A00A0479B /* WeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 761C557D2C142C4A00A0479B /* WeatherViewController.swift */; };
 		761C55802C1433EE00A0479B /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 761C557F2C1433EE00A0479B /* Weather.swift */; };
+		764081952C16ED2000283186 /* Movies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 764081942C16ED2000283186 /* Movies.swift */; };
+		764081982C16EE0700283186 /* MovieViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 764081972C16EE0700283186 /* MovieViewModel.swift */; };
+		7640819B2C16FEAF00283186 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 7640819A2C16FEAF00283186 /* Kingfisher */; };
+		7663317C2C16C3CD00FFBF2C /* MovieViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7663317B2C16C3CD00FFBF2C /* MovieViewController.swift */; };
+		7663317E2C16C42100FFBF2C /* MovieContentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7663317D2C16C42100FFBF2C /* MovieContentTableViewCell.swift */; };
+		766331802C16D5E700FFBF2C /* APIKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7663317F2C16D5E700FFBF2C /* APIKey.swift */; };
+		766331822C16DC3300FFBF2C /* MovieContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 766331812C16DC3300FFBF2C /* MovieContent.swift */; };
+		766331842C16DFD800FFBF2C /* MovieCredits.swift in Sources */ = {isa = PBXBuildFile; fileRef = 766331832C16DFD800FFBF2C /* MovieCredits.swift */; };
+		766331862C16E23400FFBF2C /* MovieGenre.swift in Sources */ = {isa = PBXBuildFile; fileRef = 766331852C16E23400FFBF2C /* MovieGenre.swift */; };
 		76DD082C2C0EFD46007C751E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76DD082B2C0EFD46007C751E /* AppDelegate.swift */; };
 		76DD082E2C0EFD46007C751E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76DD082D2C0EFD46007C751E /* SceneDelegate.swift */; };
 		76DD08352C0EFD47007C751E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 76DD08342C0EFD47007C751E /* Assets.xcassets */; };
@@ -22,7 +31,6 @@
 		76F052122C102B5E0018AB88 /* LottoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76F052112C102B5E0018AB88 /* LottoViewController.swift */; };
 		76F052152C103ED50018AB88 /* Int+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76F052142C103ED50018AB88 /* Int+.swift */; };
 		76F052182C103F790018AB88 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 76F052172C103F790018AB88 /* Alamofire */; };
-		76F0521A2C103FAE0018AB88 /* APIKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76F052192C103FAE0018AB88 /* APIKey.swift */; };
 		76F052222C1040440018AB88 /* Lotto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76F052212C1040440018AB88 /* Lotto.swift */; };
 		76F052282C1057D60018AB88 /* MovieRankingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76F052272C1057D60018AB88 /* MovieRankingViewController.swift */; };
 		76F0522A2C1057FA0018AB88 /* MovieTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76F052292C1057FA0018AB88 /* MovieTableViewCell.swift */; };
@@ -34,6 +42,14 @@
 		761C557B2C142B8000A0479B /* WeatherImageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherImageTableViewCell.swift; sourceTree = "<group>"; };
 		761C557D2C142C4A00A0479B /* WeatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewController.swift; sourceTree = "<group>"; };
 		761C557F2C1433EE00A0479B /* Weather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weather.swift; sourceTree = "<group>"; };
+		764081942C16ED2000283186 /* Movies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Movies.swift; path = ../../../../../../../Documents/Movies.swift; sourceTree = "<group>"; };
+		764081972C16EE0700283186 /* MovieViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MovieViewModel.swift; path = ../../../../../../../Documents/MovieViewModel.swift; sourceTree = "<group>"; };
+		7663317B2C16C3CD00FFBF2C /* MovieViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieViewController.swift; sourceTree = "<group>"; };
+		7663317D2C16C42100FFBF2C /* MovieContentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieContentTableViewCell.swift; sourceTree = "<group>"; };
+		7663317F2C16D5E700FFBF2C /* APIKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = APIKey.swift; path = MediaProject/Helper/APIKey.swift; sourceTree = SOURCE_ROOT; };
+		766331812C16DC3300FFBF2C /* MovieContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieContent.swift; sourceTree = "<group>"; };
+		766331832C16DFD800FFBF2C /* MovieCredits.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCredits.swift; sourceTree = "<group>"; };
+		766331852C16E23400FFBF2C /* MovieGenre.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieGenre.swift; sourceTree = "<group>"; };
 		76DD08282C0EFD46007C751E /* MediaProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MediaProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		76DD082B2C0EFD46007C751E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		76DD082D2C0EFD46007C751E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -45,7 +61,6 @@
 		76F0520F2C102B190018AB88 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		76F052112C102B5E0018AB88 /* LottoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottoViewController.swift; sourceTree = "<group>"; };
 		76F052142C103ED50018AB88 /* Int+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+.swift"; sourceTree = "<group>"; };
-		76F052192C103FAE0018AB88 /* APIKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKey.swift; sourceTree = "<group>"; };
 		76F052212C1040440018AB88 /* Lotto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lotto.swift; sourceTree = "<group>"; };
 		76F052272C1057D60018AB88 /* MovieRankingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieRankingViewController.swift; sourceTree = "<group>"; };
 		76F052292C1057FA0018AB88 /* MovieTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieTableViewCell.swift; sourceTree = "<group>"; };
@@ -57,6 +72,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7640819B2C16FEAF00283186 /* Kingfisher in Frameworks */,
 				76DD08412C0EFD69007C751E /* SnapKit in Frameworks */,
 				76F052182C103F790018AB88 /* Alamofire in Frameworks */,
 			);
@@ -100,6 +116,60 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		764081932C16E60500283186 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				7663317F2C16D5E700FFBF2C /* APIKey.swift */,
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
+		764081962C16EDD800283186 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				764081972C16EE0700283186 /* MovieViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		766331762C16C30B00FFBF2C /* Movie */ = {
+			isa = PBXGroup;
+			children = (
+				766331792C16C3AA00FFBF2C /* Models */,
+				764081962C16EDD800283186 /* ViewModels */,
+				766331782C16C3A500FFBF2C /* Views */,
+				766331772C16C39E00FFBF2C /* Controllers */,
+			);
+			path = Movie;
+			sourceTree = "<group>";
+		};
+		766331772C16C39E00FFBF2C /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				7663317B2C16C3CD00FFBF2C /* MovieViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		766331782C16C3A500FFBF2C /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				7663317D2C16C42100FFBF2C /* MovieContentTableViewCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		766331792C16C3AA00FFBF2C /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				766331812C16DC3300FFBF2C /* MovieContent.swift */,
+				766331832C16DFD800FFBF2C /* MovieCredits.swift */,
+				766331852C16E23400FFBF2C /* MovieGenre.swift */,
+				764081942C16ED2000283186 /* Movies.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		76DD081F2C0EFD46007C751E = {
 			isa = PBXGroup;
 			children = (
@@ -120,11 +190,12 @@
 		76DD082A2C0EFD46007C751E /* MediaProject */ = {
 			isa = PBXGroup;
 			children = (
-				76F052202C10402F0018AB88 /* Helper */,
+				764081932C16E60500283186 /* Helper */,
 				76F052132C103EC30018AB88 /* Extensions */,
 				76F0521D2C1040030018AB88 /* Lotto */,
 				76F052232C1055CD0018AB88 /* MovieRanking */,
 				761C55752C14264200A0479B /* Weather */,
+				766331762C16C30B00FFBF2C /* Movie */,
 				76DD082B2C0EFD46007C751E /* AppDelegate.swift */,
 				76DD082D2C0EFD46007C751E /* SceneDelegate.swift */,
 				76DD08342C0EFD47007C751E /* Assets.xcassets */,
@@ -175,14 +246,6 @@
 				76F052112C102B5E0018AB88 /* LottoViewController.swift */,
 			);
 			path = Controller;
-			sourceTree = "<group>";
-		};
-		76F052202C10402F0018AB88 /* Helper */ = {
-			isa = PBXGroup;
-			children = (
-				76F052192C103FAE0018AB88 /* APIKey.swift */,
-			);
-			path = Helper;
 			sourceTree = "<group>";
 		};
 		76F052232C1055CD0018AB88 /* MovieRanking */ = {
@@ -238,6 +301,7 @@
 			packageProductDependencies = (
 				76DD08402C0EFD69007C751E /* SnapKit */,
 				76F052172C103F790018AB88 /* Alamofire */,
+				7640819A2C16FEAF00283186 /* Kingfisher */,
 			);
 			productName = MediaProject;
 			productReference = 76DD08282C0EFD46007C751E /* MediaProject.app */;
@@ -270,6 +334,7 @@
 			packageReferences = (
 				76DD083F2C0EFD69007C751E /* XCRemoteSwiftPackageReference "SnapKit" */,
 				76F052162C103F790018AB88 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				764081992C16FEAF00283186 /* XCRemoteSwiftPackageReference "Kingfisher" */,
 			);
 			productRefGroup = 76DD08292C0EFD46007C751E /* Products */;
 			projectDirPath = "";
@@ -298,20 +363,27 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				766331842C16DFD800FFBF2C /* MovieCredits.swift in Sources */,
+				7663317E2C16C42100FFBF2C /* MovieContentTableViewCell.swift in Sources */,
 				761C557A2C14268500A0479B /* WeatherTableViewCell.swift in Sources */,
 				76F0522A2C1057FA0018AB88 /* MovieTableViewCell.swift in Sources */,
 				76F052222C1040440018AB88 /* Lotto.swift in Sources */,
+				7663317C2C16C3CD00FFBF2C /* MovieViewController.swift in Sources */,
 				76F052122C102B5E0018AB88 /* LottoViewController.swift in Sources */,
 				761C55802C1433EE00A0479B /* Weather.swift in Sources */,
-				76F0521A2C103FAE0018AB88 /* APIKey.swift in Sources */,
 				761C557C2C142B8000A0479B /* WeatherImageTableViewCell.swift in Sources */,
+				766331822C16DC3300FFBF2C /* MovieContent.swift in Sources */,
 				76DD08452C0F013E007C751E /* LoginViewController.swift in Sources */,
 				76F052282C1057D60018AB88 /* MovieRankingViewController.swift in Sources */,
+				766331862C16E23400FFBF2C /* MovieGenre.swift in Sources */,
 				76DD082C2C0EFD46007C751E /* AppDelegate.swift in Sources */,
+				764081952C16ED2000283186 /* Movies.swift in Sources */,
 				76DD082E2C0EFD46007C751E /* SceneDelegate.swift in Sources */,
 				76DD08482C0F1DE2007C751E /* HomeViewController.swift in Sources */,
 				761C557E2C142C4A00A0479B /* WeatherViewController.swift in Sources */,
 				76F0522C2C1064970018AB88 /* MovieRanking.swift in Sources */,
+				764081982C16EE0700283186 /* MovieViewModel.swift in Sources */,
+				766331802C16D5E700FFBF2C /* APIKey.swift in Sources */,
 				76F052152C103ED50018AB88 /* Int+.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -535,6 +607,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		764081992C16FEAF00283186 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.11.0;
+			};
+		};
 		76DD083F2C0EFD69007C751E /* XCRemoteSwiftPackageReference "SnapKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
@@ -554,6 +634,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		7640819A2C16FEAF00283186 /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 764081992C16FEAF00283186 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
 		76DD08402C0EFD69007C751E /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 76DD083F2C0EFD69007C751E /* XCRemoteSwiftPackageReference "SnapKit" */;
