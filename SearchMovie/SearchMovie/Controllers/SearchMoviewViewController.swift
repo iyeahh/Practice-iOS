@@ -26,14 +26,13 @@ class SearchMoviewViewController: UIViewController {
     let searchBar = {
         let searchBar = UISearchBar()
         searchBar.placeholder = "영화 제목을 검색해보세요."
-        searchBar.backgroundImage = UIImage()
-        searchBar.searchTextField.backgroundColor = .lightGray
+        searchBar.searchBarStyle = .minimal
         return searchBar
     }()
 
     lazy var movieCollectionView = {
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: collectionViewLayout())
-        collectionView.backgroundColor = .black
+        collectionView.backgroundColor = .white
         return collectionView
     }()
 
@@ -70,8 +69,7 @@ class SearchMoviewViewController: UIViewController {
     }
 
     private func configureUI() {
-        view.backgroundColor = .black
-        navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
+        view.backgroundColor = .white
         navigationItem.title = "영화 검색"
     }
 
