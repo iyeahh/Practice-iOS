@@ -9,9 +9,12 @@ import UIKit
 import SnapKit
 
 class MovieDescriptionTableViewCell: UITableViewCell {
+//    var callBackMehtod: ((Bool) -> Void)?
+    var selectedBtn: Bool = false
+
     let descriptionLabel = {
         let label = UILabel()
-        label.numberOfLines = 0
+        label.numberOfLines = 2
         label.font = .systemFont(ofSize: 10)
         return label
     }()
@@ -20,6 +23,7 @@ class MovieDescriptionTableViewCell: UITableViewCell {
         let button = UIButton()
         button.setImage(UIImage(systemName: "chevron.down"), for: .normal)
         button.tintColor = .black
+//        button.addTarget(nil, action: #selector(showMoreButtonTapped), for: .touchUpInside)
         return button
     }()
 
@@ -45,10 +49,19 @@ class MovieDescriptionTableViewCell: UITableViewCell {
         }
 
         showMoreButton.snp.makeConstraints { make in
-            make.centerX.equalToSuperview()
+            make.centerX.equalTo(contentView.snp.centerX)
             make.top.equalTo(descriptionLabel.snp.bottom).offset(10)
             make.bottom.equalTo(contentView).inset(10)
             make.width.equalTo(showMoreButton.snp.height).multipliedBy(2)
         }
+    }
+
+//    @objc func showMoreButtonTapped(completion: @escaping (Bool) -> Void) {
+//        selectedBtn = !selectedBtn
+//        callBackMehtod?(selectedBtn)
+//    }
+
+    func setData(_ data: String) {
+        descriptionLabel.text = data
     }
 }

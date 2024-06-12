@@ -75,8 +75,9 @@ extension MovieViewController: UITableViewDelegate, UITableViewDataSource {
             return UITableViewCell()
         }
         let data = movieList[indexPath.row]
+
         cell.callBackMehtod = {
-            let vc = MovieDetailViewController()
+            let vc = MovieDetailViewController(movie: data)
             let backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: self, action: nil)
             backBarButtonItem.tintColor = .black
             self.navigationItem.backBarButtonItem = backBarButtonItem

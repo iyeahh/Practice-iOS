@@ -223,7 +223,7 @@ class MovieContentTableViewCell: UITableViewCell {
     func configureData(_ movie: Movies) {
         dateLabel.text = movie.dateString
         categoryLabel.text = movie.genreString
-        posterImageView.kf.setImage(with: movie.url)
+        posterImageView.kf.setImage(with: movie.imageUrl)
         rateLabel.text = movie.rateString
         titleLabel.text = movie.title
         castingLabel.text = movie.actorsString

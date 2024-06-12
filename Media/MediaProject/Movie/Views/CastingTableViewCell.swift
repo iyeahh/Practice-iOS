@@ -7,6 +7,7 @@
 
 import UIKit
 import SnapKit
+import Kingfisher
 
 class CastingTableViewCell: UITableViewCell {
     let actorImageView = {
@@ -64,11 +65,18 @@ class CastingTableViewCell: UITableViewCell {
         }
 
         nameStackView.snp.makeConstraints { make in
-            make.centerY.equalToSuperview()
+            make.centerY.equalTo(contentView.snp.centerY)
             make.leading.equalTo(actorImageView.snp.trailing).offset(20)
-            make.trailing.equalToSuperview().inset(20)
-            make.height.equalTo(50)
+            make.trailing.equalTo(contentView).inset(20)
+            make.height.equalTo(30)
         }
     }
 
+    func setData(_ data: PlayActor) {
+        actorNameLabel.text = data.name
+        charactorNameLabel.text = "\(data.character!)"
+        let urlString = data.profile_path ?? "/qYNofOjlRke2MlJVihmJmEdQI4v.jpg"
+        let url = URL(string: "https://image.tmdb.org/t/p/w780" + urlString)
+        actorImageView.kf.setImage(with: url)
+    }
 }

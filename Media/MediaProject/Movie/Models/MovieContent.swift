@@ -14,6 +14,7 @@ struct MovieContent: Decodable {
 struct Movie: Decodable {
     let id: Int
     let overview: String
+    let backdrop_path: String
     let poster_path: String
     let title: String
     let release_date: String
