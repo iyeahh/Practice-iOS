@@ -9,7 +9,6 @@ import UIKit
 import SnapKit
 
 class WeatherTableViewCell: UITableViewCell {
-    static let identifier = "WeatherTableViewCell"
     
     let labelBackgroundView = {
         let view = UIView()

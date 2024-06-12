@@ -10,7 +10,7 @@ import SnapKit
 import Kingfisher
 
 class MovieContentTableViewCell: UITableViewCell {
-    static let identifier = "MovieContentTableViewCell"
+    var callBackMehtod: (() -> Void)?
 
     let dateLabel = {
         let label = UILabel()
@@ -29,10 +29,10 @@ class MovieContentTableViewCell: UITableViewCell {
     let shadowView = {
         let view = UIView()
         view.layer.masksToBounds = false
-        view.layer.shadowOffset = CGSize(width: 5, height: 5)
-        view.layer.shadowOpacity = 0.7
+        view.layer.shadowOpacity = 0.8
         view.layer.shadowRadius = 5
         view.layer.shadowColor = UIColor.gray.cgColor
+        view.layer.cornerRadius = 10
         view.backgroundColor = .white
         return view
     }()
@@ -102,12 +102,18 @@ class MovieContentTableViewCell: UITableViewCell {
         return label
     }()
 
+    let showMoreImageView = {
+        let imageView = UIImageView()
+        imageView.image = UIImage(systemName: "chevron.right")?.withRenderingMode(.alwaysTemplate)
+        imageView.tintColor = .black
+        imageView.contentMode = .scaleAspectFit
+        return imageView
+    }()
+
     let showMoreButton = {
         let button = UIButton()
         button.backgroundColor = .clear
-        button.setImage(UIImage(systemName: "chevron.right"), for: .normal)
-        button.tintColor = .black
-        button.semanticContentAttribute = .forceRightToLeft
+        button.addTarget(nil, action: #selector(showMoreButtonTapped), for: .touchUpInside)
         return button
     }()
 
@@ -133,6 +139,7 @@ class MovieContentTableViewCell: UITableViewCell {
         contentView.addSubview(castingLabel)
         contentView.addSubview(barView)
         contentView.addSubview(showMoreLabel)
+        contentView.addSubview(showMoreImageView)
         contentView.addSubview(showMoreButton)
     }
 
@@ -197,10 +204,20 @@ class MovieContentTableViewCell: UITableViewCell {
             make.width.equalTo(70)
         }
 
+        showMoreImageView.snp.makeConstraints { make in
+            make.trailing.bottom.equalTo(infoBackView).inset(20)
+            make.top.equalTo(barView.snp.bottom).offset(20)
+            make.width.equalTo(showMoreImageView.snp.height)
+        }
+
         showMoreButton.snp.makeConstraints { make in
             make.horizontalEdges.bottom.equalTo(infoBackView).inset(20)
             make.top.equalTo(barView.snp.bottom).offset(10)
         }
+    }
+
+    @objc func showMoreButtonTapped() {
+        callBackMehtod?()
     }
 
     func configureData(_ movie: Movies) {

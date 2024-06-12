@@ -9,7 +9,6 @@ import UIKit
 import SnapKit
 
 class MovieTableViewCell: UITableViewCell {
-    static let identifier = "MovieTableViewCell"
 
     var rankingLabel: UILabel = {
         let label = UILabel()

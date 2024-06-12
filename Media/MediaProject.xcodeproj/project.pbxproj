@@ -35,6 +35,10 @@
 		76F052282C1057D60018AB88 /* MovieRankingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76F052272C1057D60018AB88 /* MovieRankingViewController.swift */; };
 		76F0522A2C1057FA0018AB88 /* MovieTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76F052292C1057FA0018AB88 /* MovieTableViewCell.swift */; };
 		76F0522C2C1064970018AB88 /* MovieRanking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76F0522B2C1064970018AB88 /* MovieRanking.swift */; };
+		76F9CC492C1965750055BF77 /* MovieDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76F9CC482C1965750055BF77 /* MovieDetailViewController.swift */; };
+		76F9CC4B2C196CB70055BF77 /* MovieDescriptionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76F9CC4A2C196CB70055BF77 /* MovieDescriptionTableViewCell.swift */; };
+		76F9CC4D2C196DBC0055BF77 /* UITableViewCell+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76F9CC4C2C196DBC0055BF77 /* UITableViewCell+.swift */; };
+		76F9CC4F2C196E2A0055BF77 /* CastingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76F9CC4E2C196E2A0055BF77 /* CastingTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -65,6 +69,10 @@
 		76F052272C1057D60018AB88 /* MovieRankingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieRankingViewController.swift; sourceTree = "<group>"; };
 		76F052292C1057FA0018AB88 /* MovieTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieTableViewCell.swift; sourceTree = "<group>"; };
 		76F0522B2C1064970018AB88 /* MovieRanking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieRanking.swift; sourceTree = "<group>"; };
+		76F9CC482C1965750055BF77 /* MovieDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailViewController.swift; sourceTree = "<group>"; };
+		76F9CC4A2C196CB70055BF77 /* MovieDescriptionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDescriptionTableViewCell.swift; sourceTree = "<group>"; };
+		76F9CC4C2C196DBC0055BF77 /* UITableViewCell+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewCell+.swift"; sourceTree = "<group>"; };
+		76F9CC4E2C196E2A0055BF77 /* CastingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastingTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -147,6 +155,7 @@
 			isa = PBXGroup;
 			children = (
 				7663317B2C16C3CD00FFBF2C /* MovieViewController.swift */,
+				76F9CC482C1965750055BF77 /* MovieDetailViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -155,6 +164,8 @@
 			isa = PBXGroup;
 			children = (
 				7663317D2C16C42100FFBF2C /* MovieContentTableViewCell.swift */,
+				76F9CC4A2C196CB70055BF77 /* MovieDescriptionTableViewCell.swift */,
+				76F9CC4E2C196E2A0055BF77 /* CastingTableViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -219,6 +230,7 @@
 			isa = PBXGroup;
 			children = (
 				76F052142C103ED50018AB88 /* Int+.swift */,
+				76F9CC4C2C196DBC0055BF77 /* UITableViewCell+.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -367,12 +379,14 @@
 				7663317E2C16C42100FFBF2C /* MovieContentTableViewCell.swift in Sources */,
 				761C557A2C14268500A0479B /* WeatherTableViewCell.swift in Sources */,
 				76F0522A2C1057FA0018AB88 /* MovieTableViewCell.swift in Sources */,
+				76F9CC492C1965750055BF77 /* MovieDetailViewController.swift in Sources */,
 				76F052222C1040440018AB88 /* Lotto.swift in Sources */,
 				7663317C2C16C3CD00FFBF2C /* MovieViewController.swift in Sources */,
 				76F052122C102B5E0018AB88 /* LottoViewController.swift in Sources */,
 				761C55802C1433EE00A0479B /* Weather.swift in Sources */,
 				761C557C2C142B8000A0479B /* WeatherImageTableViewCell.swift in Sources */,
 				766331822C16DC3300FFBF2C /* MovieContent.swift in Sources */,
+				76F9CC4F2C196E2A0055BF77 /* CastingTableViewCell.swift in Sources */,
 				76DD08452C0F013E007C751E /* LoginViewController.swift in Sources */,
 				76F052282C1057D60018AB88 /* MovieRankingViewController.swift in Sources */,
 				766331862C16E23400FFBF2C /* MovieGenre.swift in Sources */,
@@ -383,6 +397,8 @@
 				761C557E2C142C4A00A0479B /* WeatherViewController.swift in Sources */,
 				76F0522C2C1064970018AB88 /* MovieRanking.swift in Sources */,
 				764081982C16EE0700283186 /* MovieViewModel.swift in Sources */,
+				76F9CC4D2C196DBC0055BF77 /* UITableViewCell+.swift in Sources */,
+				76F9CC4B2C196CB70055BF77 /* MovieDescriptionTableViewCell.swift in Sources */,
 				766331802C16D5E700FFBF2C /* APIKey.swift in Sources */,
 				76F052152C103ED50018AB88 /* Int+.swift in Sources */,
 			);

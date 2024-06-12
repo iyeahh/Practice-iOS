@@ -8,7 +8,6 @@
 import UIKit
 
 class WeatherImageTableViewCell: UITableViewCell {
-    static let identifier = "WeatherImageTableViewCell"
     
     let imageBackgroundView = {
         let view = UIView()
