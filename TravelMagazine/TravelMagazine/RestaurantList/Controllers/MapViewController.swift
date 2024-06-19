@@ -18,8 +18,7 @@ class MapViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupNavigationItem()
-//        setupAllAnnotation()
-        setupCenterLocation()
+        setupAllAnnotation()
         locationManager.delegate = self
     }
 
@@ -34,26 +33,18 @@ class MapViewController: UIViewController {
         navigationItem.rightBarButtonItem = filterButton
     }
 
-//    private func setupAllAnnotation() {
-//        guard let restaurantList = viewModel?.restaurantListData else {
-//            return
-//        }
-//
-//        addAnnotation(retaurants: restaurantList)
-//    }
-
-    private func setupCenterLocation() {
-        guard let restaurant = viewModel?.restaurantListData.randomElement() else {
+    private func setupAllAnnotation() {
+        guard let restaurantList = viewModel?.restaurantListData else {
             return
         }
 
-        setCenterLocation(restaurant: restaurant)
+        addAnnotation(retaurants: restaurantList)
     }
 
-    private func setCenterLocation(restaurant: RestaurantInfo) {
+    private func setCenterLocation(lat: CLLocationDegrees, lon: CLLocationDegrees) {
         let center = CLLocationCoordinate2D(
-            latitude: restaurant.latitude,
-            longitude: restaurant.longitude
+            latitude: lat,
+            longitude: lon
         )
 
         mapView.region = MKCoordinateRegion(
@@ -63,16 +54,16 @@ class MapViewController: UIViewController {
         )
     }
 
-//    private func filterRestaurant(category: Category) {
-//        if category == .all {
-//            setupAllAnnotation()
-//        } else {
-//            if let filteredList = viewModel?.restaurantListData.filter({ restaurant in restaurant.category == category
-//            }) {
-//                addAnnotation(retaurants: filteredList)
-//            }
-//        }
-//    }
+    private func filterRestaurant(category: Category) {
+        if category == .all {
+            setupAllAnnotation()
+        } else {
+            if let filteredList = viewModel?.restaurantListData.filter({ restaurant in restaurant.category == category
+            }) {
+                addAnnotation(retaurants: filteredList)
+            }
+        }
+    }
 
     @objc private func filterButtonTapped() {
         let actionSheet = UIAlertController(
@@ -83,26 +74,23 @@ class MapViewController: UIViewController {
         let all = UIAlertAction(
             title: "전체보기",
             style: .default,
-//            handler: { _ in
-//                self.filterRestaurant(category: .all)
-//            }
-            handler: nil
+            handler: { _ in
+                self.filterRestaurant(category: .all)
+            }
         )
 
         let koreanFood = UIAlertAction(
             title: "한식",
             style: .default,
-//            handler: { _ in self.filterRestaurant(category: .korean)
-//            }
-            handler: nil
+            handler: { _ in self.filterRestaurant(category: .korean)
+            }
         )
 
         let chineseFood = UIAlertAction(
             title: "중식",
             style: .default,
-//            handler: { _ in self.filterRestaurant(category: .chinese)
-//            }
-            handler: nil
+            handler: { _ in self.filterRestaurant(category: .chinese)
+            }
         )
 
         let cancel = UIAlertAction(
@@ -118,24 +106,25 @@ class MapViewController: UIViewController {
         present(actionSheet, animated: true)
     }
 
-    private func makeAnnotations(lat: CLLocationDegrees, lon: CLLocationDegrees) -> MKAnnotation{
+    private func makeAnnotations(restaurant: RestaurantInfo) -> MKAnnotation{
         let location = CLLocationCoordinate2D(
-            latitude: lat, longitude: lon
+            latitude: restaurant.latitude,
+            longitude: restaurant.longitude
         )
 
         let annotation = MKPointAnnotation()
         annotation.coordinate = location
-        annotation.title = "현위치"
+        annotation.title = restaurant.name
 
         return annotation
     }
 
-    private func addAnnotation(lat: CLLocationDegrees, lon: CLLocationDegrees) {
-        mapView.removeAnnotations(mapView.annotations)
+    private func addAnnotation(retaurants: [RestaurantInfo]) {
+    let annotations = retaurants.map({ retaurant in
+        makeAnnotations(restaurant: retaurant)
+    })
 
-        let annotation = makeAnnotations(lat: lat, lon: lon)
-
-        mapView.addAnnotation(annotation)
+        mapView.addAnnotations(annotations)
     }
 }
 
@@ -144,7 +133,7 @@ extension MapViewController {
         if CLLocationManager.locationServicesEnabled() {
             checkCurrentLocationAuthorization()
         } else {
-            print("위치 서비스 꺼져 있음")
+
         }
     }
 
@@ -174,7 +163,7 @@ extension MapViewController {
 extension MapViewController: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if let coordinate = locations.last?.coordinate {
-            addAnnotation(lat: coordinate.latitude, lon: coordinate.longitude)
+            setCenterLocation(lat: coordinate.latitude, lon: coordinate.longitude)
         }
         locationManager.startUpdatingLocation()
     }
