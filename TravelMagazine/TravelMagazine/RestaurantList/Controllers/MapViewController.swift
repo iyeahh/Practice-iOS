@@ -151,7 +151,7 @@ extension MapViewController {
             locationManager.desiredAccuracy = kCLLocationAccuracyBest
             locationManager.requestWhenInUseAuthorization()
         case .denied:
-            print("iOS 설정 창으로 이동")
+            setCenterLocation(lat: 37.517742, lon: 126.886463)
         case .authorizedWhenInUse:
             locationManager.startUpdatingLocation()
         default:
