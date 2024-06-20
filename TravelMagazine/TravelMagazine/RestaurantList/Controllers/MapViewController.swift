@@ -30,7 +30,14 @@ class MapViewController: UIViewController {
             action: #selector(filterButtonTapped)
         )
 
-        navigationItem.rightBarButtonItem = filterButton
+        let locationButton = UIBarButtonItem(
+            image: UIImage(systemName: "location.fill"),
+            style: .plain,
+            target: self,
+            action: #selector(locationButtonTapped)
+        )
+
+        navigationItem.rightBarButtonItems = [filterButton, locationButton]
     }
 
     private func setupAllAnnotation() {
@@ -63,6 +70,10 @@ class MapViewController: UIViewController {
                 addAnnotation(retaurants: filteredList)
             }
         }
+    }
+
+    @objc private func locationButtonTapped() {
+        checkDeviceLocationAutorization()
     }
 
     @objc private func filterButtonTapped() {
@@ -106,6 +117,29 @@ class MapViewController: UIViewController {
         present(actionSheet, animated: true)
     }
 
+    private func setLocationTurnOnAlert() {
+        let alert = UIAlertController(
+            title: "위치서비스를 켜주세요",
+            message: "설정 앱으로 들어가 위치서비스를 켜주세요",
+            preferredStyle: .alert)
+
+        let confirm = UIAlertAction(
+            title: "확인",
+            style: .default,
+            handler: nil
+        )
+
+        let cancel = UIAlertAction(
+            title: "취소",
+            style: .cancel
+        )
+
+        alert.addAction(confirm)
+        alert.addAction(cancel)
+
+        present(alert, animated: true)
+    }
+
     private func makeAnnotations(restaurant: RestaurantInfo) -> MKAnnotation{
         let location = CLLocationCoordinate2D(
             latitude: restaurant.latitude,
@@ -133,7 +167,7 @@ extension MapViewController {
         if CLLocationManager.locationServicesEnabled() {
             checkCurrentLocationAuthorization()
         } else {
-
+            setLocationTurnOnAlert()
         }
     }
 
