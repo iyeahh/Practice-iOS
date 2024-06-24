@@ -7,11 +7,12 @@
 
 import UIKit
 import SnapKit
+import Kingfisher
 
 class MovieCollectionViewCell: UICollectionViewCell {
     static let identifier = "MovieCollectionViewCell"
 
-    let movieImageView = {
+    private let movieImageView = {
         let imageView = UIImageView()
         imageView.clipsToBounds = true
         imageView.layer.cornerRadius = 5
@@ -39,5 +40,12 @@ extension MovieCollectionViewCell {
         movieImageView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
+    }
+}
+
+extension MovieCollectionViewCell {
+    func setImageView(urlString: String) {
+        let url = URL(string: urlString)
+        movieImageView.kf.setImage(with: url)
     }
 }

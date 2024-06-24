@@ -9,6 +9,17 @@ import UIKit
 import SnapKit
 
 class MovieRootView: UIView {
+    var similarMovies: [MovieResult] = [] {
+        didSet {
+            similarMovieCollectionView.reloadData()
+        }
+    }
+    var recommendMovies: [MovieResult] = [] {
+        didSet {
+            recommendCollectionView.reloadData()
+        }
+    }
+
     private let similarMovieLable = {
         let label = UILabel()
         label.text = "비슷한 영화"
@@ -66,7 +77,8 @@ extension MovieRootView {
 
         similarMovieCollectionView.snp.makeConstraints { make in
             make.horizontalEdges.equalToSuperview()
-            make.top.equalTo(similarMovieLable.snp.bottom)
+            make.top.equalTo(similarMovieLable.snp.bottom).offset(5)
+            make.height.equalTo(((UIScreen.main.bounds.width - 70) / 3) * 1.4)
         }
 
         recommendMovieLabel.snp.makeConstraints { make in
@@ -76,13 +88,17 @@ extension MovieRootView {
 
         recommendCollectionView.snp.makeConstraints { make in
             make.horizontalEdges.equalToSuperview()
-            make.top.equalTo(recommendMovieLabel.snp.bottom)
+            make.top.equalTo(recommendMovieLabel.snp.bottom).offset(10)
+            make.height.equalTo(((UIScreen.main.bounds.width - 70) / 3) * 1.4)
         }
     }
 }
 
 extension MovieRootView: UICollectionViewDelegate, UICollectionViewDataSource {
     private func configureCollectionView() {
+        similarMovieCollectionView.backgroundColor = .black
+        recommendCollectionView.backgroundColor = .black
+
         similarMovieCollectionView.delegate = self
         similarMovieCollectionView.dataSource = self
 
@@ -95,9 +111,9 @@ extension MovieRootView: UICollectionViewDelegate, UICollectionViewDataSource {
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView == similarMovieCollectionView {
-            return 5
+            return similarMovies.count
         } else {
-            return 10
+            return recommendMovies.count
         }
     }
 
@@ -106,13 +122,13 @@ extension MovieRootView: UICollectionViewDelegate, UICollectionViewDataSource {
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MovieCollectionViewCell.identifier, for: indexPath) as? MovieCollectionViewCell else {
                 return UICollectionViewCell()
             }
-            cell.movieImageView.image = UIImage(systemName: "star.fill")
+            cell.setImageView(urlString: similarMovies[indexPath.item].posterURL)
             return cell
         } else {
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MovieCollectionViewCell.identifier, for: indexPath) as? MovieCollectionViewCell else {
                 return UICollectionViewCell()
             }
-            cell.movieImageView.image = UIImage(systemName: "heart.fill")
+            cell.setImageView(urlString: recommendMovies[indexPath.item].posterURL)
             return cell
         }
     }
