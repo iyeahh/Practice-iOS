@@ -21,6 +21,13 @@ class MovieViewController: UIViewController {
         }
     }
 
+    var movieBackDrops: [Backdrop] = [] {
+        didSet {
+            rootView.movieBackDrops = movieBackDrops
+        }
+    }
+
+
     override func loadView() {
         super.loadView()
         view = rootView
@@ -28,11 +35,18 @@ class MovieViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        NetworkManager.shared.fetchMovie(searchWord: .similar, id: 1022789) { movie in
+        fetchMovies(id: 1022789)
+    }
+
+    private func fetchMovies(id: Int) {
+        NetworkManager.shared.fetchMovie(searchWord: .similar, id: id) { movie in
             self.similarMovies = movie.results
         }
-        NetworkManager.shared.fetchMovie(searchWord: .recommend, id: 1022789) { movie in
+        NetworkManager.shared.fetchMovie(searchWord: .recommend, id: id) { movie in
             self.recommendMovies = movie.results
+        }
+        NetworkManager.shared.fetchPoster(id: id) { poster in
+            self.movieBackDrops = poster.backdrops
         }
     }
 }

@@ -34,6 +34,31 @@ final class NetworkManager {
         }
     }
 
+    func fetchPoster(id: Int, completionHandler: @escaping (Poster) -> Void) {
+        let header: HTTPHeaders = [
+            "Authorization": APIKey.movieAPIKey,
+            "accept": "application/json"
+        ]
+
+        let url = URLString.posterMovie(id: id)
+
+        AF.request(url,
+                   headers: header)
+        .responseDecodable(of: Poster.self) { response in
+            switch response.result {
+            case .success(let value):
+                completionHandler(value)
+            case .failure(let error):
+                print(error)
+            }
+        }
+    }
+
     private func makeURL(searchWord: SearchWord, id: Int) -> String {
-        return searchWord == .similar ? URLString.similarMovie(id: id) : URLString.recommendMovie(id: id)    }
+        if searchWord == .similar {
+            return URLString.similarMovie(id: id)
+        } else {
+            return URLString.recommendMovie(id: id)
+        }
+    }
 }
