@@ -9,6 +9,8 @@ import UIKit
 
 class MovieViewController: UIViewController {
     private let rootView = MovieRootView()
+    var movieTitle = ""
+    var movieId = 0
 
     var similarMovies: [MovieResult] = [] {
         didSet {
@@ -35,7 +37,19 @@ class MovieViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        fetchMovies(id: 1022789)
+        fetchMovies(id: movieId)
+        configureUI()
+    }
+}
+
+extension MovieViewController {
+    private func configureUI() {
+        navigationItem.title = movieTitle
+        navigationController?.navigationBar.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
+        navigationController?.navigationBar.prefersLargeTitles = true
+
+        let barButtonItem = UIBarButtonItem(image: UIImage(systemName: "ellipsis.circle"), style: .plain, target: self, action: nil)
+        navigationItem.rightBarButtonItem = barButtonItem
     }
 
     private func fetchMovies(id: Int) {

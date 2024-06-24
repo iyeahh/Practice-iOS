@@ -54,6 +54,26 @@ final class NetworkManager {
         }
     }
 
+    func searchMovie(text: String, completionHandler: @escaping (SearchMovie) -> Void) {
+        let header: HTTPHeaders = [
+            "Authorization": APIKey.movieAPIKey,
+            "accept": "application/json"
+        ]
+
+        let url = URLString.searchMovie(query: text)
+
+        AF.request(url,
+                   headers: header)
+        .responseDecodable(of: SearchMovie.self) { response in
+            switch response.result {
+            case .success(let value):
+                completionHandler(value)
+            case .failure(let error):
+                print(error)
+            }
+        }
+    }
+
     private func makeURL(searchWord: SearchWord, id: Int) -> String {
         if searchWord == .similar {
             return URLString.similarMovie(id: id)
