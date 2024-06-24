@@ -10,4 +10,5 @@ import Foundation
 enum SearchWord {
     case similar
     case recommend
+    case poster
 }

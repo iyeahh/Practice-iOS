@@ -13,7 +13,7 @@ final class NetworkManager {
 
     private init() { }
 
-    func fetchMovie(searchWord: SearchWord, id: Int, completionHandler: @escaping (Movie) -> Void) {
+    func fetchMovie<T: Decodable>(searchWord: SearchWord, id: Int, completionHandler: @escaping (T) -> Void) {
 
         let header: HTTPHeaders = [
             "Authorization": APIKey.movieAPIKey,
@@ -24,27 +24,7 @@ final class NetworkManager {
 
         AF.request(url,
                    headers: header)
-        .responseDecodable(of: Movie.self) { response in
-            switch response.result {
-            case .success(let value):
-                completionHandler(value)
-            case .failure(let error):
-                print(error)
-            }
-        }
-    }
-
-    func fetchPoster(id: Int, completionHandler: @escaping (Poster) -> Void) {
-        let header: HTTPHeaders = [
-            "Authorization": APIKey.movieAPIKey,
-            "accept": "application/json"
-        ]
-
-        let url = URLString.posterMovie(id: id)
-
-        AF.request(url,
-                   headers: header)
-        .responseDecodable(of: Poster.self) { response in
+        .responseDecodable(of: T.self) { response in
             switch response.result {
             case .success(let value):
                 completionHandler(value)
@@ -77,8 +57,10 @@ final class NetworkManager {
     private func makeURL(searchWord: SearchWord, id: Int) -> String {
         if searchWord == .similar {
             return URLString.similarMovie(id: id)
-        } else {
+        } else if searchWord == .recommend {
             return URLString.recommendMovie(id: id)
+        } else {
+            return URLString.posterMovie(id: id)
         }
     }
 }

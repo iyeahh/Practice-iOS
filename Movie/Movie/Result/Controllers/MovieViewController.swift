@@ -53,13 +53,15 @@ extension MovieViewController {
     }
 
     private func fetchMovies(id: Int) {
-        NetworkManager.shared.fetchMovie(searchWord: .similar, id: id) { movie in
+        NetworkManager.shared.fetchMovie(searchWord: .similar, id: id) { (movie: Movie) -> Void in
             self.similarMovies = movie.results
         }
-        NetworkManager.shared.fetchMovie(searchWord: .recommend, id: id) { movie in
+
+        NetworkManager.shared.fetchMovie(searchWord: .recommend, id: id) { (movie: Movie) -> Void in
             self.recommendMovies = movie.results
         }
-        NetworkManager.shared.fetchPoster(id: id) { poster in
+
+        NetworkManager.shared.fetchMovie(searchWord: .poster, id: id) { (poster: Poster) -> Void in
             self.movieBackDrops = poster.backdrops
         }
     }
