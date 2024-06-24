@@ -9,21 +9,26 @@
 /* Begin PBXBuildFile section */
 		764E64A42C294DF5003F65BF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 764E64A32C294DF5003F65BF /* AppDelegate.swift */; };
 		764E64A62C294DF5003F65BF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 764E64A52C294DF5003F65BF /* SceneDelegate.swift */; };
-		764E64A82C294DF5003F65BF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 764E64A72C294DF5003F65BF /* ViewController.swift */; };
 		764E64AD2C294DF6003F65BF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 764E64AC2C294DF6003F65BF /* Assets.xcassets */; };
 		764E64B02C294DF6003F65BF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 764E64AE2C294DF6003F65BF /* LaunchScreen.storyboard */; };
 		764E64B82C294ECD003F65BF /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 764E64B72C294ECD003F65BF /* .gitignore */; };
+		764E64BD2C294FA7003F65BF /* MovieCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 764E64BC2C294FA7003F65BF /* MovieCollectionViewCell.swift */; };
+		764E64BF2C295028003F65BF /* MovieRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 764E64BE2C295028003F65BF /* MovieRootView.swift */; };
+		764E64C22C29505F003F65BF /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 764E64C12C29505F003F65BF /* SnapKit */; };
+		764E64C42C29561D003F65BF /* MovieViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 764E64C32C29561C003F65BF /* MovieViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		764E64A02C294DF5003F65BF /* Movie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Movie.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		764E64A32C294DF5003F65BF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		764E64A52C294DF5003F65BF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		764E64A72C294DF5003F65BF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		764E64AC2C294DF6003F65BF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		764E64AF2C294DF6003F65BF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		764E64B12C294DF6003F65BF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		764E64B72C294ECD003F65BF /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		764E64BC2C294FA7003F65BF /* MovieCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCollectionViewCell.swift; sourceTree = "<group>"; };
+		764E64BE2C295028003F65BF /* MovieRootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieRootView.swift; sourceTree = "<group>"; };
+		764E64C32C29561C003F65BF /* MovieViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +36,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				764E64C22C29505F003F65BF /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -59,12 +65,38 @@
 			children = (
 				764E64A32C294DF5003F65BF /* AppDelegate.swift */,
 				764E64A52C294DF5003F65BF /* SceneDelegate.swift */,
-				764E64A72C294DF5003F65BF /* ViewController.swift */,
+				764E64BB2C294F54003F65BF /* Models */,
+				764E64BA2C294F4E003F65BF /* Views */,
+				764E64B92C294F45003F65BF /* Controllers */,
 				764E64AC2C294DF6003F65BF /* Assets.xcassets */,
 				764E64AE2C294DF6003F65BF /* LaunchScreen.storyboard */,
 				764E64B12C294DF6003F65BF /* Info.plist */,
 			);
 			path = Movie;
+			sourceTree = "<group>";
+		};
+		764E64B92C294F45003F65BF /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				764E64C32C29561C003F65BF /* MovieViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		764E64BA2C294F4E003F65BF /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				764E64BC2C294FA7003F65BF /* MovieCollectionViewCell.swift */,
+				764E64BE2C295028003F65BF /* MovieRootView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		764E64BB2C294F54003F65BF /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -83,6 +115,9 @@
 			dependencies = (
 			);
 			name = Movie;
+			packageProductDependencies = (
+				764E64C12C29505F003F65BF /* SnapKit */,
+			);
 			productName = Movie;
 			productReference = 764E64A02C294DF5003F65BF /* Movie.app */;
 			productType = "com.apple.product-type.application";
@@ -111,6 +146,9 @@
 				Base,
 			);
 			mainGroup = 764E64972C294DF5003F65BF;
+			packageReferences = (
+				764E64C02C29505F003F65BF /* XCRemoteSwiftPackageReference "SnapKit" */,
+			);
 			productRefGroup = 764E64A12C294DF5003F65BF /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -138,7 +176,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				764E64A82C294DF5003F65BF /* ViewController.swift in Sources */,
+				764E64BD2C294FA7003F65BF /* MovieCollectionViewCell.swift in Sources */,
+				764E64C42C29561D003F65BF /* MovieViewController.swift in Sources */,
+				764E64BF2C295028003F65BF /* MovieRootView.swift in Sources */,
 				764E64A42C294DF5003F65BF /* AppDelegate.swift in Sources */,
 				764E64A62C294DF5003F65BF /* SceneDelegate.swift in Sources */,
 			);
@@ -363,6 +403,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		764E64C02C29505F003F65BF /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.7.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		764E64C12C29505F003F65BF /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 764E64C02C29505F003F65BF /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 764E64982C294DF5003F65BF /* Project object */;
 }
