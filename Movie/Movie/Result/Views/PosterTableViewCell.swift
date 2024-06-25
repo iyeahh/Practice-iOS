@@ -1,5 +1,5 @@
 //
-//  MovieTabelViewCell.swift
+//  PosterTableViewCell.swift
 //  Movie
 //
 //  Created by Bora Yang on 6/25/24.
@@ -8,9 +8,9 @@
 import UIKit
 import SnapKit
 
-final class MovieTabelViewCell: BaseTableViewCell {
-    static let identifier = "MovieTabelViewCell"
-    var cellCount: CGFloat = 3
+class PosterTableViewCell: BaseTableViewCell {
+    static let identifier = "PosterTableViewCell"
+    var cellCount: CGFloat = 2
 
     lazy var movieCollectionView = UICollectionView(frame: .zero, collectionViewLayout: collectionViewLayout())
 
@@ -52,4 +52,5 @@ final class MovieTabelViewCell: BaseTableViewCell {
         }
         movieCollectionView.backgroundColor = .black
     }
+
 }

@@ -45,16 +45,6 @@ extension MovieRootView {
         backgroundColor = .black
         movieTableView.backgroundColor = .black
     }
-
-    private func configureTableViewCell(cell: MovieTabelViewCell, indexPath: IndexPath) {
-        cell.movieCollectionView.delegate = self
-        cell.movieCollectionView.dataSource = self
-        cell.movieCollectionView.register(MovieCollectionViewCell.self, forCellWithReuseIdentifier: MovieCollectionViewCell.identifier)
-
-        cell.movieCollectionView.tag = indexPath.row
-        cell.setTitleLabel(index: indexPath.row)
-        cell.movieCollectionView.reloadData()
-    }
 }
 
 extension MovieRootView {
@@ -62,6 +52,7 @@ extension MovieRootView {
         movieTableView.delegate = self
         movieTableView.dataSource = self
         movieTableView.register(MovieTabelViewCell.self, forCellReuseIdentifier: MovieTabelViewCell.identifier)
+        movieTableView.register(PosterTableViewCell.self, forCellReuseIdentifier: PosterTableViewCell.identifier)
     }
 }
 
@@ -71,11 +62,31 @@ extension MovieRootView: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: MovieTabelViewCell.identifier, for: indexPath) as? MovieTabelViewCell else {
-            return UITableViewCell()
+        if indexPath.row == 0 || indexPath.row == 1 {
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: MovieTabelViewCell.identifier, for: indexPath) as? MovieTabelViewCell else {
+                return UITableViewCell()
+            }
+            cell.movieCollectionView.delegate = self
+            cell.movieCollectionView.dataSource = self
+            cell.movieCollectionView.register(MovieCollectionViewCell.self, forCellWithReuseIdentifier: MovieCollectionViewCell.identifier)
+
+            cell.movieCollectionView.tag = indexPath.row
+            cell.setTitleLabel(index: indexPath.row)
+            cell.movieCollectionView.reloadData()
+            return cell
+        } else {
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: PosterTableViewCell.identifier, for: indexPath) as? PosterTableViewCell else {
+                return UITableViewCell()
+            }
+            cell.movieCollectionView.delegate = self
+            cell.movieCollectionView.dataSource = self
+            cell.movieCollectionView.register(MovieCollectionViewCell.self, forCellWithReuseIdentifier: MovieCollectionViewCell.identifier)
+
+            cell.movieCollectionView.tag = indexPath.row
+            cell.setTitleLabel(index: indexPath.row)
+            cell.movieCollectionView.reloadData()
+            return cell
         }
-        configureTableViewCell(cell: cell, indexPath: indexPath)
-        return cell
     }
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
