@@ -12,23 +12,11 @@ class MovieViewController: UIViewController {
     var movieTitle = ""
     var movieId = 0
 
-    var similarMovies: [MovieResult] = [] {
-        didSet {
-            rootView.similarMovies = similarMovies
-        }
-    }
-    var recommendMovies: [MovieResult] = [] {
-        didSet {
-            rootView.recommendMovies = recommendMovies
-        }
-    }
-
-    var movieBackDrops: [Backdrop] = [] {
-        didSet {
-            rootView.movieBackDrops = movieBackDrops
-        }
-    }
-
+    var imageList: [[String]] = [
+        [],
+        [],
+        []
+    ]
 
     override func loadView() {
         super.loadView()
@@ -53,16 +41,38 @@ extension MovieViewController {
     }
 
     private func fetchMovies(id: Int) {
+        let group = DispatchGroup()
+
+        group.enter()
         NetworkManager.shared.fetchMovie(searchWord: .similar, id: id) { (movie: Movie) -> Void in
-            self.similarMovies = movie.results
+            let array = movie.results.map { movieResult in
+                movieResult.posterURL
+            }
+            self.imageList[0] = array
+            group.leave()
         }
 
+        group.enter()
         NetworkManager.shared.fetchMovie(searchWord: .recommend, id: id) { (movie: Movie) -> Void in
-            self.recommendMovies = movie.results
+            let array = movie.results.map { movieResult in
+                movieResult.posterURL
+            }
+            self.imageList[1] = array
+            group.leave()
         }
 
+        group.enter()
         NetworkManager.shared.fetchMovie(searchWord: .poster, id: id) { (poster: Poster) -> Void in
-            self.movieBackDrops = poster.backdrops
+            let array = poster.backdrops.map { backDrop in
+                backDrop.posterURL
+            }
+            self.imageList[2] = array
+            group.leave()
+        }
+
+        group.notify(queue: .main) {
+            self.rootView.imageList = self.imageList
+            self.rootView.movieTableView.reloadData()
         }
     }
 }
