@@ -29,17 +29,22 @@ class SearchViewController: UIViewController {
 
 extension SearchViewController: SearchRootViewDelegate {
     func searchButtonTapped(text: String) {
-        NetworkManager.shared.searchMovie(text: text) { searchMovie in
-            let vc = MovieViewController()
-            let movieInfo = searchMovie.results[0]
+        NetworkManager.shared.fetchSearchMovie(api: .search(title: text)) { success, error in
+            if let error = error {
+                print(error)
+            } else {
+                guard let data = success else { return }
+                let vc = MovieViewController()
+                let movieInfo = data.results[0]
 
-            vc.movieId = movieInfo.id
-            vc.movieTitle = movieInfo.original_title
+                vc.movieId = movieInfo.id
+                vc.movieTitle = movieInfo.original_title
 
-            let backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: self, action: nil)
-            self.navigationItem.backBarButtonItem = backBarButtonItem
+                let backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: self, action: nil)
+                self.navigationItem.backBarButtonItem = backBarButtonItem
 
-            self.navigationController?.pushViewController(vc, animated: true)
+                self.navigationController?.pushViewController(vc, animated: true)
+            }
         }
     }
 }

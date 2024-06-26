@@ -44,30 +44,46 @@ extension MovieViewController {
         let group = DispatchGroup()
 
         group.enter()
-        NetworkManager.shared.fetchMovie(searchWord: .similar, id: id) { (movie: Movie) -> Void in
-            let array = movie.results.map { movieResult in
-                movieResult.posterURL
+        NetworkManager.shared.fetchMovie(api: .similar(id: id)) { success, error in
+            if let error = error {
+                print(error)
+            } else {
+                guard let data = success else { return }
+                let array = data.results.map { movieResult in
+                    movieResult.posterURL
+                }
+                self.imageList[0] = array
+                group.leave()
             }
-            self.imageList[0] = array
-            group.leave()
         }
 
         group.enter()
-        NetworkManager.shared.fetchMovie(searchWord: .recommend, id: id) { (movie: Movie) -> Void in
-            let array = movie.results.map { movieResult in
-                movieResult.posterURL
+        NetworkManager.shared.fetchMovie(api: .recommend(id: id)) { success, error in
+            if let error = error {
+                print(error)
+            } else {
+                guard let data = success else { return }
+                let array = data.results.map { movieResult in
+                    movieResult.posterURL
+                }
+                self.imageList[1] = array
+                group.leave()
             }
-            self.imageList[1] = array
-            group.leave()
         }
 
         group.enter()
-        NetworkManager.shared.fetchMovie(searchWord: .poster, id: id) { (poster: Poster) -> Void in
-            let array = poster.backdrops.map { backDrop in
-                backDrop.posterURL
+        NetworkManager.shared.fetchMoviePoster(api: .poster(id: id)) { success, error in
+            if let error = error {
+                print(error)
+            } else {
+                guard let data = success else { return }
+                let array = data.backdrops.map { backDrop in
+                    backDrop.posterURL
+                }
+                self.imageList[2] = array
+                print(self.imageList[2])
+                group.leave()
             }
-            self.imageList[2] = array
-            group.leave()
         }
 
         group.notify(queue: .main) {

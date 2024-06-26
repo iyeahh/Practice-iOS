@@ -1,5 +1,5 @@
 //
-//  MovieResult.swift
+//  SearchMovie.swift
 //  Movie
 //
 //  Created by Bora Yang on 6/24/24.
