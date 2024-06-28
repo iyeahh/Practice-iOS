@@ -44,46 +44,36 @@ extension MovieViewController {
         let group = DispatchGroup()
 
         group.enter()
-        NetworkManager.shared.fetchMovie(api: .similar(id: id)) { success, error in
-            if let error = error {
-                print(error)
-            } else {
-                guard let data = success else { return }
-                let array = data.results.map { movieResult in
-                    movieResult.posterURL
-                }
-                self.imageList[0] = array
-                group.leave()
+        NetworkManager.shared.fetchData(api: .similar(id: id), model: Movie.self) { data, error in
+            guard error == nil else { return }
+            guard let data = data else { return }
+            let array = data.results.map { movieResult in
+                movieResult.posterURL
             }
+            self.imageList[0] = array
+            group.leave()
         }
 
         group.enter()
-        NetworkManager.shared.fetchMovie(api: .recommend(id: id)) { success, error in
-            if let error = error {
-                print(error)
-            } else {
-                guard let data = success else { return }
-                let array = data.results.map { movieResult in
-                    movieResult.posterURL
-                }
-                self.imageList[1] = array
-                group.leave()
+        NetworkManager.shared.fetchData(api: .recommend(id: id), model: Movie.self) { data, error in
+            guard error == nil else { return }
+            guard let data = data else { return }
+            let array = data.results.map { movieResult in
+                movieResult.posterURL
             }
+            self.imageList[1] = array
+            group.leave()
         }
 
         group.enter()
-        NetworkManager.shared.fetchMoviePoster(api: .poster(id: id)) { success, error in
-            if let error = error {
-                print(error)
-            } else {
-                guard let data = success else { return }
-                let array = data.backdrops.map { backDrop in
-                    backDrop.posterURL
-                }
-                self.imageList[2] = array
-                print(self.imageList[2])
-                group.leave()
+        NetworkManager.shared.fetchData(api: .poster(id: id), model: Poster.self) { data, error in
+            guard error == nil else { return }
+            guard let data = data else { return }
+            let array = data.backdrops.map { backDrop in
+                backDrop.posterURL
             }
+            self.imageList[2] = array
+            group.leave()
         }
 
         group.notify(queue: .main) {

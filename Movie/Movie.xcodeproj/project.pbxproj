@@ -29,6 +29,7 @@
 		764E64E02C29744B003F65BF /* SearchRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 764E64DF2C29744B003F65BF /* SearchRootView.swift */; };
 		764E64E22C297549003F65BF /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 764E64E12C297549003F65BF /* SearchViewController.swift */; };
 		764E64E42C298688003F65BF /* SearchMovie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 764E64E32C298688003F65BF /* SearchMovie.swift */; };
+		7655C7C42C2E95A0006924DE /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7655C7C32C2E95A0006924DE /* NetworkError.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -53,6 +54,7 @@
 		764E64DF2C29744B003F65BF /* SearchRootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRootView.swift; sourceTree = "<group>"; };
 		764E64E12C297549003F65BF /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		764E64E32C298688003F65BF /* SearchMovie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchMovie.swift; sourceTree = "<group>"; };
+		7655C7C32C2E95A0006924DE /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +105,7 @@
 				764E64C52C295ADE003F65BF /* APIKey.swift */,
 				764E64A32C294DF5003F65BF /* AppDelegate.swift */,
 				764E64A52C294DF5003F65BF /* SceneDelegate.swift */,
+				7655C7C22C2E9591006924DE /* Error */,
 				764E64C92C295E57003F65BF /* Network */,
 				764E64D92C2973F9003F65BF /* Search */,
 				764E64D82C2973D9003F65BF /* Result */,
@@ -192,6 +195,14 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		7655C7C22C2E9591006924DE /* Error */ = {
+			isa = PBXGroup;
+			children = (
+				7655C7C32C2E95A0006924DE /* NetworkError.swift */,
+			);
+			path = Error;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -273,6 +284,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7655C7C42C2E95A0006924DE /* NetworkError.swift in Sources */,
 				764E64D72C297021003F65BF /* Poster.swift in Sources */,
 				764E64BD2C294FA7003F65BF /* MovieCollectionViewCell.swift in Sources */,
 				764E64C82C295D17003F65BF /* Movie.swift in Sources */,

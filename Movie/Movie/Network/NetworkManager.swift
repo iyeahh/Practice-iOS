@@ -13,57 +13,45 @@ final class NetworkManager {
 
     private init() { }
 
-    func fetchMovie(
+    func fetchData<T: Decodable>(
         api: TMDBManager,
-        completionHandler: @escaping (Movie?, String?) -> Void
+        model: T.Type,
+        completionHandler: @escaping (T?, NetworkError?) -> Void
     ) {
-        AF.request(api.endPoint,
-                   parameters: api.parmeter,
-                   encoding: URLEncoding(destination: .queryString),
-                   headers: api.header)
-        .responseDecodable(of: Movie.self) { response in
-            switch response.result {
-            case .success(let value):
-                completionHandler(value, nil)
-            case .failure:
-                completionHandler(nil, "잠시 후 다시 시도해주세요")
-            }
-        }
-    }
+        guard let url = api.url else { return }
 
-    func fetchMoviePoster(
-        api: TMDBManager,
-        completionHandler: @escaping (Poster?, String?) -> Void
-    ) {
-        AF.request(api.endPoint,
-                   parameters: api.parmeter,
-                   encoding: URLEncoding(destination: .queryString),
-                   headers: api.header)
-        .responseDecodable(of: Poster.self) { response in
-            switch response.result {
-            case .success(let value):
-                completionHandler(value, nil)
-            case .failure:
-                completionHandler(nil, "잠시 후 다시 시도해주세요")
-            }
-        }
-    }
+        var request = URLRequest(url: url)
+        request.setValue(APIKey.movieAPIKey, forHTTPHeaderField: "Authorization")
 
-    func fetchSearchMovie(
-        api: TMDBManager,
-        completionHandler: @escaping (SearchMovie?, String?) -> Void
-    ) {
-        AF.request(api.endPoint,
-                   parameters: api.parmeter,
-                   encoding: URLEncoding(destination: .queryString),
-                   headers: api.header)
-        .responseDecodable(of: SearchMovie.self) { response in
-            switch response.result {
-            case .success(let value):
-                completionHandler(value, nil)
-            case .failure:
-                completionHandler(nil, "잠시 후 다시 시도해주세요")
+        URLSession.shared.dataTask(with: request) { data, response, error in
+            DispatchQueue.main.async {
+                guard error == nil else {
+                    completionHandler(nil, .failedRequest)
+                    return
+                }
+
+                guard let data = data else {
+                    completionHandler(nil, .noData)
+                    return
+                }
+
+                guard let response = response as? HTTPURLResponse else {
+                    completionHandler(nil, .invalidResponse)
+                    return
+                }
+
+                guard response.statusCode == 200 else {
+                    completionHandler(nil, .failedRequest)
+                    return
+                }
+
+                do {
+                    let result = try JSONDecoder().decode(T.self, from: data)
+                    completionHandler(result, nil)
+                } catch {
+                    completionHandler(nil, .invalidData)
+                }
             }
-        }
+        }.resume()
     }
 }

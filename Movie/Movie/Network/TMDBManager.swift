@@ -14,38 +14,50 @@ enum TMDBManager {
     case recommend(id: Int)
     case poster(id: Int)
 
-    var baseURL: String {
-        return "https://api.themoviedb.org/3/"
+    var scheme: String {
+        return "https"
     }
 
-    var endPoint: URL {
+    var host: String {
+        return "api.themoviedb.org"
+    }
+
+    var path: String {
         switch self {
         case .search:
-            return URL(string: baseURL + "search/movie")!
+            return "/3/search/movie"
         case .similar(let id):
-            return URL(string: baseURL + "movie/\(id)/similar")!
+            return "/3/movie/\(id)/similar"
         case .recommend(let id):
-            return URL(string: baseURL + "movie/\(id)/recommendations")!
+            return "/3/movie/\(id)/recommendations"
         case .poster(let id):
-            return URL(string: baseURL + "movie/\(id)/images")!
+            return "/3/movie/\(id)/images"
         }
     }
 
-    var header: HTTPHeaders {
-        return [
-        "Authorization": APIKey.movieAPIKey,
-        "accept": "application/json"
-        ]
-    }
-
-    var parmeter: Parameters {
+    var queryItem: [URLQueryItem] {
         switch self {
         case .search(let title):
-            return ["query": title, "language": "ko-KR"]
+            let titleValue = title.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
+            return [
+                URLQueryItem(name: "query", value: titleValue),
+                URLQueryItem(name: "language", value: "ko-KR")
+            ]
         case .similar, .recommend:
-            return ["language": "ko-KR"]
+            return [
+                URLQueryItem(name: "language", value: "ko-KR")
+            ]
         case.poster:
-            return ["": ""]
+            return []
         }
+    }
+
+    var url: URL? {
+        var component = URLComponents()
+        component.scheme = scheme
+        component.host = host
+        component.path = path
+        component.queryItems = queryItem
+        return component.url
     }
 }
