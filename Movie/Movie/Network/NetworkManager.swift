@@ -54,4 +54,19 @@ final class NetworkManager {
             }
         }.resume()
     }
+
+    func fetchVideo(id: Int, completionHandler: @escaping (Video?, String?) -> Void ) {
+        guard let url = TMDBManager.video(id: id).url else { return }
+
+        AF.request(url, headers: TMDBManager.video(id: id).header)
+            .responseDecodable(of: Video.self) { response in
+                switch response.result {
+                case .success(let value):
+                    completionHandler(value, nil)
+                case .failure(let error):
+                    completionHandler(nil, "잠시 후 다시 시도해주세요.")
+                    print(error)
+                }
+            }
+    }
 }

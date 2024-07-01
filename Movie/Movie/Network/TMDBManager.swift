@@ -13,6 +13,7 @@ enum TMDBManager {
     case similar(id: Int)
     case recommend(id: Int)
     case poster(id: Int)
+    case video(id: Int)
 
     var scheme: String {
         return "https"
@@ -32,6 +33,8 @@ enum TMDBManager {
             return "/3/movie/\(id)/recommendations"
         case .poster(let id):
             return "/3/movie/\(id)/images"
+        case .video(let id):
+            return "/3/movie/\(id)/videos"
         }
     }
 
@@ -43,7 +46,7 @@ enum TMDBManager {
                 URLQueryItem(name: "query", value: titleValue),
                 URLQueryItem(name: "language", value: "ko-KR")
             ]
-        case .similar, .recommend:
+        case .similar, .recommend, .video:
             return [
                 URLQueryItem(name: "language", value: "ko-KR")
             ]
@@ -60,4 +63,11 @@ enum TMDBManager {
         component.queryItems = queryItem
         return component.url
     }
+
+    var header: HTTPHeaders {
+            return [
+                "Authorization": APIKey.movieAPIKey,
+                "accept": "application/json"
+            ]
+        }
 }

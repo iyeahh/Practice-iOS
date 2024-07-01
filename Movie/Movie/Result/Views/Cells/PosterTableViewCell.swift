@@ -38,10 +38,6 @@ class PosterTableViewCell: BaseTableViewCell {
         }
     }
 
-    private func configureView() {
-        contentView.backgroundColor = .black
-    }
-
     func setTitleLabel(index: Int) {
         if index == 0 {
             titleLabel.text = "비슷한 영화"
@@ -52,5 +48,4 @@ class PosterTableViewCell: BaseTableViewCell {
         }
         movieCollectionView.backgroundColor = .black
     }
-
 }

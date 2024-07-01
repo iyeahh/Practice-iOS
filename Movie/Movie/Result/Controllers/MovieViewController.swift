@@ -76,6 +76,17 @@ extension MovieViewController {
             group.leave()
         }
 
+        group.enter()
+        NetworkManager.shared.fetchVideo(id: id) { success, error  in
+            if let error = error {
+                print(error) // 얼럿으로 사용자에게 표시
+            } else {
+                guard let data = success else { return }
+                self.rootView.url = data.results[0].youtubeURL
+            }
+            group.leave()
+        }
+
         group.notify(queue: .main) {
             self.rootView.imageList = self.imageList
             self.rootView.movieTableView.reloadData()

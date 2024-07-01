@@ -38,16 +38,12 @@ final class MovieTabelViewCell: BaseTableViewCell {
         }
     }
 
-    private func configureView() {
-        contentView.backgroundColor = .black
-    }
-
     func setTitleLabel(index: Int) {
         if index == 0 {
             titleLabel.text = "비슷한 영화"
         } else if index == 1 {
             titleLabel.text = "추천 영화"
-        } else {
+        } else if index == 2 {
             titleLabel.text = "포스터"
         }
         movieCollectionView.backgroundColor = .black

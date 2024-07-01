@@ -15,6 +15,8 @@ class MovieRootView: UIView {
         []
     ]
 
+    var url = ""
+
     let movieTableView = UITableView()
 
     override init(frame: CGRect) {
@@ -53,12 +55,13 @@ extension MovieRootView {
         movieTableView.dataSource = self
         movieTableView.register(MovieTabelViewCell.self, forCellReuseIdentifier: MovieTabelViewCell.identifier)
         movieTableView.register(PosterTableViewCell.self, forCellReuseIdentifier: PosterTableViewCell.identifier)
+        movieTableView.register(VideoTableViewCell.self, forCellReuseIdentifier: VideoTableViewCell.identifier)
     }
 }
 
 extension MovieRootView: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return imageList.count
+        return 4
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -74,7 +77,7 @@ extension MovieRootView: UITableViewDelegate, UITableViewDataSource {
             cell.setTitleLabel(index: indexPath.row)
             cell.movieCollectionView.reloadData()
             return cell
-        } else {
+        } else if indexPath.row == 2 {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: PosterTableViewCell.identifier, for: indexPath) as? PosterTableViewCell else {
                 return UITableViewCell()
             }
@@ -86,11 +89,21 @@ extension MovieRootView: UITableViewDelegate, UITableViewDataSource {
             cell.setTitleLabel(index: indexPath.row)
             cell.movieCollectionView.reloadData()
             return cell
+        } else {
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: VideoTableViewCell.identifier, for: indexPath) as? VideoTableViewCell else {
+                return UITableViewCell()
+            }
+            cell.openWebPage(url: url)
+            return cell
         }
     }
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 200
+        if indexPath.row == 3 {
+            return 800
+        } else {
+            return 200
+        }
     }
 }
 

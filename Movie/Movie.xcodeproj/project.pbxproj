@@ -10,6 +10,8 @@
 		761353E22C32BE410013A99C /* NasaRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 761353E12C32BE410013A99C /* NasaRootView.swift */; };
 		761353E42C32C09E0013A99C /* Nasa.swift in Sources */ = {isa = PBXBuildFile; fileRef = 761353E32C32C09E0013A99C /* Nasa.swift */; };
 		761353E62C32C0D60013A99C /* NasaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 761353E52C32C0D60013A99C /* NasaViewController.swift */; };
+		761353ED2C32CCB90013A99C /* Video.swift in Sources */ = {isa = PBXBuildFile; fileRef = 761353EC2C32CCB90013A99C /* Video.swift */; };
+		761353EF2C32CDA50013A99C /* VideoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 761353EE2C32CDA50013A99C /* VideoTableViewCell.swift */; };
 		761984D32C2BDA55002D9098 /* TMDBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 761984D22C2BDA55002D9098 /* TMDBManager.swift */; };
 		76199E7D2C2AA45F00F63C00 /* MovieTabelViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76199E7C2C2AA45F00F63C00 /* MovieTabelViewCell.swift */; };
 		76199E842C2ABF8F00F63C00 /* BaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76199E832C2ABF8F00F63C00 /* BaseTableViewCell.swift */; };
@@ -39,6 +41,8 @@
 		761353E12C32BE410013A99C /* NasaRootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NasaRootView.swift; sourceTree = "<group>"; };
 		761353E32C32C09E0013A99C /* Nasa.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Nasa.swift; sourceTree = "<group>"; };
 		761353E52C32C0D60013A99C /* NasaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NasaViewController.swift; sourceTree = "<group>"; };
+		761353EC2C32CCB90013A99C /* Video.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Video.swift; sourceTree = "<group>"; };
+		761353EE2C32CDA50013A99C /* VideoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoTableViewCell.swift; sourceTree = "<group>"; };
 		761984D22C2BDA55002D9098 /* TMDBManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMDBManager.swift; sourceTree = "<group>"; };
 		76199E7C2C2AA45F00F63C00 /* MovieTabelViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieTabelViewCell.swift; sourceTree = "<group>"; };
 		76199E832C2ABF8F00F63C00 /* BaseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableViewCell.swift; sourceTree = "<group>"; };
@@ -111,6 +115,31 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		761353E82C32CC880013A99C /* Video */ = {
+			isa = PBXGroup;
+			children = (
+				761353EB2C32CCAC0013A99C /* Models */,
+				761353EA2C32CCA20013A99C /* Views */,
+			);
+			path = Video;
+			sourceTree = "<group>";
+		};
+		761353EA2C32CCA20013A99C /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				761353EE2C32CDA50013A99C /* VideoTableViewCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		761353EB2C32CCAC0013A99C /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				761353EC2C32CCB90013A99C /* Video.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		761984D42C2BE3D5002D9098 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
@@ -149,6 +178,7 @@
 				764E64C92C295E57003F65BF /* Network */,
 				764E64D92C2973F9003F65BF /* Search */,
 				764E64D82C2973D9003F65BF /* Result */,
+				761353E82C32CC880013A99C /* Video */,
 				761353DD2C32BDFC0013A99C /* Nasa */,
 				764E64AC2C294DF6003F65BF /* Assets.xcassets */,
 				764E64AE2C294DF6003F65BF /* LaunchScreen.storyboard */,
@@ -327,6 +357,7 @@
 			files = (
 				7655C7C42C2E95A0006924DE /* NetworkError.swift in Sources */,
 				761353E62C32C0D60013A99C /* NasaViewController.swift in Sources */,
+				761353EF2C32CDA50013A99C /* VideoTableViewCell.swift in Sources */,
 				764E64D72C297021003F65BF /* Poster.swift in Sources */,
 				764E64BD2C294FA7003F65BF /* MovieCollectionViewCell.swift in Sources */,
 				764E64C82C295D17003F65BF /* Movie.swift in Sources */,
@@ -344,6 +375,7 @@
 				76199E7D2C2AA45F00F63C00 /* MovieTabelViewCell.swift in Sources */,
 				761353E22C32BE410013A99C /* NasaRootView.swift in Sources */,
 				764E64A62C294DF5003F65BF /* SceneDelegate.swift in Sources */,
+				761353ED2C32CCB90013A99C /* Video.swift in Sources */,
 				761984D32C2BDA55002D9098 /* TMDBManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

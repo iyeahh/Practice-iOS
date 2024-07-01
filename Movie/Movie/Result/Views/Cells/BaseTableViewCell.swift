@@ -37,7 +37,7 @@ class BaseTableViewCell: UITableViewCell {
         }
     }
 
-    private func configureView() {
+    func configureView() {
         contentView.backgroundColor = .black
     }
 }
