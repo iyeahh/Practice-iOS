@@ -50,6 +50,8 @@ extension NasaViewController: URLSessionDataDelegate {
            (200...299).contains(response.statusCode) {
             let contentLength = response.value(forHTTPHeaderField: "Content-Length")!
             total = Double(contentLength)!
+            rootView.requestButton.isEnabled = false
+            rootView.requestButton.backgroundColor = .gray
             return .allow
         } else {
             return .cancel
@@ -74,6 +76,8 @@ extension NasaViewController: URLSessionDataDelegate {
 
             let image = UIImage(data: buffer)
             rootView.mainImageView.image = image
+            rootView.requestButton.isEnabled = true
+            rootView.requestButton.backgroundColor = .blue
         }
     }
 }

@@ -30,7 +30,7 @@ final class NasaRootView: UIView {
         return label
     }()
 
-    private let requestButton = {
+    let requestButton = {
         let button = UIButton()
         button.layer.masksToBounds = true
         button.layer.cornerRadius = 10
