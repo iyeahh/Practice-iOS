@@ -16,8 +16,18 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let scene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: scene)
 
-        let vc = UINavigationController(rootViewController: SearchViewController())
-        window?.rootViewController = vc
+        let search = SearchViewController()
+        let nav1 = UINavigationController(rootViewController: search)
+        nav1.tabBarItem = UITabBarItem(title: "Search", image: UIImage(systemName: "heart"), tag: 0)
+
+        let nasa = NasaViewController()
+        let nav2 = UINavigationController(rootViewController: nasa)
+        nav2.tabBarItem = UITabBarItem(title: "Nasa", image: UIImage(systemName: "star.fill"), tag: 0)
+
+        let tabBar = UITabBarController()
+        tabBar.setViewControllers([nav1, nav2], animated: true)
+
+        window?.rootViewController = tabBar
         window?.makeKeyAndVisible()
     }
 

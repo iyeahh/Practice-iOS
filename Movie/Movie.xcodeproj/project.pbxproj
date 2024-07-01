@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		761353E22C32BE410013A99C /* NasaRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 761353E12C32BE410013A99C /* NasaRootView.swift */; };
+		761353E42C32C09E0013A99C /* Nasa.swift in Sources */ = {isa = PBXBuildFile; fileRef = 761353E32C32C09E0013A99C /* Nasa.swift */; };
+		761353E62C32C0D60013A99C /* NasaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 761353E52C32C0D60013A99C /* NasaViewController.swift */; };
 		761984D32C2BDA55002D9098 /* TMDBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 761984D22C2BDA55002D9098 /* TMDBManager.swift */; };
 		76199E7D2C2AA45F00F63C00 /* MovieTabelViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76199E7C2C2AA45F00F63C00 /* MovieTabelViewCell.swift */; };
 		76199E842C2ABF8F00F63C00 /* BaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76199E832C2ABF8F00F63C00 /* BaseTableViewCell.swift */; };
@@ -33,6 +36,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		761353E12C32BE410013A99C /* NasaRootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NasaRootView.swift; sourceTree = "<group>"; };
+		761353E32C32C09E0013A99C /* Nasa.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Nasa.swift; sourceTree = "<group>"; };
+		761353E52C32C0D60013A99C /* NasaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NasaViewController.swift; sourceTree = "<group>"; };
 		761984D22C2BDA55002D9098 /* TMDBManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMDBManager.swift; sourceTree = "<group>"; };
 		76199E7C2C2AA45F00F63C00 /* MovieTabelViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieTabelViewCell.swift; sourceTree = "<group>"; };
 		76199E832C2ABF8F00F63C00 /* BaseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableViewCell.swift; sourceTree = "<group>"; };
@@ -71,6 +77,40 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		761353DD2C32BDFC0013A99C /* Nasa */ = {
+			isa = PBXGroup;
+			children = (
+				761353E02C32BE240013A99C /* Models */,
+				761353DF2C32BE200013A99C /* Views */,
+				761353DE2C32BE190013A99C /* Contollers */,
+			);
+			path = Nasa;
+			sourceTree = "<group>";
+		};
+		761353DE2C32BE190013A99C /* Contollers */ = {
+			isa = PBXGroup;
+			children = (
+				761353E52C32C0D60013A99C /* NasaViewController.swift */,
+			);
+			path = Contollers;
+			sourceTree = "<group>";
+		};
+		761353DF2C32BE200013A99C /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				761353E12C32BE410013A99C /* NasaRootView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		761353E02C32BE240013A99C /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				761353E32C32C09E0013A99C /* Nasa.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		761984D42C2BE3D5002D9098 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
@@ -109,6 +149,7 @@
 				764E64C92C295E57003F65BF /* Network */,
 				764E64D92C2973F9003F65BF /* Search */,
 				764E64D82C2973D9003F65BF /* Result */,
+				761353DD2C32BDFC0013A99C /* Nasa */,
 				764E64AC2C294DF6003F65BF /* Assets.xcassets */,
 				764E64AE2C294DF6003F65BF /* LaunchScreen.storyboard */,
 				764E64B12C294DF6003F65BF /* Info.plist */,
@@ -285,12 +326,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				7655C7C42C2E95A0006924DE /* NetworkError.swift in Sources */,
+				761353E62C32C0D60013A99C /* NasaViewController.swift in Sources */,
 				764E64D72C297021003F65BF /* Poster.swift in Sources */,
 				764E64BD2C294FA7003F65BF /* MovieCollectionViewCell.swift in Sources */,
 				764E64C82C295D17003F65BF /* Movie.swift in Sources */,
 				76199E862C2AC11100F63C00 /* PosterTableViewCell.swift in Sources */,
 				76199E842C2ABF8F00F63C00 /* BaseTableViewCell.swift in Sources */,
 				764E64C42C29561D003F65BF /* MovieViewController.swift in Sources */,
+				761353E42C32C09E0013A99C /* Nasa.swift in Sources */,
 				764E64BF2C295028003F65BF /* MovieRootView.swift in Sources */,
 				764E64E22C297549003F65BF /* SearchViewController.swift in Sources */,
 				764E64CB2C295E67003F65BF /* NetworkManager.swift in Sources */,
@@ -299,6 +342,7 @@
 				764E64E42C298688003F65BF /* SearchMovie.swift in Sources */,
 				764E64E02C29744B003F65BF /* SearchRootView.swift in Sources */,
 				76199E7D2C2AA45F00F63C00 /* MovieTabelViewCell.swift in Sources */,
+				761353E22C32BE410013A99C /* NasaRootView.swift in Sources */,
 				764E64A62C294DF5003F65BF /* SceneDelegate.swift in Sources */,
 				761984D32C2BDA55002D9098 /* TMDBManager.swift in Sources */,
 			);
